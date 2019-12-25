@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".screen_adapter.SecondActivity">
+
+    <!--<com.gavin.asmdemo.widget.canvas.SplitView-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="125px"
+        android:layout_height="222.3px"
+        android:background="@color/colorAccent"
+        android:text="Hello World!"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="125px"
+        android:layout_height="444.6px"
+        android:background="@color/blue"
+        android:text="Hello World!"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="125px"
+        android:layout_height="667px"
+        android:background="@color/green"
+        android:text="Hello World!"
+        android:textColor="#000" />
+
+</LinearLayout>

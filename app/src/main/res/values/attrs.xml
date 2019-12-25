@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyPercentLayout">
+        <attr name="layout_heightPercent2" format="float" />
+        <attr name="layout_widthPercent2" format="float" />
+
+        <attr name="layout_marginLeftPercent2" format="float" />
+        <attr name="layout_marginTopPercent2" format="float" />
+        <attr name="layout_marginRightPercent2" format="float" />
+        <attr name="layout_marginBottomPercent2" format="float" />
+
+    </declare-styleable>
+    <declare-styleable name="KGSlidingMenu">
+        <attr name="menuOpenContentWidth" format="dimension" />
+    </declare-styleable>
+</resources>

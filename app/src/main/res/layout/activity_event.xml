@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gavin.asmdemo.screen_adapter.EventGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    tools:context=".event.EventActivity">
+
+
+    <com.gavin.asmdemo.screen_adapter.EventView
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="@dimen/dp_300"
+        android:background="#ffffff" />
+
+</com.gavin.asmdemo.screen_adapter.EventGroup>

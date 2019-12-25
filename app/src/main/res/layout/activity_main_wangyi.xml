@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--为了下拉而增加 SmartRefreshLayout-->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/mAppBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:elevation="0dp"
+            app:elevation="0dp">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="#00000000"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/mSingerCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_300"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    android:tag="overScroll"
+                    android:src="@mipmap/girl"
+                    app:layout_collapseMode="pin" />
+
+                <!--这里必须是Toolbar，和最底下的Toolbar配合才会出现网易云歌手页的效果-->
+                <android.support.v7.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_100"
+                    app:layout_collapseMode="pin" />
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <!--这里不会折叠，可以添加RecyclerView或者ViewPager的indicator结合使用，不然会造成RecyclerView跑到Title下面-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:layout_marginTop="-20dp"
+                android:background="@drawable/wangyi" />
+        </android.support.design.widget.AppBarLayout>
+
+        <!--这里不会折叠-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!--这里必须是Toolbar，和最上面的Toolbar配合才会出现网易云歌手页的效果，不然会造成RecyclerView跑到Title下面-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        app:title="网红"
+        app:titleTextColor="#ffffff" />
+</FrameLayout>
