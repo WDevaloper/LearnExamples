@@ -38,7 +38,7 @@ public class KGSlidingMenu extends HorizontalScrollView {
         super(context, attrs, defStyleAttr);
         mGestureDetector = new GestureDetector(getContext(), new MySimpleOnGestureListener());
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.KGSlidingMenu);
-        menuOpenContentWidth = ta.getDimensionPixelSize(R.styleable.KGSlidingMenu_menuOpenContentWidth,dip2px(getContext(), 30f));
+        menuOpenContentWidth = ta.getDimensionPixelSize(R.styleable.KGSlidingMenu_menuOpenContentWidth, dip2px(getContext(), 30f));
         ta.recycle();
     }
 
@@ -161,6 +161,8 @@ public class KGSlidingMenu extends HorizontalScrollView {
         mMenuView.setAlpha(alpha);
 
         float lifeScale = 0.8f + (1 - scale) * 0.2f;//最小0.7
+
+        // 需注意缩放中心
         mMenuView.setPivotY(mContentView.getHeight() / 2);
         mMenuView.setScaleY(lifeScale);
 

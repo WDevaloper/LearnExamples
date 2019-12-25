@@ -60,6 +60,8 @@ public class WangYiActivity extends AppCompatActivity {
             }
         });
 
+//        mToolBar.getBackground().mutate();
+
 
         //下拉Header拉伸
         CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
