@@ -12,7 +12,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath 'com.gavin.plugin:lifecycle-plugin:0.0.1'
-        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
         classpath 'me.ele:lancet-plugin:1.0.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 

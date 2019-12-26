@@ -21,4 +21,16 @@
         <item>@color/aqua</item>
         <item>@color/yellow</item>
     </array>
+
+    <array name="laoding_circle_colors">
+        <item>#A0aaaaaa</item>
+        <item>#90aaaaaa</item>
+        <item>#80aaaaaa</item>
+        <item>#60aaaaaa</item>
+        <item>#50aaaaaa</item>
+        <item>#40aaaaaa</item>
+        <item>#30aaaaaa</item>
+        <item>#20aaaaaa</item>
+        <item>#10aaaaaa</item>
+    </array>
 </resources>
