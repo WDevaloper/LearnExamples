@@ -30,7 +30,7 @@ class AOPActivity : AppCompatActivity() {
 
     }
 
-    @LoginCheck(ILoginCheckImpl::class)
+    @LoginCheck(ILoginCheckImpl::class,"/user/login_activity")
     @VipCheck("优惠券")
     fun youhuijuan(view: View) {
     }
