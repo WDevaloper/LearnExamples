@@ -30,7 +30,10 @@ class AOPActivity : AppCompatActivity() {
 
     }
 
-    @LoginCheck(ILoginCheckImpl::class,"/user/login_activity")
+    /**
+     * 检查是否登录，并跳转登录页面
+     */
+    @LoginCheck(ILoginCheckImpl::class, "/user/login_activity")
     @VipCheck("优惠券")
     fun youhuijuan(view: View) {
     }

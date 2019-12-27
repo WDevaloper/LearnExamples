@@ -7,11 +7,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
 @SuppressLint("DrawAllocation")
-public class ColorTraceTextView extends TextView {
+public class ColorTraceTextView extends AppCompatTextView {
 
     private float mCurrentProgress = 0.5f;
 
@@ -45,15 +46,12 @@ public class ColorTraceTextView extends TextView {
      */
     @Override
     protected void onDraw(Canvas canvas) {
-
         String content = getText().toString();
         Rect bounds = new Rect();
         mOriginPaint.getTextBounds(content, 0, content.length(), bounds);
         int x = getWidth() / 2 - bounds.width() / 2;
         Paint.FontMetrics fontMetrics = mOriginPaint.getFontMetrics();
         float baseLine = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-
-
         canvas.drawText(content, x, baseLine, mOriginPaint);
     }
 }
