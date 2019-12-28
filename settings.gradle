@@ -1,1 +1,1 @@
-include ':app', ':lifecycle-plugin', ':AndroidEvent'
+include ':app', ':AndroidEvent', ':lifecycle-plugin'
