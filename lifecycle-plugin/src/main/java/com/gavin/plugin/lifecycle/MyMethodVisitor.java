@@ -74,8 +74,6 @@ public class MyMethodVisitor extends AdviceAdapter {
         mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/lang/StringBuilder", "toString", "()Ljava/lang/String;", false);
         mv.visitMethodInsn(Opcodes.INVOKESTATIC, "android/util/Log", "i", "(Ljava/lang/String;Ljava/lang/String;)I", false);
         mv.visitInsn(Opcodes.POP);
-
-
     }
 
     //在方法后面执行
