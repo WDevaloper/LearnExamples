@@ -21,4 +21,12 @@ public class App extends Application {
         Log.e("tag", "anyName");
         return (float) Origin.call() + 100f;
     }
+
+
+    @Proxy("e")
+    @TargetClass("android.util.Log")
+    public static int anyName(String log, String msg) {
+//        msg += "lancet";
+        return (int) Origin.call();
+    }
 }
