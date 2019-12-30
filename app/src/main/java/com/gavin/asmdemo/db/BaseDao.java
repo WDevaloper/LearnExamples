@@ -3,17 +3,21 @@ package com.gavin.asmdemo.db;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.gavin.asmdemo.db.aninations.DbFiled;
 import com.gavin.asmdemo.db.aninations.DbTable;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class BaseDao<T> implements IBaseDao<T> {
+public class BaseDao<T extends BaseModel> implements IBaseDao<T> {
 
     //持有数据库操作的引用
     private SQLiteDatabase sqLiteDatabase;
@@ -138,6 +142,117 @@ public class BaseDao<T> implements IBaseDao<T> {
         Map<String, String> values = getValues(entity);
         ContentValues contentValues = getContentValues(values);
         return sqLiteDatabase.insert(tableName, null, contentValues);
+    }
+
+    @Override
+    public long update(T where) {
+        return 0;
+    }
+
+    @Override
+    public long delete(T where) {
+        return 0;
+    }
+
+    @Override
+    public List<T> query(@NonNull T where) {
+        return query(where, null, null, null);
+    }
+
+    @Override
+    public List<T> query(@NonNull T where, String orderBy, Integer startIndex, Integer limit) {
+        Map<String, String> values = getValues(where);
+
+        //select * from  tableName limit 0,1
+        String limitString = null;
+        if (startIndex != null && limit != null) {
+            limitString = startIndex + " , " + limit;
+        }
+
+        // String selections = "where 1 = 1 and id = ? and name = ?"
+        // String[] selectionArgs = new String[]{1,"2222"}
+        // select * from tableName whwre id = 1 and name = "2222"
+
+        Condition condition = new Condition(values);
+        Cursor cursor = sqLiteDatabase.query(tableName, null, condition.whereCause, condition.whereArgs, null,
+                null, orderBy, limitString);
+        List<T> result = getResult(cursor, where);
+        return result;
+    }
+
+    private List<T> getResult(Cursor cursor, @NonNull T where) {
+        ArrayList list = new ArrayList<>();
+
+
+        Object item = null;
+
+
+        while (cursor.moveToNext()) {
+            try {
+                //user=new User(),user.setId(cursor.getId())
+                item = where.getClass().newInstance();
+
+
+                Iterator<Map.Entry<String, Field>> entryIterator = cacheMap.entrySet().iterator();
+
+                while (entryIterator.hasNext()) {
+                    Map.Entry<String, Field> entryMap = entryIterator.next();//成员变量
+                    // 获取列名
+                    String colunmName = entryMap.getKey();
+
+                    //以列名拿到列名在游标中的位置
+                    Integer columnIndex = cursor.getColumnIndex(colunmName);
+
+                    //获取成员变量的类型
+                    Field field = entryMap.getValue();
+                    Class<?> fieldType = field.getType();
+                    if (columnIndex != -1) {
+                        if (fieldType == String.class) {
+                            field.set(item, cursor.getString(columnIndex));
+                        } else if (fieldType == Integer.class) {
+                            field.set(item, cursor.getInt(columnIndex));
+                        } else if (fieldType == Long.class) {
+                            field.set(item, cursor.getLong(columnIndex));
+                        } else if (fieldType == Double.class) {
+                            field.set(item, cursor.getDouble(columnIndex));
+                        } else if (fieldType == byte[].class) {
+                            field.set(item, cursor.getDouble(columnIndex));
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+                list.add(item);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
+        }
+        cursor.close();
+        return list;
+    }
+
+
+    private class Condition {
+        private String whereCause;
+        private String[] whereArgs;
+
+        public Condition(Map<String, String> whereMap) {
+            ArrayList<String> list = new ArrayList<>();
+            StringBuilder sb = new StringBuilder();
+            sb.append("1 = 1");//为了解决，拼接时多出and
+            Set<String> keySet = whereMap.keySet();//获取所有的字段
+            for (String key : keySet) {
+                String value = whereMap.get(key);
+                if (value != null) {
+                    sb.append(" and ").append(key).append(" = ?");
+                    list.add(value);
+                }
+            }
+            this.whereArgs = list.toArray(new String[list.size()]);
+            this.whereCause = sb.toString();
+        }
     }
 
     private ContentValues getContentValues(Map<String, String> values) {

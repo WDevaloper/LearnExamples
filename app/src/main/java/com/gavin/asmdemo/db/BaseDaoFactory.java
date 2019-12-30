@@ -20,7 +20,7 @@ public class BaseDaoFactory {
     }
 
     @Nullable
-    public <T> BaseDao<T> getBaseDao(Class<T> entityClass) {
+    public <T extends BaseModel> BaseDao<T> getBaseDao(Class<T> entityClass) {
         BaseDao baseDao = null;
         try {
             baseDao = BaseDao.class.newInstance();

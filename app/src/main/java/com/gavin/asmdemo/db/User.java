@@ -5,7 +5,7 @@ import com.gavin.asmdemo.db.aninations.DbFiled;
 import com.gavin.asmdemo.db.aninations.DbTable;
 
 @DbTable("tb_user")
-public class User {
+public class User implements BaseModel {
     @DbFiled
     private Integer id;
     @DbFiled
@@ -13,6 +13,10 @@ public class User {
     @DbFiled
     private String password;
 
+
+    public User(){
+
+    }
 
     public User(Integer id, String name, String password) {
         this.id = id;

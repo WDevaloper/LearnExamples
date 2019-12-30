@@ -3,11 +3,13 @@ package com.gavin.asmdemo.db;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.gavin.asmdemo.R;
 
 import java.io.File;
+import java.util.List;
 
 
 /**
@@ -54,11 +56,23 @@ public class DbActivity extends AppCompatActivity {
         BaseDao baseDao = BaseDaoFactory.getInstance().getBaseDao(User.class);
         if (baseDao != null) {
             baseDao.insert(new User(1, "aaaaaaa", "12345678"));
+            baseDao.insert(new User(2, "gg", "12345678"));
+            baseDao.insert(new User(1, "bbb", "12345678"));
+            baseDao.insert(new User(1, "ggg", "12345678"));
+            baseDao.insert(new User(1, "hhhhhh", "12345678"));
+            baseDao.insert(new User(1, "vvvvvv", "12345678"));
         }
     }
 
     // 查询对象
     public void query(View view) {
+        BaseDao baseDao = BaseDaoFactory.getInstance().getBaseDao(User.class);
+        User where = new User();
+        where.setId(2);
+        List<User> query = baseDao.query(where);
+        for (int i = 0; i < query.size(); i++) {
+            Log.e("tag", query.get(i) + "");
+        }
     }
 
 
