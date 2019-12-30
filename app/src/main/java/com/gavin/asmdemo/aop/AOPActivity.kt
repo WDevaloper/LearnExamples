@@ -24,7 +24,6 @@ class AOPActivity : AppCompatActivity() {
 
     @VipCheck("vip")
     fun vip(view: View) {
-
     }
 
     @LoginCheck(ILoginCheckImpl::class)

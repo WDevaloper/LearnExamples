@@ -26,7 +26,7 @@ public class App extends Application {
     @Proxy("e")
     @TargetClass("android.util.Log")
     public static int anyName(String log, String msg) {
-        msg += "lancet";
+//        msg += "lancet";
         return (int) Origin.call();
     }
 }
