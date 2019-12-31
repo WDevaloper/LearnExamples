@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.gavin.asmdemo.db.Order;
+import com.gavin.asmdemo.db.OrderDao;
 import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDao;
@@ -68,6 +70,14 @@ public class DbActivity extends AppCompatActivity {
         long insert = userDao.insert(users);
         long endTime = System.currentTimeMillis() - startTime;
         Log.e("tag", insert + "  " + endTime + "   baseDao:" + userDao);
+
+
+        OrderDao orderDao = BaseDaoFactory.getInstance().getBaseDao(OrderDao.class, Order.class);
+        orderDao.insert(new Order(8, "oooooooo"));
+        orderDao.insert(new Order(5, "oooooooo"));
+        orderDao.insert(new Order(2, "oooooooo"));
+        orderDao.insert(new Order(1, "oooooooo"));
+        Log.e("tag", orderDao + "");
     }
 
     // 查询对象
@@ -80,6 +90,11 @@ public class DbActivity extends AppCompatActivity {
             Log.e("tag", user.size() + " " + user);
         }
         Log.e("tag", "   baseDao:" + baseDao);
+
+
+        OrderDao orderDao = BaseDaoFactory.getInstance().getBaseDao(OrderDao.class, Order.class);
+        List<Order> orderList = orderDao.query(new Order());
+        Log.e("tag", orderDao + "   orderList:" + orderList);
     }
 
 

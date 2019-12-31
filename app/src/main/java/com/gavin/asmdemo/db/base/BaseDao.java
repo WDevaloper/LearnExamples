@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.gavin.asmdemo.db.aninations.DbFiled;
 import com.gavin.asmdemo.db.aninations.DbTable;
@@ -48,9 +49,14 @@ public class BaseDao<T> implements IBaseDao<T> {
             //根据传入的class 进行数据表的创建
             DbTable dbTable = entityClass.getAnnotation(DbTable.class);
             if (dbTable != null && !TextUtils.isEmpty(dbTable.value())) {
-                mTableName = dbTable.value();
+                mTableName = dbTable.value().toLowerCase();
             } else {
-                mTableName = entityClass.getName();
+                mTableName = entityClass.getSimpleName().toLowerCase();
+            }
+
+            //处理关键字 order
+            if (mTableName.equalsIgnoreCase("order")) {
+                mTableName = mTableName + "_info";
             }
             //数据库没有打开
             if (!sqLiteDatabase.isOpen()) {
@@ -58,6 +64,7 @@ public class BaseDao<T> implements IBaseDao<T> {
             }
             //得到创建数据表的sql 串
             String createTableSql = getCreateTableSql();
+            Log.e("tag", createTableSql);
             sqLiteDatabase.execSQL(createTableSql);
             mCacheMap_DbRecord_EntityField = new HashMap<>();
             initCacheMap();
