@@ -16,15 +16,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+
+/**
+ * 一个BaseDao对应一张表
+ *
+ * @param <T>
+ */
 public class BaseDao<T> implements IBaseDao<T> {
-
     //持有数据库操作的引用
-    private SQLiteDatabase sqLiteDatabase;
+    private SQLiteDatabase mSqLiteDatabase;
     //数据表名
-    private String tableName;
-
-    //操作数据所对应的类型
-    private Class<T> entityClass;
+    private String mTableName;
+    //操作数据所对应的类型,
+    private Class<T> mEntityClass;
 
 
     //标识是否已经初始化
@@ -32,19 +36,20 @@ public class BaseDao<T> implements IBaseDao<T> {
 
     //定义一个缓存Map key是数据库字段名 value是Class成员变量
     //为什么需要做这个缓存，第一是为了性能优化，第二是后面再查询，通过反射把Cursor设置给entity比较方便,第三是数据库字段和entity进行映射
-    private HashMap<String, Field> cacheMap;
+    private HashMap<String, Field> mCacheMap_DbRecord_EntityField;
 
 
-    protected boolean init(SQLiteDatabase sqLiteDatabase, Class<T> entityClass) {
-        this.sqLiteDatabase = sqLiteDatabase;
-        this.entityClass = entityClass;
+    //数据库初始阿虎，需自动创建表
+    boolean init(SQLiteDatabase sqLiteDatabase, Class<T> entityClass) {
+        this.mSqLiteDatabase = sqLiteDatabase;
+        this.mEntityClass = entityClass;
         if (!mIsInit) {
             //根据传入的class 进行数据表的创建
             DbTable dbTable = entityClass.getAnnotation(DbTable.class);
             if (dbTable != null && !TextUtils.isEmpty(dbTable.value())) {
-                tableName = dbTable.value();
+                mTableName = dbTable.value();
             } else {
-                tableName = entityClass.getName();
+                mTableName = entityClass.getName();
             }
             //数据库没有打开
             if (!sqLiteDatabase.isOpen()) {
@@ -53,28 +58,29 @@ public class BaseDao<T> implements IBaseDao<T> {
             //得到创建数据表的sql 串
             String createTableSql = getCreateTableSql();
             sqLiteDatabase.execSQL(createTableSql);
-            cacheMap = new HashMap<>();
+            mCacheMap_DbRecord_EntityField = new HashMap<>();
             initCacheMap();
             return mIsInit = true;
         }
-
         return mIsInit = false;
     }
 
 
-    //性能优化
+    /**
+     * 定义一个缓存Map key是数据库字段名 value是Class成员变量
+     * 为什么需要做这个缓存，第一是为了性能优化，第二是后面再查询，
+     * 通过反射把Cursor设置给entity比较方便,第三是数据库字段和entity进行映射
+     */
     private void initCacheMap() {
         //取得所有的列名
-        String sql = "select * from " + tableName + " limit 1,0";
-        Cursor cursor = sqLiteDatabase.rawQuery(sql, null);
+        String sql = "select * from " + mTableName + " limit 1,0";
+        Cursor cursor = mSqLiteDatabase.rawQuery(sql, null);
         cursor.close();
         String[] columnNames = cursor.getColumnNames();
 
         //取得所有的成员变量
-        Field[] fields = entityClass.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-        }
+        Field[] fields = mEntityClass.getDeclaredFields();
+        for (Field field : fields) field.setAccessible(true);
 
         for (String columnName : columnNames) {
             Field fieldColumn = null;
@@ -93,17 +99,17 @@ public class BaseDao<T> implements IBaseDao<T> {
                 }
             }
             if (fieldColumn != null) {
-                cacheMap.put(columnName, fieldColumn);
+                mCacheMap_DbRecord_EntityField.put(columnName, fieldColumn);
             }
         }
     }
 
     private String getCreateTableSql() {
         StringBuilder sb = new StringBuilder();
-        sb.append("create table if not exists ").append(tableName).append("(");
+        sb.append("create table if not exists ").append(mTableName).append("(");
 
         //反射得到所有的成员变量
-        Field[] fields = entityClass.getDeclaredFields();
+        Field[] fields = mEntityClass.getDeclaredFields();
         for (Field field : fields) {
             //优先级最高的是dbFiled，再到属性名称
             DbFiled dbFiled = field.getAnnotation(DbFiled.class);
@@ -134,22 +140,22 @@ public class BaseDao<T> implements IBaseDao<T> {
     }
 
     @Override
-    public long insert(T entity) {
+    public long insert(@NonNull T entity) {
         Map<String, String> values = buildValues(entity);
         ContentValues contentValues = buildContentValues(values);
-        return sqLiteDatabase.insert(tableName, null, contentValues);
+        return mSqLiteDatabase.insert(mTableName, null, contentValues);
     }
 
     @Override
-    public long insert(List<T> entitySets) {
-        sqLiteDatabase.beginTransaction();
+    public long insert(@NonNull List<T> entitySets) {
+        mSqLiteDatabase.beginTransaction();
         long count = 0;
         for (T entity : entitySets) {
             count = insert(entity);
             if (count < 0) break;
         }
-        if (count > 0) sqLiteDatabase.setTransactionSuccessful();
-        sqLiteDatabase.endTransaction();
+        if (count > 0) mSqLiteDatabase.setTransactionSuccessful();
+        mSqLiteDatabase.endTransaction();
         return count;
     }
 
@@ -162,7 +168,7 @@ public class BaseDao<T> implements IBaseDao<T> {
         Map<String, String> whereArgs = buildValues(where);
         // where id = 100 and name = "2020"
         Condition condition = new Condition(whereArgs);
-        return sqLiteDatabase.update(tableName, contentValues, condition.whereCause, condition.whereArgs);
+        return mSqLiteDatabase.update(mTableName, contentValues, condition.whereCause, condition.whereArgs);
     }
 
     @Override
@@ -179,18 +185,18 @@ public class BaseDao<T> implements IBaseDao<T> {
     public List<T> query(@NonNull T where, String orderBy, Integer startIndex, Integer limit) {
         Map<String, String> values = buildValues(where);
 
-        //select * from  tableName limit 0,1
+        //select * from  mTableName limit 0,1
         String limitString = null;
         if (startIndex != null && limit != null) {
             limitString = startIndex + " , " + limit;
         }
         // String selections = "where 1 = 1 and id = ? and name = ?"
         // String[] selectionArgs = new String[]{1,"2222"}
-        // select * from tableName whwre id = 1 and name = "2222"
+        // select * from mTableName whwre id = 1 and name = "2222"
 
 
         Condition condition = new Condition(values);
-        Cursor cursor = sqLiteDatabase.query(tableName,
+        Cursor cursor = mSqLiteDatabase.query(mTableName,
                 null, condition.whereCause,
                 condition.whereArgs, null, null, orderBy, limitString);
         return getResult(cursor, where);
@@ -198,7 +204,8 @@ public class BaseDao<T> implements IBaseDao<T> {
 
 
     /**
-     * 根据where类型创建对象，并通过cacheMap获取到该对象的Field，然后使用反射赋值
+     * 根据where类型创建对象，并通过cacheMap获取到该对象的Field，然后使用反射赋值:
+     * columnName-> columnIndex -> Field.set(xx,xx)
      *
      * @param cursor
      * @param where
@@ -213,7 +220,7 @@ public class BaseDao<T> implements IBaseDao<T> {
                 item = (T) where.getClass().newInstance();
                 list.add(item);
                 //赋值给entity对象
-                for (Map.Entry<String, Field> entryMap : cacheMap.entrySet()) {
+                for (Map.Entry<String, Field> entryMap : mCacheMap_DbRecord_EntityField.entrySet()) {
                     // 获取列名
                     String columnName = entryMap.getKey();
                     //以列名拿到列名在游标中的位置
@@ -249,7 +256,13 @@ public class BaseDao<T> implements IBaseDao<T> {
 
 
     /**
-     * 将entity的字段名和对应数据库的字段名和值构造条件
+     * 将entity的字段名和对应数据库的字段名和值构造条件:
+     * <p>
+     * SqLiteDatabase -> selection 和 selectionArgs 即：
+     * String selections = "where 1 = 1 and id = ? and name = ?"
+     * String[] selectionArgs = new String[]{1,"2222"}
+     * <p>
+     * select * from mTableName whwre id = 1 and name = "2222"
      */
     private class Condition {
         private String whereCause;
@@ -267,7 +280,7 @@ public class BaseDao<T> implements IBaseDao<T> {
                     list.add(value);
                 }
             }
-            this.whereArgs = list.toArray(new String[list.size()]);
+            this.whereArgs = list.toArray(new String[0]);
             this.whereCause = sb.toString();
         }
     }
@@ -293,13 +306,11 @@ public class BaseDao<T> implements IBaseDao<T> {
     //数据库对应字段名 ： 真实值
     private Map<String, String> buildValues(T entity) {
         HashMap<String, String> map = new HashMap<>();
-        for (Field field : cacheMap.values()) {
+        for (Field field : mCacheMap_DbRecord_EntityField.values()) {
             try {
                 field.setAccessible(true);
                 Object obj = field.get(entity);
-                if (obj == null) {
-                    continue;
-                }
+                if (obj == null) continue;
                 String value = obj.toString();
                 String key;
                 DbFiled dbFiled = field.getAnnotation(DbFiled.class);

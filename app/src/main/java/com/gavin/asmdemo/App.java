@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.gavin.asmdemo.db.BaseDaoFactory;
+
 import me.ele.lancet.base.Origin;
 import me.ele.lancet.base.annotations.Proxy;
 import me.ele.lancet.base.annotations.TargetClass;

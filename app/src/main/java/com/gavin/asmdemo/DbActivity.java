@@ -1,4 +1,4 @@
-package com.gavin.asmdemo.db;
+package com.gavin.asmdemo;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.gavin.asmdemo.R;
+import com.gavin.asmdemo.db.BaseDao;
+import com.gavin.asmdemo.db.BaseDaoFactory;
+import com.gavin.asmdemo.db.User;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,7 +42,6 @@ public class DbActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db);
 
-
         for (int i = 0; i < 10000; i++) {
             users.add(new User(i, "ooo" + i, "" + i));
         }
@@ -65,7 +67,7 @@ public class DbActivity extends AppCompatActivity {
         Long startTime = System.currentTimeMillis();
         long insert = baseDao.insert(users);
         long endTime = System.currentTimeMillis() - startTime;
-        Log.e("tag", insert + "  " + endTime);
+        Log.e("tag", insert + "  " + endTime + "   baseDao:" + baseDao);
     }
 
     // 查询对象
@@ -77,6 +79,7 @@ public class DbActivity extends AppCompatActivity {
             List<User> user = baseDao.query(where);
             Log.e("tag", user.size() + " " + user);
         }
+        Log.e("tag", "   baseDao:" + baseDao);
     }
 
 
@@ -90,6 +93,7 @@ public class DbActivity extends AppCompatActivity {
             long endTime = System.currentTimeMillis() - startTime;
             Log.e("tag", update + "   " + endTime);
         }
+        Log.e("tag", "   baseDao:" + baseDao);
     }
 
     //删除记录
