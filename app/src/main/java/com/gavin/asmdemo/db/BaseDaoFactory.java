@@ -3,16 +3,16 @@ package com.gavin.asmdemo.db;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.Nullable;
 
+
 public class BaseDaoFactory {
     private static final BaseDaoFactory instance = new BaseDaoFactory();
-
 
     public static BaseDaoFactory getInstance() {
         return instance;
     }
 
     private SQLiteDatabase sqLiteDatabase;
-    private String sqlPath = null;
+    private String sqlPath;
 
     private BaseDaoFactory() {
         sqlPath = "data/data/com.gavin.asmdemo/ne.db";
@@ -20,8 +20,8 @@ public class BaseDaoFactory {
     }
 
     @Nullable
-    public <T extends BaseModel> BaseDao<T> getBaseDao(Class<T> entityClass) {
-        BaseDao baseDao = null;
+    public <T> BaseDao<T> getBaseDao(Class<T> entityClass) {
+        BaseDao<T> baseDao = null;
         try {
             baseDao = BaseDao.class.newInstance();
             baseDao.init(sqLiteDatabase, entityClass);

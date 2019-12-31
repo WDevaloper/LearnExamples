@@ -1,18 +1,23 @@
 package com.gavin.asmdemo.db;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.List;
 
 /**
  * @author wfy
  */
-public interface IBaseDao<T extends BaseModel> {
-    long insert(T entity);
+public interface IBaseDao<T> {
+    long insert(@NonNull T entity);
 
-    long update(T where);
+    long insert(@NonNull List<T> entitys);
 
-    long delete(T where);
+    long update(@NonNull T entity, @NonNull T where);
 
-    List<T> query(T where);
+    long delete(@NonNull T where);
 
-    List<T> query(T where, String orderBy, Integer startIndex, Integer limit);
+    List<T> query(@NonNull T where);
+
+    List<T> query(@NonNull T where, String orderBy, Integer startIndex, Integer limit);
 }

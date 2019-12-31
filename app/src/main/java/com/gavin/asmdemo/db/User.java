@@ -4,8 +4,9 @@ package com.gavin.asmdemo.db;
 import com.gavin.asmdemo.db.aninations.DbFiled;
 import com.gavin.asmdemo.db.aninations.DbTable;
 
+
 @DbTable("tb_user")
-public class User implements BaseModel {
+public class User {
     @DbFiled
     private Integer id;
     @DbFiled
