@@ -98,6 +98,15 @@ public class DbActivity extends AppCompatActivity {
 
     //删除记录
     public void delete(View view) {
+        UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
+        if (userDao != null) {
+            User user = new User();
+            user.setId(2020);
+            long startTime = System.currentTimeMillis();
+            long update = userDao.delete(user);
+            long endTime = System.currentTimeMillis() - startTime;
+            Log.e("tag", update + "   " + endTime);
+        }
     }
 
     //分库

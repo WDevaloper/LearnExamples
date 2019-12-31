@@ -174,7 +174,11 @@ public class BaseDao<T> implements IBaseDao<T> {
 
     @Override
     public long delete(@NonNull T where) {
-        return 0;
+        // id:100  name: "2020"
+        Map<String, String> whereArgs = buildValues(where);
+        // where id = 100 and name = "2020"
+        Condition condition = new Condition(whereArgs);
+        return mSqLiteDatabase.delete(mTableName, condition.whereCause, condition.whereArgs);
     }
 
     @Override
