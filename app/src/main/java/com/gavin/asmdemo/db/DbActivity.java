@@ -57,7 +57,7 @@ public class DbActivity extends AppCompatActivity {
         if (baseDao != null) {
             baseDao.insert(new User(1, "aaaaaaa", "12345678"));
             baseDao.insert(new User(2, "gg", "12345678"));
-            baseDao.insert(new User(1, "bbb", "12345678"));
+            baseDao.insert(new User(2, "bbb", "12345678"));
             baseDao.insert(new User(1, "ggg", "12345678"));
             baseDao.insert(new User(1, "hhhhhh", "12345678"));
             baseDao.insert(new User(1, "vvvvvv", "12345678"));
