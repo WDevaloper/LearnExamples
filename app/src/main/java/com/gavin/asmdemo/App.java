@@ -4,6 +4,8 @@ import android.app.Application;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.gavin.asmdemo.db.base.BaseDaoFactory;
+
 import me.ele.lancet.base.Origin;
 import me.ele.lancet.base.annotations.Proxy;
 import me.ele.lancet.base.annotations.TargetClass;
@@ -13,6 +15,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        BaseDaoFactory.init(this, "my_database.db");
     }
 
     @Proxy("applyDimension")
