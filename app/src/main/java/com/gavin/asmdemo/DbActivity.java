@@ -11,7 +11,7 @@ import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDao;
 import com.gavin.asmdemo.db.base.BaseDaoFactory;
-import com.gavin.asmdemo.db.subdb.BaseSubDaoFactory;
+import com.gavin.asmdemo.db.subdb.BaseDaoSubFactory;
 import com.gavin.asmdemo.db.subdb.Photo;
 import com.gavin.asmdemo.db.subdb.PhotoDao;
 
@@ -117,7 +117,7 @@ public class DbActivity extends AppCompatActivity {
         Log.e("tag", "   baseDao:" + baseDao);
 
 
-        PhotoDao photoDao = BaseSubDaoFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
+        PhotoDao photoDao = BaseDaoSubFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
         List<Photo> query = photoDao.query(new Photo());
 
         Log.e("tag", "   photoDao:" + photoDao);
@@ -168,7 +168,7 @@ public class DbActivity extends AppCompatActivity {
         Photo photo = new Photo();
         photo.setPath("xx/xx/xx.png");
         photo.setTime(new Date().toString());
-        PhotoDao baseDao = BaseSubDaoFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
+        PhotoDao baseDao = BaseDaoSubFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
         baseDao.insert(photo);
     }
 

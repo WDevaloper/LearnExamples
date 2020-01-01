@@ -13,19 +13,19 @@ import java.util.WeakHashMap;
  * @Describe: 用于分库的数据库对象，而私有数据会有多个
  * @Author: wfy
  */
-public class BaseSubDaoFactory extends BaseDaoFactory {
-    private static final BaseSubDaoFactory instance = new BaseSubDaoFactory();
+public class BaseDaoSubFactory extends BaseDaoFactory {
+    private static final BaseDaoSubFactory instance = new BaseDaoSubFactory();
 
     //数据库连接池,key:dbpth  value : WeakHashMap<Class<?>,BaseDao>
     // WeakHashMap<Class<?>,BaseDao> :防止同一个数据库同一张表存在多个BaseDao,key是entityClass，value是dao
     private WeakHashMap<String, WeakHashMap<Class<?>, BaseDao>> mDbWeakHashMap;
 
-    private BaseSubDaoFactory() {
+    private BaseDaoSubFactory() {
         super();
         mDbWeakHashMap = new WeakHashMap<>();
     }
 
-    public static BaseSubDaoFactory getInstance() {
+    public static BaseDaoSubFactory getInstance() {
         return instance;
     }
 
@@ -38,12 +38,12 @@ public class BaseSubDaoFactory extends BaseDaoFactory {
     @Override
     @Nullable
     public <DAO extends BaseDao<ENTITY>, ENTITY> DAO getBaseDao(@NonNull Class<DAO> daoClass, Class<ENTITY> entityClass) {
-        String databaseValue = PrivateDatabaseEnum.database.getValue(sDbRootPath);
+        String databaseValue = PrivateDbPathHelper.getValue(sDbRootPath);
         BaseDao baseDao = getDao(entityClass, databaseValue);
         try {
             //baseDao为null，有两种情况，1、首次创建数据库；2、首次使用dao
             if (baseDao == null) {
-                synchronized (BaseSubDaoFactory.class) {
+                synchronized (BaseDaoSubFactory.class) {
                     baseDao = getDao(entityClass, databaseValue);
                     if (baseDao == null) {
                         subSqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(databaseValue, null);
