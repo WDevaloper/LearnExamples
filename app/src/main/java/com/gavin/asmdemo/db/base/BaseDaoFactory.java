@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.WeakHashMap;
 
 /**
- * @Describe: 管理者该数据库的所有表, 而且公共数据只有一个
+ * @Describe: 管理者该数据库的所有表, 而且公共数据只有一个,niu
  */
 public class BaseDaoFactory {
     //防止同一个数据库同一张表存在多个BaseDao,key是entityClass，value是dao
@@ -18,6 +18,7 @@ public class BaseDaoFactory {
     private WeakHashMap<Class<?>, BaseDao> mDaoWeakHashMap;
     private SQLiteDatabase mSqLiteDatabase;
     private static String sDbName;
+    //数据库主目录
     protected static String sDbRootPath;
 
     //你可以认为一个设备上只能存在一个数据库

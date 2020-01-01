@@ -14,6 +14,7 @@ import com.gavin.asmdemo.db.base.BaseDaoFactory;
 import com.gavin.asmdemo.db.base.subdb.BaseDaoSubFactory;
 import com.gavin.asmdemo.db.Photo;
 import com.gavin.asmdemo.db.PhotoDao;
+import com.gavin.asmdemo.db.base.upgrade.xml.UpdateManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,6 +39,13 @@ import java.util.List;
  * 3、如何让用户使用方便；
  * <p>
  * 将类名 和 属性名 转换为 创建数据表的sql语句
+ * <p>
+ * <p>
+ * 升级：
+ * 1、alter table  photo rename to back_photo
+ * 2、create table photo(time Text,path Text,lastTime Text)
+ * 3、insert into photo(time,path) select time,path from back_photo
+ * 4、drop table if exists back_photo
  */
 public class DbActivity extends AppCompatActivity {
     ArrayList<User> users = new ArrayList<>();
@@ -174,6 +182,8 @@ public class DbActivity extends AppCompatActivity {
 
     //升级
     public void upgradeDb(View view) {
+        UpdateManager updateManager = new UpdateManager();
+        updateManager.startUpdate(this);
     }
 
 

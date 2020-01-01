@@ -3,7 +3,7 @@ package com.gavin.asmdemo.db;
 import com.gavin.asmdemo.db.aninations.DbTable;
 
 /**
- * @Describe:
+ * @Describe: photo
  * @Author: wfy
  */
 @DbTable("tb_photo")

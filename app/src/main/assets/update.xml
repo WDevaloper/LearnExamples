@@ -1,0 +1,33 @@
+<!--请保证该文档一定是UTF-8编码-->
+<updateXml>
+    <!--V001,V002 都升级到V003-->
+    <updateStep versionFrom="V001,V002" versionTo="V003">
+        <!--实际上是一个数据库里面的表，一个updateStep就更新一张表-->
+        <!--
+        需要注意的是为了性能：一般我们的配置update.xml，一根是根据我们当前的版本去服务器拉去的，
+        不建议在同一个xml文件配置多个版本的升级
+        -->
+        <updateDb>
+            <!--对原来的数据表重命名-->
+            <sql_rename>alter table tb_photo rename to back_tb_photo;</sql_rename>
+            <!--创建一张与原来同名的数据表-->
+            <sql_create>
+                create table if not exists tb_photo(
+                time TEXT,
+                path TEXT,
+                name TEXT,
+                lastUpdateTime TEXT,
+                user_id INTEGER primary key
+                );
+            </sql_create>
+            <!--将备份的数据表中的数据插入到新表中-->
+            <sql_insert>
+                insert into tb_photo(time,path) select time,path from back_tb_photo;
+            </sql_insert>
+            <!--删除备份表-->
+            <sql_delete>
+                drop table if exists back_tb_photo;
+            </sql_delete>
+        </updateDb>
+    </updateStep>
+</updateXml>

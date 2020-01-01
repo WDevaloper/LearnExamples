@@ -16,6 +16,7 @@ import java.util.WeakHashMap;
  * @Author: wfy
  */
 public class BaseDaoSubFactory extends BaseDaoFactory {
+    public static String sSubDbPath = sDbRootPath + "/sub";
     private static final BaseDaoSubFactory instance = new BaseDaoSubFactory();
 
     //数据库连接池,key:dbpth  value : WeakHashMap<Class<?>,BaseDao>
@@ -40,7 +41,7 @@ public class BaseDaoSubFactory extends BaseDaoFactory {
     @Override
     @Nullable
     public <DAO extends BaseDao<ENTITY>, ENTITY> DAO getBaseDao(@NonNull Class<DAO> daoClass, Class<ENTITY> entityClass) {
-        String databaseValue = PrivateDbPathHelper.getValue(sDbRootPath);
+        String databaseValue = PrivateDbPathHelper.getPrivateValue(sSubDbPath);
         BaseDao baseDao = getDao(entityClass, databaseValue);
         try {
             //baseDao为null，有两种情况，1、首次创建数据库；2、首次使用dao
