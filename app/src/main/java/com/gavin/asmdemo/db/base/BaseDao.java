@@ -42,7 +42,7 @@ public class BaseDao<T> implements IBaseDao<T> {
 
 
     //数据库初始阿虎，需自动创建表
-    boolean init(SQLiteDatabase sqLiteDatabase, Class<T> entityClass) {
+    public boolean init(SQLiteDatabase sqLiteDatabase, Class<T> entityClass) {
         this.mSqLiteDatabase = sqLiteDatabase;
         this.mEntityClass = entityClass;
         if (!mIsInit) {

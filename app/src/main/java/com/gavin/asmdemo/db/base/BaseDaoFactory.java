@@ -6,20 +6,22 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import java.io.File;
 import java.util.WeakHashMap;
 
 /**
- * 管理者该数据库的所有表
+ * @Describe: 管理者该数据库的所有表, 而且公共数据只有一个
  */
 public class BaseDaoFactory {
     //防止同一个数据库同一张表存在多个BaseDao,key是entityClass，value是dao
-    protected WeakHashMap<Class<?>, BaseDao> mDaoWeakHashMap;
+    //因为公共数据库只存在一个，那么我们之缓存dao，即：dao的缓存池
+    private WeakHashMap<Class<?>, BaseDao> mDaoWeakHashMap;
     private SQLiteDatabase mSqLiteDatabase;
     private static String sDbName;
-    protected static String sPathName;
+    protected static String sDbRootPath;
 
     //你可以认为一个设备上只能存在一个数据库
-    private BaseDaoFactory() {
+    protected BaseDaoFactory() {
         if (TextUtils.isEmpty(sDbName)) throw new RuntimeException("must call init method");
         this.mSqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(sDbName, null);
         this.mDaoWeakHashMap = new WeakHashMap<>();
@@ -39,8 +41,12 @@ public class BaseDaoFactory {
      * @param dbName data/data/xx.xx/my.db
      */
     public static void init(Context context, String dbName) {
-        BaseDaoFactory.sPathName = "data/data/" + context.getPackageName() + "/";
-        BaseDaoFactory.sDbName = sPathName + dbName;
+        File file = new File("data/data/" + context.getPackageName());
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        BaseDaoFactory.sDbRootPath = file.getAbsolutePath();
+        BaseDaoFactory.sDbName = sDbRootPath + "/" + dbName;
     }
 
     /**

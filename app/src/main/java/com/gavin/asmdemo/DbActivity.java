@@ -5,16 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import com.gavin.asmdemo.db.Order;
-import com.gavin.asmdemo.db.OrderDao;
 import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDao;
 import com.gavin.asmdemo.db.base.BaseDaoFactory;
+import com.gavin.asmdemo.db.subdb.BaseSubDaoFactory;
+import com.gavin.asmdemo.db.subdb.Photo;
+import com.gavin.asmdemo.db.subdb.PhotoDao;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -65,26 +68,48 @@ public class DbActivity extends AppCompatActivity {
 
     //插入对象
     public void insert(View view) {
+//        UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
+//        Long startTime = System.currentTimeMillis();
+//        long insert = userDao.insert(users);
+//        long endTime = System.currentTimeMillis() - startTime;
+//        Log.e("tag", insert + "  " + endTime + "   baseDao:" + userDao);
+
+//
+//        OrderDao orderDao = BaseDaoFactory.getInstance().getBaseDao(OrderDao.class, Order.class);
+//        orderDao.insert(new Order(8, "oooooooo"));
+//        orderDao.insert(new Order(5, "oooooooo"));
+//        orderDao.insert(new Order(2, "oooooooo"));
+//        orderDao.insert(new Order(1, "oooooooo"));
+//        Log.e("tag", orderDao + "");
+
+
         UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
-        Long startTime = System.currentTimeMillis();
-        long insert = userDao.insert(users);
-        long endTime = System.currentTimeMillis() - startTime;
-        Log.e("tag", insert + "  " + endTime + "   baseDao:" + userDao);
-
-
-        OrderDao orderDao = BaseDaoFactory.getInstance().getBaseDao(OrderDao.class, Order.class);
-        orderDao.insert(new Order(8, "oooooooo"));
-        orderDao.insert(new Order(5, "oooooooo"));
-        orderDao.insert(new Order(2, "oooooooo"));
-        orderDao.insert(new Order(1, "oooooooo"));
-        Log.e("tag", orderDao + "");
+        userDao.insert(new User(1, "subdb1", "subdb1"));
+        userDao.insert(new User(2, "subdb2", "subdb1"));
+        userDao.insert(new User(3, "subdb3", "subdb1"));
+        userDao.insert(new User(4, "subdb4", "subdb1"));
+        userDao.insert(new User(5, "subdb5", "subdb1"));
     }
 
     // 查询对象
     public void query(View view) {
+//        BaseDao<User> baseDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
+//        User where = new User();
+//        where.setId(2020);
+//        if (baseDao != null) {
+//            List<User> user = baseDao.query(where);
+//            Log.e("tag", user.size() + " " + user);
+//        }
+//        Log.e("tag", "   baseDao:" + baseDao);
+//
+//
+//        OrderDao orderDao = BaseDaoFactory.getInstance().getBaseDao(OrderDao.class, Order.class);
+//        List<Order> orderList = orderDao.query(new Order());
+//        Log.e("tag", orderDao + "   orderList:" + orderList);
+
+
         BaseDao<User> baseDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
         User where = new User();
-        where.setId(2020);
         if (baseDao != null) {
             List<User> user = baseDao.query(where);
             Log.e("tag", user.size() + " " + user);
@@ -92,9 +117,12 @@ public class DbActivity extends AppCompatActivity {
         Log.e("tag", "   baseDao:" + baseDao);
 
 
-        OrderDao orderDao = BaseDaoFactory.getInstance().getBaseDao(OrderDao.class, Order.class);
-        List<Order> orderList = orderDao.query(new Order());
-        Log.e("tag", orderDao + "   orderList:" + orderList);
+        PhotoDao photoDao = BaseSubDaoFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
+        List<Photo> query = photoDao.query(new Photo());
+
+        Log.e("tag", "   photoDao:" + photoDao);
+        Log.e("tag", "  photo query:" + query);
+
     }
 
 
@@ -116,7 +144,6 @@ public class DbActivity extends AppCompatActivity {
         UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
         if (userDao != null) {
             User user = new User();
-            user.setId(2020);
             long startTime = System.currentTimeMillis();
             long update = userDao.delete(user);
             long endTime = System.currentTimeMillis() - startTime;
@@ -124,12 +151,30 @@ public class DbActivity extends AppCompatActivity {
         }
     }
 
+    int i = 0;
+
+    public void login(View view) {
+        UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
+        User user = new User();
+        user.setId(i++);
+        user.setName("sbudb" + i);
+        user.setPassword("9999999999");
+        userDao.insert(user);
+        Toast.makeText(this, "执行成功", Toast.LENGTH_SHORT).show();
+    }
+
     //分库
     public void fenDb(View view) {
-
+        Photo photo = new Photo();
+        photo.setPath("xx/xx/xx.png");
+        photo.setTime(new Date().toString());
+        PhotoDao baseDao = BaseSubDaoFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
+        baseDao.insert(photo);
     }
 
     //升级
     public void upgradeDb(View view) {
     }
+
+
 }

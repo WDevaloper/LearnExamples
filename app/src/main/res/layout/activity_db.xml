@@ -48,6 +48,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="登录"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="fenDb"
         android:text="分库"
         android:textAllCaps="false" />

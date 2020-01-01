@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        BaseDaoFactory.init(this, "my_database.db");
+        BaseDaoFactory.init(this, "my_user.db");
     }
 
     @Proxy("applyDimension")

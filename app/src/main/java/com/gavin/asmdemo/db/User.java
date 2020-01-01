@@ -13,9 +13,19 @@ public class User {
     private String name;
     @DbFiled
     private String password;
+    @DbFiled
+    private Integer status;// 分库使用
 
 
-    public User(){
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public User() {
 
     }
 
@@ -55,6 +65,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
