@@ -1,4 +1,4 @@
-package com.gavin.asmdemo.db.subdb;
+package com.gavin.asmdemo.db.base.subdb;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
@@ -10,6 +10,8 @@ import com.gavin.asmdemo.db.base.BaseDaoFactory;
 import java.util.WeakHashMap;
 
 /**
+ * 一般分库是，根据用户进行分库，每个用户都会有私有数据
+ *
  * @Describe: 用于分库的数据库对象，而私有数据会有多个
  * @Author: wfy
  */

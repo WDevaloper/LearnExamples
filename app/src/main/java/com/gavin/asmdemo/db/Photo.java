@@ -1,4 +1,4 @@
-package com.gavin.asmdemo.db.subdb;
+package com.gavin.asmdemo.db;
 
 import com.gavin.asmdemo.db.aninations.DbTable;
 

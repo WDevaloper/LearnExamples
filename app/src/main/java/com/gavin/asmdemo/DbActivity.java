@@ -11,9 +11,9 @@ import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDao;
 import com.gavin.asmdemo.db.base.BaseDaoFactory;
-import com.gavin.asmdemo.db.subdb.BaseDaoSubFactory;
-import com.gavin.asmdemo.db.subdb.Photo;
-import com.gavin.asmdemo.db.subdb.PhotoDao;
+import com.gavin.asmdemo.db.base.subdb.BaseDaoSubFactory;
+import com.gavin.asmdemo.db.Photo;
+import com.gavin.asmdemo.db.PhotoDao;
 
 import java.io.File;
 import java.util.ArrayList;

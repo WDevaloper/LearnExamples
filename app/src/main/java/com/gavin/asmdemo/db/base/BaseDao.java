@@ -64,7 +64,6 @@ public class BaseDao<T> implements IBaseDao<T> {
             }
             //得到创建数据表的sql 串
             String createTableSql = getCreateTableSql();
-            Log.e("tag", createTableSql);
             sqLiteDatabase.execSQL(createTableSql);
             mCacheMap_DbRecord_EntityField = new HashMap<>();
             initCacheMap();
