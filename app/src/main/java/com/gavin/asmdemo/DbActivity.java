@@ -188,6 +188,6 @@ public class DbActivity extends AppCompatActivity {
     //升级,代码升级和xml服务升级
     public void upgradeDb(View view) {
         UpdateManager updateManager = new UpdateManager();
-        updateManager.startUpdate(this);
+        updateManager.execute(this);
     }
 }

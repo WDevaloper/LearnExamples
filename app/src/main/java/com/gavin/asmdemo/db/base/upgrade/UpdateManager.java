@@ -2,6 +2,7 @@ package com.gavin.asmdemo.db.base.upgrade;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -28,9 +29,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * @Describe: 数据库升级
  * @Author: wfy
  */
-public class UpdateManager {
+public class UpdateManager extends AsyncTask<Context, Void, Void> {
     //因为我们是分库所以需要得到所有的用户
     private List<User> users = null;
+
+
+    @Override
+    protected Void doInBackground(Context... contexts) {
+        startUpdate(contexts[0]);
+        return null;
+    }
 
     public void startUpdate(Context context) {
         UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
@@ -67,7 +75,6 @@ public class UpdateManager {
             }
 
         }
-
     }
 
     private void executeSql(SQLiteDatabase sqLiteDatabase, List<String> sqls) {
@@ -86,7 +93,7 @@ public class UpdateManager {
         }
         sqLiteDatabase.setTransactionSuccessful();
         sqLiteDatabase.endTransaction();
-        Log.e("tag", sqLiteDatabase.getPath()+"升级成功");
+        Log.e("tag", sqLiteDatabase.getPath() + "升级成功");
         if (sqLiteDatabase.isOpen()) {
             sqLiteDatabase.close();
         }
@@ -95,6 +102,7 @@ public class UpdateManager {
     private SQLiteDatabase getUserDb(Integer id) {
         File file = new File(PrivateDbPathHelper.getPrivateDbPathById("" + id));
         if (!file.exists()) {
+            //一般情况下是不会出现这种情况的，一般一个用户都会对应一个私有数据库
             Log.e("tag", file.getAbsolutePath() + "数据库不存在");
             return null;
         }

@@ -24,8 +24,9 @@ public class BaseDaoFactory {
     //你可以认为一个设备上只能存在一个数据库
     protected BaseDaoFactory() {
         if (TextUtils.isEmpty(sDbName)) throw new RuntimeException("must call init method");
-        this.mSqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(sDbName, null);
-        this.mDaoWeakHashMap = new WeakHashMap<>();
+        if (this.mDaoWeakHashMap == null) {
+            this.mDaoWeakHashMap = new WeakHashMap<>();
+        }
     }
 
     private static class BaseDaoFactoryHolder {
@@ -65,11 +66,12 @@ public class BaseDaoFactory {
         // 每一张表对应一个dao
         BaseDao baseDao = mDaoWeakHashMap.get(entityClass);
         try {
-            if (baseDao == null) {
+            if (baseDao == null || mSqLiteDatabase == null || !mSqLiteDatabase.isOpen()) {
                 synchronized (BaseDaoFactory.class) {
                     baseDao = mDaoWeakHashMap.get(entityClass);
                     if (baseDao == null) {
                         baseDao = daoClass.newInstance();
+                        this.mSqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(sDbName, null);
                         // 每一张表对应一个dao,为了解决自动创建表，必须一个表对应一个dao
                         boolean isSuccess = baseDao.init(mSqLiteDatabase, entityClass);
                         if (isSuccess) {
