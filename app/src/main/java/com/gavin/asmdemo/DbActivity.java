@@ -14,7 +14,7 @@ import com.gavin.asmdemo.db.base.BaseDaoFactory;
 import com.gavin.asmdemo.db.base.subdb.BaseDaoSubFactory;
 import com.gavin.asmdemo.db.Photo;
 import com.gavin.asmdemo.db.PhotoDao;
-import com.gavin.asmdemo.db.base.upgrade.xml.UpdateManager;
+import com.gavin.asmdemo.db.base.upgrade.UpdateManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -62,10 +62,10 @@ public class DbActivity extends AppCompatActivity {
     }
 
     public void createDb(View view) {
-        SQLiteDatabase sqLiteDatabase =
-                SQLiteDatabase.openOrCreateDatabase(new File("/data/data/com.gavin.asmdemo/user.db"), null);
-        SQLiteDatabase sqLiteDatabase2 =
-                SQLiteDatabase.openOrCreateDatabase(new File("/data/data/com.gavin.asmdemo/user2.db"), null);
+        SQLiteDatabase sqLiteDatabase = SQLiteDatabase.openOrCreateDatabase(
+                new File("/data/data/com.gavin.asmdemo/user.db"), null);
+        SQLiteDatabase sqLiteDatabase2 = SQLiteDatabase.openOrCreateDatabase(
+                new File("/data/data/com.gavin.asmdemo/user2.db"), null);
 
         StringBuffer sb = new StringBuffer();
 
@@ -169,6 +169,7 @@ public class DbActivity extends AppCompatActivity {
         user.setName("sbudb" + i);
         user.setPassword("9999999999");
         userDao.insert(user);
+        Log.e("tag", "" + userDao);
         Toast.makeText(this, "执行成功,正在分库", Toast.LENGTH_SHORT).show();
         fenDb(null);
     }
@@ -180,13 +181,13 @@ public class DbActivity extends AppCompatActivity {
         photo.setTime(new Date().toString());
         PhotoDao baseDao = BaseDaoSubFactory.getInstance().getBaseDao(PhotoDao.class, Photo.class);
         baseDao.insert(photo);
+
+        Log.e("tag", "" + baseDao);
     }
 
-    //升级
+    //升级,代码升级和xml服务升级
     public void upgradeDb(View view) {
         UpdateManager updateManager = new UpdateManager();
         updateManager.startUpdate(this);
     }
-
-
 }

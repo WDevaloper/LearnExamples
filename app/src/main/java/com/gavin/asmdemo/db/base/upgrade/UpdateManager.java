@@ -1,4 +1,4 @@
-package com.gavin.asmdemo.db.base.upgrade.xml;
+package com.gavin.asmdemo.db.base.upgrade;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +9,9 @@ import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDaoFactory;
 import com.gavin.asmdemo.db.base.subdb.PrivateDbPathHelper;
+import com.gavin.asmdemo.db.base.upgrade.xml.UpdateDb;
+import com.gavin.asmdemo.db.base.upgrade.xml.UpdateStep;
+import com.gavin.asmdemo.db.base.upgrade.xml.UpdateXml;
 
 import org.w3c.dom.Document;
 
@@ -83,7 +86,10 @@ public class UpdateManager {
         }
         sqLiteDatabase.setTransactionSuccessful();
         sqLiteDatabase.endTransaction();
-        Log.e("tag", sqLiteDatabase.getPath() + "升级成功");
+        Log.e("tag", sqLiteDatabase.getPath()+"升级成功");
+        if (sqLiteDatabase.isOpen()) {
+            sqLiteDatabase.close();
+        }
     }
 
     private SQLiteDatabase getUserDb(Integer id) {
@@ -104,6 +110,7 @@ public class UpdateManager {
 
         for (UpdateStep step : updateSteps) {
             if (TextUtils.isEmpty(step.getVersionTo()) || TextUtils.isEmpty(step.getVersionFrom())) {
+                Log.e("tag", step.getVersionTo() + "无需升级" + step.getVersionFrom());
             } else {
                 String[] versionArray = step.getVersionFrom().split(",");
                 if (versionArray != null && versionArray.length > 0) {
