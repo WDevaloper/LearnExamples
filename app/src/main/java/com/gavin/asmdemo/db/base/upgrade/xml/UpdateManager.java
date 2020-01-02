@@ -32,27 +32,23 @@ public class UpdateManager {
     public void startUpdate(Context context) {
         UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
         users = userDao.query(new User());
-        Log.e("tag", "" + users);
         if (users == null || users.isEmpty()) {
             return;
         }
         //解析xml文件
         UpdateXml updateXml = readDbXml(context);
-        Log.e("tag", "" + updateXml);
         if (updateXml == null) {
             return;
         }
 
         //拿到当前版本信息
         UpdateStep step = analyseUpdateStep(updateXml);
-        Log.e("tag", "" + step);
         if (step == null) {
             return;
         }
 
         //获取用于更新的对象
         List<UpdateDb> updateDbs = step.getUpdateDbs();
-        Log.e("tag", "" + updateDbs);
         for (User user : users) {
             //得到每个用户的数据库对象
             SQLiteDatabase sqLiteDatabase = getUserDb(user.getId());
@@ -87,6 +83,7 @@ public class UpdateManager {
         }
         sqLiteDatabase.setTransactionSuccessful();
         sqLiteDatabase.endTransaction();
+        Log.e("tag", sqLiteDatabase.getPath() + "升级成功");
     }
 
     private SQLiteDatabase getUserDb(Integer id) {

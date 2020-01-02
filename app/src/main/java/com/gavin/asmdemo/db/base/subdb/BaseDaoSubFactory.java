@@ -19,7 +19,7 @@ public class BaseDaoSubFactory extends BaseDaoFactory {
     public static String sSubDbPath = sDbRootPath + "/sub";
     private static final BaseDaoSubFactory instance = new BaseDaoSubFactory();
 
-    //数据库连接池,key:dbpth  value : WeakHashMap<Class<?>,BaseDao>
+    //数据库连接池,key:db pth  value : WeakHashMap<Class<?>,BaseDao>
     // WeakHashMap<Class<?>,BaseDao> :防止同一个数据库同一张表存在多个BaseDao,key是entityClass，value是dao
     private WeakHashMap<String, WeakHashMap<Class<?>, BaseDao>> mDbWeakHashMap;
 

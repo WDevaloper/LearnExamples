@@ -48,6 +48,7 @@ import java.util.List;
  * 4、drop table if exists back_photo
  */
 public class DbActivity extends AppCompatActivity {
+
     ArrayList<User> users = new ArrayList<>();
 
     @Override
@@ -168,7 +169,8 @@ public class DbActivity extends AppCompatActivity {
         user.setName("sbudb" + i);
         user.setPassword("9999999999");
         userDao.insert(user);
-        Toast.makeText(this, "执行成功", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "执行成功,正在分库", Toast.LENGTH_SHORT).show();
+        fenDb(null);
     }
 
     //分库

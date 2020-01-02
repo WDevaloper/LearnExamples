@@ -25,7 +25,7 @@ public class UpdateDb {
         this.sql_insert = sql_insert.item(0).getTextContent();
 
         NodeList sql_delete = element.getElementsByTagName("sql_delete");
-        this.sql_delete = sql_insert.item(0).getTextContent();
+        this.sql_delete = sql_delete.item(0).getTextContent();
     }
 
 
