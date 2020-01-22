@@ -1,10 +1,15 @@
 package com.gavin.asmdemo.uitls;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Rect;
 import android.os.Build;
+import android.os.Environment;
+import android.util.Log;
+import android.view.View;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

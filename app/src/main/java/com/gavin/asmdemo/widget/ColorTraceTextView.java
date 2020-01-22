@@ -6,10 +6,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 @SuppressLint("DrawAllocation")
 public class ColorTraceTextView extends AppCompatTextView {

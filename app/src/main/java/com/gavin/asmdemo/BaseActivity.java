@@ -2,7 +2,7 @@ package com.gavin.asmdemo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public abstract class BaseActivity extends Activity {
     @Override
