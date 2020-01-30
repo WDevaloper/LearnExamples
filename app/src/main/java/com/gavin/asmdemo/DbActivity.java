@@ -1,10 +1,19 @@
 package com.gavin.asmdemo;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.gavin.asmdemo.db.User;
@@ -15,6 +24,7 @@ import com.gavin.asmdemo.db.base.subdb.BaseDaoSubFactory;
 import com.gavin.asmdemo.db.Photo;
 import com.gavin.asmdemo.db.PhotoDao;
 import com.gavin.asmdemo.db.base.upgrade.UpdateManager;
+import com.gavin.asmdemo.db.open.SQLiteOpenHelperImpl;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -92,12 +102,38 @@ public class DbActivity extends AppCompatActivity {
 //        Log.e("tag", orderDao + "");
 
 
-        UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
-        userDao.insert(new User(1, "subdb1", "subdb1"));
-        userDao.insert(new User(2, "subdb2", "subdb1"));
-        userDao.insert(new User(3, "subdb3", "subdb1"));
-        userDao.insert(new User(4, "subdb4", "subdb1"));
-        userDao.insert(new User(5, "subdb5", "subdb1"));
+//        UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
+//        userDao.insert(new User(1, "subdb1", "subdb1"));
+//        userDao.insert(new User(2, "subdb2", "subdb1"));
+//        userDao.insert(new User(3, "subdb3", "subdb1"));
+//        userDao.insert(new User(4, "subdb4", "subdb1"));
+//        userDao.insert(new User(5, "subdb5", "subdb1"));
+
+
+        LinearLayout linearLayout = findViewById(R.id.root);
+
+
+        ImageView imageView = findViewById(R.id.imageView);
+        Bitmap bitmap = getLinearLayoutBitmap(linearLayout);
+        imageView.setImageBitmap(bitmap);
+
+    }
+
+    public static Bitmap getLinearLayoutBitmap(LinearLayout linearLayout) {
+        int h = 0;
+        // 获取LinearLayout实际高度
+        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+            linearLayout.getChildAt(i).measure(0, 0);
+            h += linearLayout.getChildAt(i).getMeasuredHeight();
+        }
+        linearLayout.measure(0, 0);
+        // 创建对应大小的bitmap
+        Bitmap bitmap = Bitmap.createBitmap(linearLayout.getWidth(), linearLayout.getHeight(),
+                Bitmap.Config.RGB_565);
+        final Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(Color.RED);
+        linearLayout.draw(canvas);
+        return bitmap;
     }
 
     // 查询对象
@@ -189,5 +225,16 @@ public class DbActivity extends AppCompatActivity {
     public void upgradeDb(View view) {
         UpdateManager updateManager = new UpdateManager();
         updateManager.execute(this);
+    }
+
+    public void upgradeDbForSQLiteOpenHelper(View view) {
+        SQLiteDatabase writableDatabase = SQLiteOpenHelperImpl.getInstance(this).getWritableDatabase();
+        Cursor cursor =
+                writableDatabase.query("testtable", null, null, null, null, null, null);
+        String[] columnNames = cursor.getColumnNames();
+        for (int j = 0; j < columnNames.length; j++) {
+            Log.e("tag", cursor.getString(cursor.getColumnIndex(columnNames[i])));
+        }
+        cursor.close();
     }
 }

@@ -16,6 +16,10 @@ import com.gavin.asmdemo.aop.ICheckStatusImpl;
 import com.gavin.asmdemo.aop.Test;
 import com.gavin.asmdemo.screen_adapter.SecondActivity;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -25,6 +29,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
         setContentView(R.layout.activity_main_md);
 //        mListView = findViewById(R.id.listView);
 //        mListView.setAdapter(new BaseAdapter() {
@@ -50,6 +55,12 @@ public class MainActivity extends BaseActivity {
 //        });
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 
     public void adapter(View view) {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.dp_0);
@@ -108,5 +119,11 @@ public class MainActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         Log.e("tag", "onPause");
+    }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessage(String msg) {
+
     }
 }
