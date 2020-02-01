@@ -1,6 +1,6 @@
 package com.gavin.asmdemo.screen_adapter.pixel;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;

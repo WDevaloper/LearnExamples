@@ -2,6 +2,7 @@ package com.gavin.asmdemo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -31,7 +32,10 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
         setContentView(R.layout.activity_main_md);
-//        mListView = findViewById(R.id.listView);
+    }
+
+    private void learnListView() {
+        //        mListView = findViewById(R.id.listView);
 //        mListView.setAdapter(new BaseAdapter() {
 //            @Override
 //            public int getCount() {

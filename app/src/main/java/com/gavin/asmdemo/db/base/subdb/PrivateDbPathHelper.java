@@ -1,7 +1,7 @@
 package com.gavin.asmdemo.db.base.subdb;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;

@@ -1,8 +1,8 @@
-package com.gavin.asmdemo.designer_dapter.faced.impl;
+package com.gavin.asmdemo.designer_model.faced.impl;
 
 import android.graphics.Bitmap;
 
-import com.gavin.asmdemo.designer_dapter.faced.MemoryCache;
+import com.gavin.asmdemo.designer_model.faced.MemoryCache;
 
 public class MemoryCacheImpl implements MemoryCache {
     @Override

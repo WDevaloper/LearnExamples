@@ -1,8 +1,8 @@
-package com.gavin.asmdemo.designer_dapter.faced.impl;
+package com.gavin.asmdemo.designer_model.faced.impl;
 
 import android.graphics.Bitmap;
 
-import com.gavin.asmdemo.designer_dapter.faced.DiskCahe;
+import com.gavin.asmdemo.designer_model.faced.DiskCahe;
 
 public class DiskCaheImpl implements DiskCahe {
     @Override

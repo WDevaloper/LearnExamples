@@ -5,9 +5,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Outline;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.room.RoomDatabaseKt;
+
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDao;
@@ -25,6 +34,7 @@ import com.gavin.asmdemo.db.Photo;
 import com.gavin.asmdemo.db.PhotoDao;
 import com.gavin.asmdemo.db.base.upgrade.UpdateManager;
 import com.gavin.asmdemo.db.open.SQLiteOpenHelperImpl;
+import com.gavin.asmdemo.uitls.BitmapUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -69,6 +79,8 @@ public class DbActivity extends AppCompatActivity {
         for (int i = 0; i < 10000; i++) {
             users.add(new User(i, "ooo" + i, "" + i));
         }
+
+
     }
 
     public void createDb(View view) {
@@ -83,7 +95,6 @@ public class DbActivity extends AppCompatActivity {
         sqLiteDatabase.execSQL(sb.toString());
         sqLiteDatabase2.execSQL(sb.toString());
     }
-
 
     //插入对象
     public void insert(View view) {
@@ -223,8 +234,11 @@ public class DbActivity extends AppCompatActivity {
 
     //升级,代码升级和xml服务升级
     public void upgradeDb(View view) {
-        UpdateManager updateManager = new UpdateManager();
-        updateManager.execute(this);
+//        UpdateManager updateManager = new UpdateManager();
+//        updateManager.execute(this);
+    }
+
+    public void roomInsert(View view) {
     }
 
     public void upgradeDbForSQLiteOpenHelper(View view) {

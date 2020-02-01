@@ -1,6 +1,6 @@
-package com.gavin.asmdemo.designer_dapter.faced.impl;
+package com.gavin.asmdemo.designer_model.faced.impl;
 
-import com.gavin.asmdemo.designer_dapter.faced.NetWorkLoader;
+import com.gavin.asmdemo.designer_model.faced.NetWorkLoader;
 
 import java.io.InputStream;
 

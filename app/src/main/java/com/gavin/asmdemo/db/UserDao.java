@@ -1,6 +1,6 @@
 package com.gavin.asmdemo.db;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.gavin.asmdemo.db.base.BaseDao;
 

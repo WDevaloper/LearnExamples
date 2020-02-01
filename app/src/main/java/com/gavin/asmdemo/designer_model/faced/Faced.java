@@ -1,8 +1,8 @@
-package com.gavin.asmdemo.designer_dapter.faced;
+package com.gavin.asmdemo.designer_model.faced;
 
-import com.gavin.asmdemo.designer_dapter.faced.impl.DiskCaheImpl;
-import com.gavin.asmdemo.designer_dapter.faced.impl.MemoryCacheImpl;
-import com.gavin.asmdemo.designer_dapter.faced.impl.NetWorkLoaderImpl;
+import com.gavin.asmdemo.designer_model.faced.impl.DiskCaheImpl;
+import com.gavin.asmdemo.designer_model.faced.impl.MemoryCacheImpl;
+import com.gavin.asmdemo.designer_model.faced.impl.NetWorkLoaderImpl;
 
 public class Faced {
     private String url;
