@@ -11,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.gavin.asmdemo.aop.ICheckStatusImpl;
 import com.gavin.asmdemo.aop.Test;

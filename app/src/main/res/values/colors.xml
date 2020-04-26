@@ -33,4 +33,6 @@
         <item>#20aaaaaa</item>
         <item>#10aaaaaa</item>
     </array>
+
+    <color name="black_overlay">#66000000</color>
 </resources>
