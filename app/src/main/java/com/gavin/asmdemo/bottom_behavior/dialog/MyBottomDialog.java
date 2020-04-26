@@ -93,46 +93,40 @@ public class MyBottomDialog extends BottomSheetDialog {
         behavior = (BottomSheetBehavior) params.getBehavior();
         assert behavior != null;
 
-
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            getWindow().getDecorView().setBackground(new ColorDrawable(Color.TRANSPARENT));
-        }
-
         ViewGroup.LayoutParams layoutParams = parent.getLayoutParams();
         layoutParams.height = (int) (SystemUtil.getScreenHeight(getContext()) * 0.9);//一定要设置Dialog的高度，否则会出现Dialog只显示一点点
         parent.setLayoutParams(layoutParams);
 
         behavior.setPeekHeight((int) (SystemUtil.getScreenHeight(getContext()) * 0.3));
-//        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-//            @Override
-//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-//                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
-//                    dismiss();
-//                }
-//                switch (newState) {
-//                    case BottomSheetBehavior.STATE_COLLAPSED://折叠 是显示刚开始预设的高度 也就是app:behavior_peekHeight这个实行的值
-//                        Log.d(TAG, "STATE_COLLAPSED 折叠");
-//                        break;
-//                    case BottomSheetBehavior.STATE_DRAGGING:
-//                        Log.d(TAG, "STATE_DRAGGING 过渡状态");
-//                        break;
-//                    case BottomSheetBehavior.STATE_EXPANDED:
-//                        Log.d(TAG, "STATE_EXPANDED 完全展开");
-//                        break;
-//                    case BottomSheetBehavior.STATE_HIDDEN:
-//                        Log.d(TAG, "STATE_HIDDEN  隐藏状态");
-//                        break;
-//                    case BottomSheetBehavior.STATE_SETTLING:
-//                        Log.d(TAG, "STATE_SETTLING 自由滑动");
-//                        break;
-//                }
-//            }
-//
-//            @Override
-//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-//            }
-//        });
+        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    dismiss();
+                }
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_COLLAPSED://折叠 是显示刚开始预设的高度 也就是app:behavior_peekHeight这个实行的值
+                        Log.d(TAG, "STATE_COLLAPSED 折叠");
+                        break;
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        Log.d(TAG, "STATE_DRAGGING 过渡状态");
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        Log.d(TAG, "STATE_EXPANDED 完全展开");
+                        break;
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        Log.d(TAG, "STATE_HIDDEN  隐藏状态");
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        Log.d(TAG, "STATE_SETTLING 自由滑动");
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            }
+        });
     }
 
 }
