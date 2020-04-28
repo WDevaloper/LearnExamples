@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".widget.recycler.CustomRecyclerViewActivity" />
-        <activity android:name=".bottom_behavior.BottomMainActivity">
+        <activity android:name=".aop.AOPActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import com.gavin.asmdemo.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class BottomMainActivity extends AppCompatActivity implements View.OnClickListener {
     private static String TAG = "tag";
 
@@ -29,6 +31,10 @@ public class BottomMainActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_main);
         initViews();
+
+        ReentrantLock reentrantLock = new ReentrantLock();
+        reentrantLock.lock();
+        reentrantLock.unlock();
     }
 
 
@@ -73,7 +79,7 @@ public class BottomMainActivity extends AppCompatActivity implements View.OnClic
                                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                                 }
                             }
-                        }, 500);
+                        }, 3000);
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
                         Log.e(TAG, "STATE_SETTLING 自由滑动");
@@ -84,6 +90,7 @@ public class BottomMainActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
                 /*slideOffset bottomSheet 的 移动距离*/
+                Log.e(TAG, "slideOffset------>" + slideOffset);
             }
         });
     }
