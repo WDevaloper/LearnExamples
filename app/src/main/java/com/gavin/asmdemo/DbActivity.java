@@ -7,24 +7,14 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.room.RoomDatabaseKt;
 
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.gavin.asmdemo.db.User;
 import com.gavin.asmdemo.db.UserDao;
 import com.gavin.asmdemo.db.base.BaseDao;
@@ -32,14 +22,15 @@ import com.gavin.asmdemo.db.base.BaseDaoFactory;
 import com.gavin.asmdemo.db.base.subdb.BaseDaoSubFactory;
 import com.gavin.asmdemo.db.Photo;
 import com.gavin.asmdemo.db.PhotoDao;
-import com.gavin.asmdemo.db.base.upgrade.UpdateManager;
 import com.gavin.asmdemo.db.open.SQLiteOpenHelperImpl;
-import com.gavin.asmdemo.uitls.BitmapUtil;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -71,16 +62,19 @@ public class DbActivity extends AppCompatActivity {
 
     ArrayList<User> users = new ArrayList<>();
 
+
+    @BindView(R.id.root)
+    LinearLayout root;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_db);
+        ButterKnife.bind(this);
 
         for (int i = 0; i < 10000; i++) {
             users.add(new User(i, "ooo" + i, "" + i));
         }
-
-
     }
 
     public void createDb(View view) {
