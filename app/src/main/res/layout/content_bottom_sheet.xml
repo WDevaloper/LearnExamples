@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_content_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp_50"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/dp_100"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+    <!--通过behavior_peekHeight和layout_marginTop控制bottomsheet不能超出状态，随意控制高度-->
+    <!--    还可以通过在嵌套一层布局，让外层布局透明即可，而且这种方式还能控制点击外部关闭-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="人生若只如初见，何事秋风悲画扇。"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="等闲变却故人心，却道故人心易变。"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="骊山语罢清宵半，泪雨霖铃终不怨。"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="何如薄幸锦衣郎，比翼连枝当日愿。"
+        android:textSize="20sp" />
+</LinearLayout>

@@ -72,6 +72,11 @@ class LifecyclePlugin extends Transform implements Plugin<Project> {
      * 处理文件目录下的class文件
      */
     static void handleDirectoryInput(DirectoryInput directoryInput, TransformOutputProvider outputProvider) {
+        //处理完输入文件之后，要把输出给下一个任务
+        def dest = outputProvider.getContentLocation(directoryInput.name,
+                directoryInput.contentTypes, directoryInput.scopes,
+                Format.DIRECTORY)
+
         //是否是目录
         if (directoryInput.file.isDirectory()) {
             //列出目录所有文件（包含子文件夹，子文件夹内文件）
@@ -92,10 +97,7 @@ class LifecyclePlugin extends Transform implements Plugin<Project> {
                 }
             }
         }
-        //处理完输入文件之后，要把输出给下一个任务
-        def dest = outputProvider.getContentLocation(directoryInput.name,
-                directoryInput.contentTypes, directoryInput.scopes,
-                Format.DIRECTORY)
+
         FileUtils.copyDirectory(directoryInput.file, dest)
     }
 
@@ -160,6 +162,9 @@ class LifecyclePlugin extends Transform implements Plugin<Project> {
      * @return
      */
     static boolean checkClassFile(String name) {
+
+        println "name: " name
+
         //只处理需要的class文件
         return (name.endsWith(".class") && !name.startsWith("R\$")
                 && "R.class" != name && "BuildConfig.class" != name

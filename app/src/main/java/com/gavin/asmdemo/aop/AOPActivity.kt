@@ -1,14 +1,11 @@
 package com.gavin.asmdemo.aop
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.gavin.asmdemo.R
-import me.ele.lancet.base.Origin
-import me.ele.lancet.base.annotations.Proxy
-import me.ele.lancet.base.annotations.TargetClass
+import com.gavin.asmdemo.aop.User.testStatic
 
 class AOPActivity : AppCompatActivity() {
 
@@ -38,5 +35,13 @@ class AOPActivity : AppCompatActivity() {
     @LoginCheck(ILoginCheckImpl::class, "/user/login_activity")
     @VipCheck("优惠券")
     fun youhuijuan(view: View) {
+    }
+
+
+    fun testAopStatic(view: View) {
+        val testStattic = TestStattic("obejct")
+        testStatic("yyyyyyyyyymmmmmmmmmmmmmmmmmm", testStattic)
+        testStattic.name = "对象"
+        testStatic("yyyyyyyyyymmmmmmmmmmmmmmmmmm", testStattic)
     }
 }

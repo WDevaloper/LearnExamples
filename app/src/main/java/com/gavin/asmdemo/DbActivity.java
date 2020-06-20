@@ -24,6 +24,8 @@ import com.gavin.asmdemo.db.Photo;
 import com.gavin.asmdemo.db.PhotoDao;
 import com.gavin.asmdemo.db.open.SQLiteOpenHelperImpl;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -106,13 +108,14 @@ public class DbActivity extends AppCompatActivity {
 //        orderDao.insert(new Order(1, "oooooooo"));
 //        Log.e("tag", orderDao + "");
 
-
 //        UserDao userDao = BaseDaoFactory.getInstance().getBaseDao(UserDao.class, User.class);
 //        userDao.insert(new User(1, "subdb1", "subdb1"));
 //        userDao.insert(new User(2, "subdb2", "subdb1"));
 //        userDao.insert(new User(3, "subdb3", "subdb1"));
 //        userDao.insert(new User(4, "subdb4", "subdb1"));
 //        userDao.insert(new User(5, "subdb5", "subdb1"));
+
+
 
 
         LinearLayout linearLayout = findViewById(R.id.root);
@@ -124,7 +127,7 @@ public class DbActivity extends AppCompatActivity {
 
     }
 
-    public static Bitmap getLinearLayoutBitmap(LinearLayout linearLayout) {
+    public static Bitmap getLinearLayoutBitmap(ViewGroup linearLayout) {
         int h = 0;
         // 获取LinearLayout实际高度
         for (int i = 0; i < linearLayout.getChildCount(); i++) {
@@ -133,8 +136,7 @@ public class DbActivity extends AppCompatActivity {
         }
         linearLayout.measure(0, 0);
         // 创建对应大小的bitmap
-        Bitmap bitmap = Bitmap.createBitmap(linearLayout.getWidth(), linearLayout.getHeight(),
-                Bitmap.Config.RGB_565);
+        Bitmap bitmap = Bitmap.createBitmap(1242, 2208, Bitmap.Config.RGB_565);
         final Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(Color.RED);
         linearLayout.draw(canvas);

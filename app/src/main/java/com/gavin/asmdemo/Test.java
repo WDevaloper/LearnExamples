@@ -1,18 +1,15 @@
 package com.gavin.asmdemo;
 
-public class Test {
+import android.util.Log;
 
-    public static void main(String[] args) {
-        System.out.println("" + test());
+public class Test {
+    static {
+        int a = 0;
+        int b = a;
     }
 
-    public static int test() {
-        int a = 0;
-        try {
-            a = 8;
-            return a;
-        } finally {
-            return a;
-        }
+
+    public void test(){
+        Log.e("rag",";;;");
     }
 }

@@ -52,6 +52,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'org.aspectj:aspectjrt:1.8.14'
 //    compile 'me.weishu:epic:0.6.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     provided 'me.ele:lancet-base:1.0.5'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -60,10 +61,7 @@ dependencies {
     //http://greenrobot.org/eventbus/documentation/subscriber-index/
     implementation 'org.greenrobot:eventbus:3.1.1'
     annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
-    api("com.github.bumptech.glide:glide:4.10.0") {
-        exclude group: 'com.android.support'
-        exclude group: 'androidx.annotation'
-    }
+
 
 
     implementation 'com.jakewharton:butterknife:10.2.1'
@@ -80,8 +78,10 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     // optional - RxJava support for Room
     implementation "androidx.room:room-rxjava2:$room_version"
-
     implementation 'com.alibaba:fastjson:1.2.48'
+    api "com.squareup.okhttp3:okhttp:4.2.0"
+
+    implementation project(':usercenter')
 }
 repositories {
     mavenCentral()
