@@ -1,4 +1,4 @@
-package com.github.glide.resource;
+package com.github.glide.reuseable;
 
 import android.graphics.Bitmap;
 

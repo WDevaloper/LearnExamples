@@ -1,6 +1,7 @@
-package com.github.glide;
+package com.github.glide.memory;
 
 
+import com.github.glide.Key;
 import com.github.glide.resource.Resource;
 
 //内存缓存分别活跃缓存和Lru缓存，所以需要将内存抽象为接口

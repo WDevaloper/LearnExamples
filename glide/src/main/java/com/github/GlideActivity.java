@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.github.glide.R;
+import com.github.glide.load.LoaderTest;
 
 public class GlideActivity extends AppCompatActivity {
 
@@ -20,5 +21,15 @@ public class GlideActivity extends AppCompatActivity {
         Glide.with(this)
                 .load("")
                 .into(new ImageView(this));
+
+        new Thread() {
+            @Override
+            public void run() {
+
+                new LoaderTest()
+                        .test(GlideActivity.this);
+            }
+        }.start();
+
     }
 }

@@ -1,5 +1,6 @@
-package com.github.glide;
+package com.github.glide.memory;
 
+import com.github.glide.Key;
 import com.github.glide.resource.Resource;
 
 import java.lang.ref.ReferenceQueue;

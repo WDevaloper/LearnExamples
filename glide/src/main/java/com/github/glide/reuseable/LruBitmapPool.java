@@ -1,4 +1,4 @@
-package com.github.glide.resource;
+package com.github.glide.reuseable;
 
 import android.graphics.Bitmap;
 
@@ -29,6 +29,7 @@ public class LruBitmapPool extends LruCache<Integer, Bitmap> implements BitmapPo
     protected void entryRemoved(boolean evicted, @NonNull Integer key,
                                 @NonNull Bitmap oldValue, @Nullable Bitmap newValue) {
         super.entryRemoved(evicted, key, oldValue, newValue);
+        // 当我们用户主动put超过maxSize时，那么就需要Recycler调，即当lru主动移除，那么就需要Recycler掉
         map.remove(key);
         if (!isRemoved) {
             oldValue.recycle();

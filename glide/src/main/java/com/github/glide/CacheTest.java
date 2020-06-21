@@ -1,7 +1,10 @@
 package com.github.glide;
 
-import com.github.glide.resource.BitmapPool;
-import com.github.glide.resource.LruBitmapPool;
+import com.github.glide.memory.ActivieResource;
+import com.github.glide.memory.LruMemoryCache;
+import com.github.glide.memory.MemoryCache;
+import com.github.glide.reuseable.BitmapPool;
+import com.github.glide.reuseable.LruBitmapPool;
 import com.github.glide.resource.Resource;
 
 public class CacheTest implements Resource.ResourceListener, MemoryCache.ResourceRemoveListener {
@@ -28,7 +31,7 @@ public class CacheTest implements Resource.ResourceListener, MemoryCache.Resourc
         resource = lruMemoryCache.get(key);
         if (resource != null) {
             //从内存缓存中移除
-            lruMemoryCache.remove(key);
+            lruMemoryCache.removeToMemory(key);
             //加入活动缓存，当Bitmap被recycler，加入活动缓存，那么在使用的时候就会崩溃，这里是否使用加入对象池
             resource.acquire();
             activieResource.active(key, resource);
@@ -54,8 +57,6 @@ public class CacheTest implements Resource.ResourceListener, MemoryCache.Resourc
 
     /**
      * 从内存缓存被动移除   回调放入 复用池
-     *
-     * @param resource
      */
     @Override
     public void onResourceRemoved(Resource resource) {
