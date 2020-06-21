@@ -7,7 +7,7 @@ import com.github.glide.reuseable.BitmapPool;
 import com.github.glide.reuseable.LruBitmapPool;
 import com.github.glide.resource.Resource;
 
-//测试
+//测试test
 public class CacheTest implements Resource.ResourceListener, MemoryCache.ResourceRemoveListener {
 
     private Key key;
