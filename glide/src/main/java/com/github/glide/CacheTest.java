@@ -15,9 +15,10 @@ public class CacheTest implements Resource.ResourceListener, MemoryCache.Resourc
     private BitmapPool bitmapPool;
 
     public Resource test() {
-        bitmapPool = new LruBitmapPool(10);
+        int memory = (int) (Runtime.getRuntime().totalMemory() / 8);
+        bitmapPool = new LruBitmapPool(memory);
         activieResource = new ActivieResource(this);
-        lruMemoryCache = new LruMemoryCache(10);
+        lruMemoryCache = new LruMemoryCache(memory);
         lruMemoryCache.setResourceRemoveListener(this);
 
 

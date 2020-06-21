@@ -1,6 +1,8 @@
 package com.github.glide.reuseable;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +24,21 @@ public class LruBitmapPool extends LruCache<Integer, Bitmap> implements BitmapPo
 
     @Override
     protected int sizeOf(@NonNull Integer key, @NonNull Bitmap value) {
-        return value.getAllocationByteCount();
+        return getSize(value);
+    }
+
+
+    @SuppressLint("ObsoleteSdkInt")
+    public int getSize(Bitmap bitmap) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {//API 19
+            return bitmap.getAllocationByteCount();
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {//API 12
+            return bitmap.getByteCount();
+        }
+
+        return bitmap.getRowBytes() * bitmap.getHeight(); //earlier version
     }
 
     @Override
@@ -43,13 +59,17 @@ public class LruBitmapPool extends LruCache<Integer, Bitmap> implements BitmapPo
      */
     @Override
     public void put(Bitmap bitmap) {
+        if (bitmap.isRecycled()) {
+            throw new RuntimeException("Bitmap is Recycled");
+        }
+
         //isMutable 必须是true
         if (!bitmap.isMutable()) {
             bitmap.recycle();
             return;
         }
 
-        int size = bitmap.getAllocationByteCount();
+        int size = getSize(bitmap);
         if (size >= maxSize()) {
             bitmap.recycle();
             return;
