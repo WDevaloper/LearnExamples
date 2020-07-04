@@ -1,8 +1,5 @@
-package com.github.glide.load.model.data;
+package com.github.netloader.data;
 
-/**
- * 表示数据获取的方式
- */
 public interface DataFetcher<Data> {
     interface DataFetcherCallback<Data> {
         //数据加载完成

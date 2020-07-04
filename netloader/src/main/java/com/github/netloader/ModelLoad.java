@@ -1,29 +1,22 @@
-package com.github.glide.load.model;
+package com.github.netloader;
 
 import android.net.Uri;
 
-import com.github.glide.Key;
-import com.github.glide.load.model.data.DataFetcher;
+import com.github.netloader.data.DataFetcher;
+
 
 /**
- * 表示数据的来源
- *
  * @param <Model> 表示数据来源
  * @param <Data>  加载成功后数据类型（InputStream byte[] ）
  */
 public interface ModelLoad<Model, Data> {
 
     class LoadData<Data> {
-        /**
-         * 缓存的key
-         */
-        Key key;
 
 
         public DataFetcher<Data> fetcher;
 
-        public LoadData(Key key, DataFetcher<Data> dataFetcher) {
-            this.key = key;
+        public LoadData(DataFetcher<Data> dataFetcher) {
             this.fetcher = dataFetcher;
         }
     }

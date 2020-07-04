@@ -1,6 +1,6 @@
 package com.github.glide;
 
-import com.github.glide.memory.ActivieResource;
+import com.github.glide.memory.ActiveResource;
 import com.github.glide.memory.LruMemoryCache;
 import com.github.glide.memory.MemoryCache;
 import com.github.glide.reuseable.BitmapPool;
@@ -15,14 +15,14 @@ import com.github.glide.resource.Resource;
 public class CacheTest implements Resource.ResourceListener, MemoryCache.ResourceRemoveListener {
 
     private Key key;
-    private ActivieResource activieResource;
+    private ActiveResource activieResource;
     private LruMemoryCache lruMemoryCache;
     private BitmapPool bitmapPool;
 
     public Resource test() {
         int memory = (int) (Runtime.getRuntime().totalMemory() / 8);
         bitmapPool = new LruBitmapPool(memory);
-        activieResource = new ActivieResource(this);
+        activieResource = new ActiveResource(this);
         lruMemoryCache = new LruMemoryCache(memory);
         lruMemoryCache.setResourceRemoveListener(this);
 

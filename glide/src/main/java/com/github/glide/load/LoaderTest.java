@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Log;
 
+import com.github.glide.load.model.AssetsUruLoader;
+import com.github.glide.load.model.FileUriLoader;
 import com.github.glide.load.model.HttpUriLoader;
 import com.github.glide.load.model.ModelLoad;
 import com.github.glide.load.model.data.DataFetcher;
@@ -25,6 +27,36 @@ public class LoaderTest {
             public void onFetcherReady(InputStream inputStream) {
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 Log.e("tag", "" + bitmap.getConfig().name());
+            }
+
+            @Override
+            public void onLoadFailed(Exception e) {
+
+            }
+        });
+
+
+        FileUriLoader fileUriLoader = new FileUriLoader(context.getContentResolver());
+        ModelLoad.LoadData<InputStream> streamLoadData = fileUriLoader.buildData(uri);
+        streamLoadData.fetcher.loadData(new DataFetcher.DataFetcherCallback<InputStream>() {
+            @Override
+            public void onFetcherReady(InputStream inputStream) {
+
+            }
+
+            @Override
+            public void onLoadFailed(Exception e) {
+
+            }
+        });
+
+
+        AssetsUruLoader assetsUruLoader = new AssetsUruLoader(context.getAssets());
+        ModelLoad.LoadData<InputStream> assetsLoader = assetsUruLoader.buildData(uri);
+        assetsLoader.fetcher.loadData(new DataFetcher.DataFetcherCallback<InputStream>() {
+            @Override
+            public void onFetcherReady(InputStream inputStream) {
+
             }
 
             @Override
