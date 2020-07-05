@@ -1,1 +1,1 @@
-include ':app', ':AndroidEvent', ':usercenter', ':lifecycle-plugin', ':glide', ':netloader'
+include ':app', ':AndroidEvent', ':usercenter', ':lifecycle-plugin', ':glide', ':placeholder-pluginhost', ':netloader', ':placeholder-plugintstand', ':placeholder-plugintaopp'

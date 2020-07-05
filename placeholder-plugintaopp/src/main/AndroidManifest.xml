@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.plugintaopp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--这个Activity你必须放在第一个，如果你以插件的形式运行，那么在宿主app中，是通过拿到第一个Activity的资源-->
+        <activity android:name=".PlaceholderTaoMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--为什么需要注册？因为如果你不是以插件的形式运行就会保存-->
+        <activity android:name=".SecondActivity" />
+    </application>
+
+</manifest>
