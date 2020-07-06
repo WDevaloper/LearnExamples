@@ -22,5 +22,14 @@ public class PlaceholderTaoMainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+
+        findViewById(R.id.startServiceIn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PlaceholderService.class);
+                startService(intent);
+            }
+        });
     }
 }

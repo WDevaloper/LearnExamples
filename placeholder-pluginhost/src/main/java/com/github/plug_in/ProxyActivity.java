@@ -1,6 +1,7 @@
 package com.github.plug_in;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -91,5 +92,13 @@ public class ProxyActivity extends Activity {
         Intent newIntent = new Intent(this, ProxyActivity.class);
         newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, className);
         super.startActivity(newIntent);
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        String className = service.getStringExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME);
+        Intent newIntent = new Intent(this, ProxyService.class);
+        newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, className);
+        return super.startService(newIntent);
     }
 }

@@ -19,6 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="startPluginActivity"
-        android:text="启动插件" />
+        android:text="启动插件Activity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startPluginService"
+        android:text="启动插件Service" />
 
 </LinearLayout>

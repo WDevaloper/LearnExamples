@@ -2,6 +2,7 @@ package com.github.plugintaopp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -86,6 +87,8 @@ public class BaseActivity extends Activity implements ActivityInterface {
     }
 
     /**
+     * 插件内部启动Activity
+     * <p>
      * 你想想阿，因为插件本身就是没有运行环境，所以还是需要借助宿主的ProxyActivity完成Activity的入栈操作
      *
      * @param intent Intent
@@ -104,6 +107,22 @@ public class BaseActivity extends Activity implements ActivityInterface {
         super.startActivity(intent);
     }
 
+
+    /**
+     * 插件内部启动Service
+     *
+     * @param service Intent
+     * @return
+     */
+    @Override
+    public ComponentName startService(Intent service) {
+        if (proxyHostActivity != null) {
+            Intent newIntent = new Intent();
+            newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, service.getComponent().getClassName());
+            return proxyHostActivity.startService(newIntent);
+        }
+        return super.startService(service);
+    }
 
     public Context getActivity() {
         if (proxyHostActivity != null) {
