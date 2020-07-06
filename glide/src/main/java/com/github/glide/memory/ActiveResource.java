@@ -9,7 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class ActivieResource {
+
+/**
+ * 发生minor GC时，如果WeakReference引用的对象，位置在新生代，而且只有弱引用，没有其他引用，则会被回收。
+ * 发生major GC时，如果WeakReference引用的对象，只有弱引用，无论在新生代还是老年代，都会被回收。
+ */
+public class ActiveResource {
     private Map<Key, ResourceWeakReference> map = new HashMap<>();
 
 
@@ -18,7 +23,7 @@ public class ActivieResource {
     private Thread mCleanThreadReferenceQueue;
     private final Resource.ResourceListener resourceListener;
 
-    public ActivieResource(Resource.ResourceListener resourceListener) {
+    public ActiveResource(Resource.ResourceListener resourceListener) {
         this.resourceListener = resourceListener;
     }
 

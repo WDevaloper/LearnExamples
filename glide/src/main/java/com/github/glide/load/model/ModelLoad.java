@@ -6,6 +6,8 @@ import com.github.glide.Key;
 import com.github.glide.load.model.data.DataFetcher;
 
 /**
+ * 表示数据的来源
+ *
  * @param <Model> 表示数据来源
  * @param <Data>  加载成功后数据类型（InputStream byte[] ）
  */
