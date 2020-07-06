@@ -12,19 +12,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="loadPlugin"
-        android:text="加载插件" />
+        android:text="加载插件"
+        android:textAllCaps="false" />
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="startPluginActivity"
-        android:text="启动插件Activity" />
+        android:text="启动插件Activity"
+        android:textAllCaps="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="startPluginService"
-        android:text="启动插件Service" />
+        android:text="启动插件Service"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="registerReceiver"
+        android:text="注册插件Receiver"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendReceiver"
+        android:text="sendReceiver"
+        android:textAllCaps="false" />
 
 </LinearLayout>

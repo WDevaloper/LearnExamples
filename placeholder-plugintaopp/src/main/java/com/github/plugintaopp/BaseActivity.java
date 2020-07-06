@@ -2,9 +2,11 @@ package com.github.plugintaopp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -123,6 +125,25 @@ public class BaseActivity extends Activity implements ActivityInterface {
             return proxyHostActivity.startService(newIntent);
         }
         return super.startService(service);
+    }
+
+
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+        if (proxyHostActivity != null) {
+            return proxyHostActivity.registerReceiver(receiver, filter);
+        }
+        return super.registerReceiver(receiver, filter);
+    }
+
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        if (proxyHostActivity != null) {
+            proxyHostActivity.sendBroadcast(intent);
+            return;
+        }
+        super.sendBroadcast(intent);
     }
 
     public Context getActivity() {

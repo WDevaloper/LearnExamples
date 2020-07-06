@@ -40,7 +40,7 @@ public class PlaceholderHostActivity extends AppCompatActivity {
         File file = new File(Environment.getExternalStorageDirectory() + File.separator + "plugin.apk");
         //插件路径
         String pluginPath = file.getAbsolutePath();
-        Log.e("tag","pluginPath"+pluginPath);
+        Log.e("tag", "pluginPath" + pluginPath);
         PackageManager packageManager = getPackageManager();
         PackageInfo packageInfo = packageManager.getPackageArchiveInfo(pluginPath, PackageManager.GET_ACTIVITIES);
         ActivityInfo activityInfo = null;
@@ -81,5 +81,14 @@ public class PlaceholderHostActivity extends AppCompatActivity {
         //将插件中的Activity类的全路径传过去
         intent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, serviceInfo.name);
         startService(intent);
+    }
+
+
+    //todo Receiver
+    public void registerReceiver(View view) {
+    }
+
+    //todo Receiver
+    public void sendReceiver(View view) {
     }
 }
