@@ -64,8 +64,6 @@ public class PluginManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 
