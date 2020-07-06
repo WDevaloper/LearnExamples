@@ -1,1 +1,1 @@
-include ':app', ':AndroidEvent', ':usercenter', ':lifecycle-plugin', ':glide'
+include ':app', ':AndroidEvent', ':usercenter', ':lifecycle-plugin', ':glide', ':gradle_learn'
