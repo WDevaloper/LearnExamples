@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.github.plugintstand.ActivityInterface;
@@ -129,10 +130,5 @@ public class BaseActivity extends Activity implements ActivityInterface {
             return proxyHostActivity;
         }
         return this;
-    }
-
-    @Override
-    public Context getBaseContext() {
-        return super.getBaseContext();
     }
 }

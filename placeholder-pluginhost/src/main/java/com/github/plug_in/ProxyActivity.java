@@ -2,6 +2,7 @@ package com.github.plug_in;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -72,6 +73,12 @@ public class ProxyActivity extends Activity {
     public Resources getResources() {
         Log.e("tag", this + " Load Plugin Resources  For getResources");
         return PluginManager.getInstance().getResources();
+    }
+
+    @Override
+    public Context getBaseContext() {
+        Log.e("tag", "getBaseContext");
+        return super.getBaseContext();
     }
 
 

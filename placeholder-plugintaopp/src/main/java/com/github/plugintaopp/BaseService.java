@@ -33,13 +33,11 @@ public class BaseService extends Service implements ServiceInterface {
 
     @Override
     public void onCreate() {
-        super.onCreate();
     }
 
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
     }
 
 

@@ -51,12 +51,18 @@ public class PluginManager {
 
         /**
          * 加载layout资源
+         *
+         *
+         * AssetManager.createSystemAssetsInZygoteLocked()
          */
 
         try {
             AssetManager assetManager = AssetManager.class.newInstance();
             //把插件包添加进去
             Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
+            if (!addAssetPath.isAccessible()) {
+                addAssetPath.setAccessible(true);
+            }
             addAssetPath.invoke(assetManager, dexPath);
 
             //宿主的资源配置信息

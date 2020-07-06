@@ -3,6 +3,7 @@ package com.github.plug_in;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -24,12 +25,6 @@ public class ProxyService extends Service {
     public IBinder onBind(Intent intent) {
         return serviceInterface.onBind(intent);
     }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -59,6 +54,10 @@ public class ProxyService extends Service {
         return PluginManager.getInstance().getDexClassLoader();
     }
 
+    @Override
+    public Resources getResources() {
+        return PluginManager.getInstance().getResources();
+    }
 
     @Override
     public ComponentName startService(Intent service) {
