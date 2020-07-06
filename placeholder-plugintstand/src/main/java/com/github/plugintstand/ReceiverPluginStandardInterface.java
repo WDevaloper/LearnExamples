@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public interface ReceiverInterface {
+public interface ReceiverPluginStandardInterface {
     void injectHostEnvForPlugin(BroadcastReceiver receiver);
 
     void onReceive(Context context, Intent intent);

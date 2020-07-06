@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 
 
-public interface ServiceInterface {
+public interface ServicePluginStandardInterface {
 
 
     void injectHostEnvForPlugin(Service hostService);

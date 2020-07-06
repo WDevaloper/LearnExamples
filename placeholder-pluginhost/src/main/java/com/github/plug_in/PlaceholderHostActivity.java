@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.plugintstand.Constants;
+import com.github.plugintstand.PluginStandardConstants;
 
 import java.io.File;
 
@@ -57,7 +57,7 @@ public class PlaceholderHostActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ProxyActivity.class);
         //将插件中的Activity类的全路径传过去
-        intent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, activityInfo.name);
+        intent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, activityInfo.name);
         startActivity(intent);
     }
 
@@ -79,7 +79,7 @@ public class PlaceholderHostActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, ProxyService.class);
         //将插件中的Activity类的全路径传过去
-        intent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, serviceInfo.name);
+        intent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, serviceInfo.name);
         startService(intent);
     }
 

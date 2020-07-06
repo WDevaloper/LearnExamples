@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class PlaceholderTaoMainActivity extends BaseActivity {
+public class PlaceholderTaoMainActivity extends BasePluginActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

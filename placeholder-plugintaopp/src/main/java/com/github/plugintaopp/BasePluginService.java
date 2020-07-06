@@ -9,10 +9,10 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.github.plugintstand.Constants;
-import com.github.plugintstand.ServiceInterface;
+import com.github.plugintstand.PluginStandardConstants;
+import com.github.plugintstand.ServicePluginStandardInterface;
 
-public class BaseService extends Service implements ServiceInterface {
+public class BasePluginService extends Service implements ServicePluginStandardInterface {
     //宿主环境
     private Service hostService;
 
@@ -46,9 +46,9 @@ public class BaseService extends Service implements ServiceInterface {
     @Override
     public ComponentName startService(Intent service) {
         if (hostService != null) {
-            String className = service.getStringExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME);
+            String className = service.getStringExtra(PluginStandardConstants.PLUGIN_CLASS_NAME);
             Intent newIntent = new Intent();
-            newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, className);
+            newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, className);
             return hostService.startService(newIntent);
         }
         return super.startService(service);
@@ -68,7 +68,7 @@ public class BaseService extends Service implements ServiceInterface {
     public void sendBroadcast(Intent intent) {
         if (hostService != null) {
             Intent newIntent = new Intent();
-            newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, intent.getComponent().getClassName());
+            newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, intent.getComponent().getClassName());
             hostService.sendBroadcast(newIntent);
             return;
         }

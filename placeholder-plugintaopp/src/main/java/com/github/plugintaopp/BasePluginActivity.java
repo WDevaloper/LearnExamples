@@ -8,13 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import com.github.plugintstand.ActivityInterface;
-import com.github.plugintstand.Constants;
+import com.github.plugintstand.ActivityPluginStandardInterface;
+import com.github.plugintstand.PluginStandardConstants;
 
-public class BaseActivity extends Activity implements ActivityInterface {
+public class BasePluginActivity extends Activity implements ActivityPluginStandardInterface {
     protected Activity proxyHostActivity;//宿主环境
 
 
@@ -102,7 +101,7 @@ public class BaseActivity extends Activity implements ActivityInterface {
             //处理作为插件的逻辑
             //重新构造Intent，是为了传入className，提供给给宿主的ProxyActivity使用的
             Intent newIntent = new Intent();
-            newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, intent.getComponent().getClassName());
+            newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, intent.getComponent().getClassName());
             //又得重写ProxyActivity去接收数据并启动自己
             proxyHostActivity.startActivity(newIntent);
             return;
@@ -121,7 +120,7 @@ public class BaseActivity extends Activity implements ActivityInterface {
     public ComponentName startService(Intent service) {
         if (proxyHostActivity != null) {
             Intent newIntent = new Intent();
-            newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, service.getComponent().getClassName());
+            newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, service.getComponent().getClassName());
             return proxyHostActivity.startService(newIntent);
         }
         return super.startService(service);

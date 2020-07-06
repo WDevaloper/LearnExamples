@@ -4,9 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.github.plugintstand.ReceiverInterface;
+import com.github.plugintstand.ReceiverPluginStandardInterface;
 
-public abstract class BaseReceiver extends BroadcastReceiver implements ReceiverInterface {
+public abstract class BasePluginReceiver extends BroadcastReceiver implements ReceiverPluginStandardInterface {
     private BroadcastReceiver receiver;
 
     @Override

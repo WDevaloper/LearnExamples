@@ -3,7 +3,7 @@ package com.github.plugintaopp;
 import android.content.Intent;
 import android.util.Log;
 
-public class PlaceholderService extends BaseService {
+public class PlaceholderService extends BasePluginService {
 
     private String TAG = PlaceholderService.class.getSimpleName();
 

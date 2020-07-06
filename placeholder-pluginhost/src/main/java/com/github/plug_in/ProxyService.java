@@ -5,16 +5,15 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.IBinder;
-import android.util.Log;
 
-import com.github.plugintstand.Constants;
-import com.github.plugintstand.ServiceInterface;
+import com.github.plugintstand.PluginStandardConstants;
+import com.github.plugintstand.ServicePluginStandardInterface;
 
 import java.lang.reflect.Constructor;
 
 public class ProxyService extends Service {
 
-    private ServiceInterface serviceInterface;
+    private ServicePluginStandardInterface serviceInterface;
 
     @Override
     public boolean onUnbind(Intent intent) {
@@ -29,11 +28,11 @@ public class ProxyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {
-            String className = intent.getStringExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME);
+            String className = intent.getStringExtra(PluginStandardConstants.PLUGIN_CLASS_NAME);
             Class<?> aPluginServiceClass = getClassLoader().loadClass(className);
             Constructor<?> aConstructor = aPluginServiceClass.getConstructor(new Class[]{});
             Object instance = aConstructor.newInstance();
-            serviceInterface = (ServiceInterface) instance;
+            serviceInterface = (ServicePluginStandardInterface) instance;
             serviceInterface.injectHostEnvForPlugin(this);
             serviceInterface.onCreate();
         } catch (Exception e) {
@@ -61,9 +60,9 @@ public class ProxyService extends Service {
 
     @Override
     public ComponentName startService(Intent service) {
-        String className = service.getStringExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME);
+        String className = service.getStringExtra(PluginStandardConstants.PLUGIN_CLASS_NAME);
         Intent newIntent = new Intent();
-        newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, className);
+        newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, className);
         return super.startService(newIntent);
     }
 }
