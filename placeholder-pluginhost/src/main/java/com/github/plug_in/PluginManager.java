@@ -78,11 +78,11 @@ public class PluginManager {
     }
 
 
-    public DexClassLoader getDexClassLoader() {
+    DexClassLoader getDexClassLoader() {
         return dexClassLoader;
     }
 
-    public Resources getResources() {
+    Resources getResources() {
         return resources;
     }
 }

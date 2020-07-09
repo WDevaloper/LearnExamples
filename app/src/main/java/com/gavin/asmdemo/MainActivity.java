@@ -127,6 +127,7 @@ public class MainActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessage(String msg) {
-
+        // LauncherActivity ------> Activity启动过程
+        startActivity(new Intent());
     }
 }
