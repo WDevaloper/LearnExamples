@@ -2,7 +2,7 @@ package com.github.plugintaopp;
 
 import android.os.Bundle;
 
-public class SecondActivity extends BaseActivity {
+public class SecondActivity extends BasePluginActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

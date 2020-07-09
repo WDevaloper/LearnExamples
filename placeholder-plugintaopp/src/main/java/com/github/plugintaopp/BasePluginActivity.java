@@ -2,15 +2,18 @@ package com.github.plugintaopp;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 
-import com.github.plugintstand.ActivityInterface;
-import com.github.plugintstand.Constants;
+import com.github.plugintstand.ActivityPluginStandardInterface;
+import com.github.plugintstand.PluginStandardConstants;
 
-public class BaseActivity extends Activity implements ActivityInterface {
+public class BasePluginActivity extends Activity implements ActivityPluginStandardInterface {
     protected Activity proxyHostActivity;//宿主环境
 
 
@@ -86,6 +89,8 @@ public class BaseActivity extends Activity implements ActivityInterface {
     }
 
     /**
+     * 插件内部启动Activity
+     * <p>
      * 你想想阿，因为插件本身就是没有运行环境，所以还是需要借助宿主的ProxyActivity完成Activity的入栈操作
      *
      * @param intent Intent
@@ -96,7 +101,7 @@ public class BaseActivity extends Activity implements ActivityInterface {
             //处理作为插件的逻辑
             //重新构造Intent，是为了传入className，提供给给宿主的ProxyActivity使用的
             Intent newIntent = new Intent();
-            newIntent.putExtra(Constants.PLUGIN_ACTIVITY_CLASS_NAME, intent.getComponent().getClassName());
+            newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, intent.getComponent().getClassName());
             //又得重写ProxyActivity去接收数据并启动自己
             proxyHostActivity.startActivity(newIntent);
             return;
@@ -105,15 +110,45 @@ public class BaseActivity extends Activity implements ActivityInterface {
     }
 
 
+    /**
+     * 插件内部启动Service
+     *
+     * @param service Intent
+     * @return
+     */
+    @Override
+    public ComponentName startService(Intent service) {
+        if (proxyHostActivity != null) {
+            Intent newIntent = new Intent();
+            newIntent.putExtra(PluginStandardConstants.PLUGIN_CLASS_NAME, service.getComponent().getClassName());
+            return proxyHostActivity.startService(newIntent);
+        }
+        return super.startService(service);
+    }
+
+
+    @Override
+    public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) {
+        if (proxyHostActivity != null) {
+            return proxyHostActivity.registerReceiver(receiver, filter);
+        }
+        return super.registerReceiver(receiver, filter);
+    }
+
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        if (proxyHostActivity != null) {
+            proxyHostActivity.sendBroadcast(intent);
+            return;
+        }
+        super.sendBroadcast(intent);
+    }
+
     public Context getActivity() {
         if (proxyHostActivity != null) {
             return proxyHostActivity;
         }
         return this;
-    }
-
-    @Override
-    public Context getBaseContext() {
-        return super.getBaseContext();
     }
 }

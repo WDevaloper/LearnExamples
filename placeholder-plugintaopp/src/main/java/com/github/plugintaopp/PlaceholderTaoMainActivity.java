@@ -2,11 +2,12 @@ package com.github.plugintaopp;
 
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class PlaceholderTaoMainActivity extends BaseActivity {
+public class PlaceholderTaoMainActivity extends BasePluginActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,33 @@ public class PlaceholderTaoMainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SecondActivity.class);
                 startActivity(intent);
+            }
+        });
+
+
+        findViewById(R.id.startServiceIn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PlaceholderService.class);
+                startService(intent);
+            }
+        });
+
+
+        findViewById(R.id.registerReceiver).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("com.plugin.receiver");
+                registerReceiver(new PlaceholderReceiver(), intentFilter);
+            }
+        });
+
+        findViewById(R.id.sendReceiver).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.plugin.receiver");
+                sendBroadcast(intent);
             }
         });
     }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 /**
  * 占位式插件标准
  */
-public interface ActivityInterface {
+public interface ActivityPluginStandardInterface {
 
     /**
      * 把宿主环境注入到插件中

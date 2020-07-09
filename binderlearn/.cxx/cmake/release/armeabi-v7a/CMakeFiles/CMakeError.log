@@ -1,0 +1,9 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/.cxx/cmake/release/armeabi-v7a/CMakeFiles/CMakeTmp
+
+Run Build Command:"E:\Users\wfy\AppData\Local\Android\sdk\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_233f1"
+ninja: error: loading 'build.ninja': 系统找不到指定的文件。
+
+
+
+

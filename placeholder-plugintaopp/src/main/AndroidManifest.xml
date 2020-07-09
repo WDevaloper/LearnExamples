@@ -21,6 +21,7 @@
 
         <!--为什么需要注册？因为如果你不是以插件的形式运行就会保存-->
         <activity android:name=".SecondActivity" />
+        <service android:name=".PlaceholderService" />
     </application>
 
 </manifest>
