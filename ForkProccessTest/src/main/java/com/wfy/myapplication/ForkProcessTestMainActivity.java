@@ -40,9 +40,9 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
             public void run() {
                 try {
                     //子进程拥有父进程当前运行到的位置
-                    fork();
+                    int forkId = fork();
                     //让线程先不结束
-                    Log.e("tag", "结束了," + Process.myPid());
+                    Log.e("tag", forkId + ",结束了," + Process.myPid());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
