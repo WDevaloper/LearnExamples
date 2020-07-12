@@ -1,0 +1,72 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples",
+      "sdkFolder": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\build\\intermediates",
+      "gradleModulePathName": ":ForkProccessTest",
+      "moduleRootFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest",
+      "makeFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\src\\main\\cpp\\CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\.cxx",
+      "cxxFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx",
+      "ndkFolder": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462",
+      "ndkVersion": "21.1.6352462",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [
+      ""
+    ],
+    "variantName": "release",
+    "soFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\build\\intermediates\\cmake\\release\\lib",
+    "objFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\build\\intermediates\\cmake\\release\\obj",
+    "jsonFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release",
+    "gradleBuildOutputFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARMEABI_V7A",
+  "abiPlatformVersion": 21,
+  "cxxBuildFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a",
+  "jsonFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a\\android_gradle_build.json",
+  "gradleBuildOutputFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a",
+  "objFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a",
+  "buildCommandFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a\\build_command.txt",
+  "buildOutputFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a\\build_output.txt",
+  "modelOutputFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a\\build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\CMakeLists.txt",
+    "toolchainWrapperFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\build_generation_state.json",
+    "cacheKeyFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\compiler_cache_key.json",
+    "compilerCacheUseFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\compiler_cache_use.json",
+    "compilerCacheWriteFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cxx\\release\\armeabi-v7a\\compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a\\json_generation_record.json",
+  "compileCommandsJsonFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\ForkProccessTest\\.cxx\\cmake\\release\\armeabi-v7a\\compile_commands.json"
+}

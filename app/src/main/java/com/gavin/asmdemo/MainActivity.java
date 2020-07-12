@@ -129,6 +129,7 @@ public class MainActivity extends BaseActivity {
     public void onMessage(String msg) {
         //如果你不是系统应用，也就是你从LauncherActivity启动的App，那么就是没有开启进程
         //那么会通过Zygote创建进程，进而反射调用ActivityThread的main函数，从而开始我们熟悉的ActivityThread的启动流程了
+        // LauncherActivity ------> Activity启动过程
         startActivity(new Intent());
     }
 }
