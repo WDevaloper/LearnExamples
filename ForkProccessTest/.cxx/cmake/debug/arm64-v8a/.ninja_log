@@ -1,9 +1,0 @@
-# ninja log v5
-20	127	0	clean	af664f06f016d3c4
-1	1541	616002319	CMakeFiles/native-lib.dir/native-lib.cpp.o	e16b7b4464e79cdc
-1543	1832	616002319	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f4b975116d41742d
-114	1704	616094543	CMakeFiles/native-lib.dir/native-lib.cpp.o	e16b7b4464e79cdc
-1704	2468	616094544	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f4b975116d41742d
-42	1942	616152333	CMakeFiles/native-lib.dir/native-lib.cpp.o	e16b7b4464e79cdc
-1943	3130	616152334	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f4b975116d41742d
-0	134	0	clean	af664f06f016d3c4

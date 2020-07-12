@@ -1,3 +1,0 @@
-E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/.cxx/cmake/release/arm64-v8a/CMakeFiles/native-lib.dir
-E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/.cxx/cmake/release/arm64-v8a/CMakeFiles/edit_cache.dir
-E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/.cxx/cmake/release/arm64-v8a/CMakeFiles/rebuild_cache.dir

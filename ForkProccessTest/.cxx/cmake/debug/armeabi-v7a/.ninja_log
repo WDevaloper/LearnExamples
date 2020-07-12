@@ -1,13 +1,1 @@
 # ninja log v5
-6	140	0	clean	af664f06f016d3c4
-1	1096	616002320	CMakeFiles/native-lib.dir/native-lib.cpp.o	8a603d15f6dd614d
-1097	1390	616002320	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	ba189a0b49c22ba4
-6	1212	616008305	CMakeFiles/native-lib.dir/native-lib.cpp.o	8a603d15f6dd614d
-1212	1544	616008305	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	ba189a0b49c22ba4
-4	1113	616009030	CMakeFiles/native-lib.dir/native-lib.cpp.o	8a603d15f6dd614d
-1114	1327	616009030	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	ba189a0b49c22ba4
-4	2303	616094538	CMakeFiles/native-lib.dir/native-lib.cpp.o	8a603d15f6dd614d
-2304	5442	616094541	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	ba189a0b49c22ba4
-157	2016	616152336	CMakeFiles/native-lib.dir/native-lib.cpp.o	8a603d15f6dd614d
-2016	3158	616152337	E:/AndroidStudioprojects/youbesun/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	ba189a0b49c22ba4
-1	89	0	clean	af664f06f016d3c4

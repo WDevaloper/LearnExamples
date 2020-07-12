@@ -36,15 +36,12 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fork_proccess_test_main);
 
-
         int mainP = Process.myPid();
         Log.e("tag", "主进程----> " + mainP);
         //子进程拥有父进程当前运行到的位置
         int forkId = fork();
         Log.e("tag", "forkId: " + forkId + "   当前进程Id：" + Process.myPid() + " ----->" + "fork结束了");
         Log.e("tag", "mainP: " + mainP);
-
-
 
     }
 
