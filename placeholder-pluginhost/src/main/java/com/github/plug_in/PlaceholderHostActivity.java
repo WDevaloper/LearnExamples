@@ -91,5 +91,8 @@ public class PlaceholderHostActivity extends AppCompatActivity {
     public void sendStaticReceiver(View view) {
         Intent intent = new Intent("ACTION.StaticReceiver");
         sendBroadcast(intent);
+
+        Intent intent2 = new Intent("ACTION.Static.Receiver");
+        sendBroadcast(intent2);
     }
 }

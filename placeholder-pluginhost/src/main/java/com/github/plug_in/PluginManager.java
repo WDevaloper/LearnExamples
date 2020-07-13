@@ -94,6 +94,8 @@ public class PluginManager {
         return resources;
     }
 
+    static final int SCAN_BOOTING = 1 << 4;
+    static final int SCAN_INITIAL = 1 << 9;
 
     /**
      * 反射系统源码 来解析apk文件所有的信息
@@ -112,7 +114,7 @@ public class PluginManager {
             // 加载Package类对内存
             Class<?> mPackageClass = Class.forName("android.content.pm.PackageParser$Package");
             // 调用PackageParser对象的parsePackage去解析apk信息，并返回Package对象
-            Object mPackage = mParsePackageMethod.invoke(mPackageParse, apkFilePath, PackageManager.GET_ACTIVITIES, false);
+            Object mPackage = mParsePackageMethod.invoke(mPackageParse, apkFilePath, SCAN_BOOTING | SCAN_INITIAL, true);
 
             // 获取Package中receivers成员变量   android.content.pm.PackageParser$Package.receivers
             // public final ArrayList<Activity> receivers = new ArrayList<Activity>(0);
