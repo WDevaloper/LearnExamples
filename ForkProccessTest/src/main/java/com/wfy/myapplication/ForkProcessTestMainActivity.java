@@ -1,12 +1,11 @@
 package com.wfy.myapplication;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Process;
 import android.util.Log;
+
 
 
 /**
@@ -42,7 +41,6 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
         int forkId = fork();
         Log.e("tag", "forkId: " + forkId + "   当前进程Id：" + Process.myPid() + " ----->" + "fork结束了");
         Log.e("tag", "mainP: " + mainP);
-
     }
 
     static {
@@ -51,11 +49,5 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
 
     public native int fork();
 
-    public native void mmapTest(String path);
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+    public native int mmapTest(String buffer_path_);
 }

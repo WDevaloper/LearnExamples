@@ -28,6 +28,7 @@ public class PluginManager {
     private DexClassLoader dexClassLoader;
     private Resources resources;
 
+
     static PluginManager getInstance() {
         return ourInstance;
     }
@@ -93,6 +94,9 @@ public class PluginManager {
         return resources;
     }
 
+    static final int SCAN_BOOTING = 1 << 4;
+    static final int SCAN_INITIAL = 1 << 9;
+
     /**
      * 反射系统源码 来解析apk文件所有的信息
      *
@@ -101,32 +105,29 @@ public class PluginManager {
     @SuppressLint("PrivateApi")
     public void loadReceiverForPlugin(Context context, File apkFilePath) {
         try {
-            //执行PackageParse.parsePackage方法解析apk信息
-            Class<?> packageParseClass = Class.forName("android.content.pm.PackageParser");
+            // 加载 PackageParser
+            Class<?> mPackageParseClass = Class.forName("android.content.pm.PackageParser");
             // 实例化执行PackageParse对象
-            Object packageParse = packageParseClass.newInstance();
-            //调用PackageParser对象的parsePackage去解析apk信息
-            Method parsePackageMethod = packageParseClass.getMethod("parsePackage",
-                    File.class, int.class, boolean.class);
-
-            //加载Package类对内存
+            Object mPackageParse = mPackageParseClass.newInstance();
+            // 获取 PackageParser 的 parsePackage 方法
+            Method mParsePackageMethod = mPackageParseClass.getMethod("parsePackage", File.class, int.class, boolean.class);
+            // 加载Package类对内存
             Class<?> mPackageClass = Class.forName("android.content.pm.PackageParser$Package");
-            //拿到Package对象
-            Object mPackage =
-                    parsePackageMethod.invoke(packageParse, apkFilePath, PackageManager.GET_ACTIVITIES, false);
+            // 调用PackageParser对象的parsePackage去解析apk信息，并返回Package对象
+            Object mPackage = mParsePackageMethod.invoke(mPackageParse, apkFilePath, SCAN_BOOTING | SCAN_INITIAL, true);
 
-            //获取Package中receivers filed   android.content.pm.PackageParser$Package.receivers
+            // 获取Package中receivers成员变量   android.content.pm.PackageParser$Package.receivers
+            // public final ArrayList<Activity> receivers = new ArrayList<Activity>(0);
             Field receiversFiled = mPackageClass.getDeclaredField("receivers");
-            //  public final ArrayList<Activity> receivers = new ArrayList<Activity>(0);
-            // android.content.pm.PackageParser.Activity
+            // ArrayList<android.content.pm.PackageParser.Activity>
             ArrayList receivers = (ArrayList) receiversFiled.get(mPackage);
 
             Class<?> componentClass = Class.forName("android.content.pm.PackageParser$Component");
 
             Class<?> mPackageUserStateClass = Class.forName("android.content.pm.PackageUserState");
 
-            Class<?> mUserHandlerClass = Class.forName("android.os.UserHandle");
-            Method getCallingUserIdMethod = mUserHandlerClass.getMethod("getCallingUserId", null);
+            Method getCallingUserIdMethod = getMethodUserHandler();
+
             for (Object activity : receivers) {
                 // 获取intent filter intents == intent-filter
                 // android.content.pm.PackageParser$Component.intents
@@ -138,7 +139,7 @@ public class PluginManager {
 
 
                     // generateActivityInfo(Activity a, int flags,PackageUserState state, int userId)
-                    Method generateActivityInfoMethod = packageParseClass.getMethod(
+                    Method generateActivityInfoMethod = mPackageParseClass.getMethod(
                             "generateActivityInfo", activity.getClass(),
                             int.class, mPackageUserStateClass, int.class);
 
@@ -156,5 +157,10 @@ public class PluginManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static Method getMethodUserHandler() throws ClassNotFoundException, NoSuchMethodException {
+        Class<?> mUserHandlerClass = Class.forName("android.os.UserHandle");
+        return mUserHandlerClass.getMethod("getCallingUserId", null);
     }
 }

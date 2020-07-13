@@ -1,5 +1,5 @@
 #include <jni.h>
-#include <string>
+#include <string.h>
 #include <android/log.h>
 #include <iostream>
 #include <sys/mman.h>
@@ -9,6 +9,12 @@
 #include <string>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <strings.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <string>
 
 
 using namespace std;
@@ -42,10 +48,13 @@ Java_com_wfy_myapplication_ForkProcessTestMainActivity_fork(JNIEnv *env, jobject
     if (pid == -1) return -1;//失败
 
     if (pid) {
-        LOGE("%s%d", "父进程,native pid = ", getpid());
+        LOGE("%d%s%d", pid, "  父进程,native pid = ", getpid());
     } else {
-        setprogname("com.fork.pronative");
-        LOGE("%s%d", "子进程 native pid = ", getpid());
+        const char *new_name = "mytest";
+//        setprogname(new_name);
+        //字符串包括结尾符号\0不能超过16，而且这个只是改了proc/pid/stat/\status中的字符串
+        LOGE("%d%s%d", pid, "  子进程 native pid = ", getpid());
+        LOGE("%s%d%s", "pid=", pid, getprogname())
     }
     return pid;
 }
@@ -64,6 +73,13 @@ Java_com_wfy_myapplication_ForkProcessTestMainActivity_fork(JNIEnv *env, jobject
 // Binder 机制是如何跨进程的？
 
 
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
+
 int8_t *m_prt;
 int32_t m_size;
 int m_fd;
@@ -74,8 +90,8 @@ Java_com_wfy_myapplication_ForkProcessTestMainActivity_mmapTest(JNIEnv *env, job
                                                                 jstring buffer_path_) {
     string file = "/sdcard/a.txt";
 
+    m_fd = open(file.c_str(), O_CREAT | O_RDWR, 0666);
 
-    m_fd = open(file.c_str(), O_RDWR | S_IRWXU);
     m_size = getpagesize();
 
     ftruncate(m_fd, m_size);

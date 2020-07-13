@@ -34,14 +34,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="registerReceiver"
+        android:onClick="registerStaticReceiver"
         android:text="注册插件Receiver"
         android:textAllCaps="false" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sendReceiver"
+        android:onClick="sendStaticReceiver"
         android:text="sendReceiver"
         android:textAllCaps="false" />
 
