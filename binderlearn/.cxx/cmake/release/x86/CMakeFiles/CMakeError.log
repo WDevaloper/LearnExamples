@@ -1,8 +1,0 @@
-Determining if the C compiler works failed with the following output:
-Change Dir: E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/.cxx/cmake/release/x86/CMakeFiles/CMakeTmp
-
-Run Build Command:"E:\Users\wfy\AppData\Local\Android\sdk\cmake\3.10.2.4988404\bin\ninja.exe" "cmTC_70e15"
-ninja: error: loading 'build.ninja': 系统找不到指定的文件。
-
-
-
