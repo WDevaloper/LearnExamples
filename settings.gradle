@@ -1,2 +1,3 @@
-include ':app', ':AndroidEvent', ':usercenter', ':lifecycle-plugin', ':glide', ':placeholder-pluginhost', ':netloader', ':placeholder-plugintstand', ':placeholder-plugintaopp', ':ForkProccessTest'
+include ':app', ':AndroidEvent', ':usercenter', ':lifecycle-plugin', ':glide', ':placeholder-pluginhost', ':netloader', ':placeholder-plugintstand', ':placeholder-plugintaopp', ':ForkProccessTest', ':systemsource'
 include ':gradle_learn'
+include ':binderlearn'

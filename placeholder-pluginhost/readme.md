@@ -36,3 +36,13 @@ Java虚拟机加载的是class文件，而Android虚拟机加载的是dex文件�
 
 1、定制标准；
 2、加载插件（Activity class，layout）
+
+#### 静态注册的广播是什么时候注册的？
+1、手机开机的时候，系统会扫描所有的已安装Apk，然后去解析Manifest文件 解析出来静态广播Receiver后就会自动注册；
+
+2、我们去分析 安装
+/data/app... apk安装的时候回拷贝apk到该目录中；
+/data/data/包名  应用所属目录
+/data/dalvik-cache 虚拟机去加载执行指令
+
+3、分析/data/app目录

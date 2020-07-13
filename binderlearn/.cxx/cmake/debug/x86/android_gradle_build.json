@@ -1,0 +1,42 @@
+{
+  "stringTable": {
+    "0": "E:/developer/project/LearnExamples/binderlearn/.cxx/cmake/debug/x86",
+    "1": "--target=i686-none-linux-android21 --gcc-toolchain=E:/developer/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=E:/developer/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+  },
+  "buildFiles": [
+    "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake",
+    "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" clean"
+  ],
+  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native-lib-Debug-x86": {
+      "buildCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" native-lib",
+      "buildType": "debug",
+      "toolchain": "3709876781",
+      "abi": "x86",
+      "artifactName": "native-lib",
+      "files": [
+        {
+          "src": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\native-lib.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "E:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so"
+    }
+  },
+  "toolchains": {
+    "3709876781": {
+      "cppCompilerExecutable": "E:\\developer\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

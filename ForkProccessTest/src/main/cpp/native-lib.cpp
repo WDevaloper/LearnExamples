@@ -1,9 +1,17 @@
 #include <jni.h>
 #include <string>
+#include <android/log.h>
+#include <iostream>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <iostream>
+#include <string>
+#include <stdlib.h>
 #include <unistd.h>
 
 
-#include <android/log.h>
+using namespace std;
 
 #define LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,"tag",FORMAT,##__VA_ARGS__);
 
@@ -40,7 +48,42 @@ Java_com_wfy_myapplication_ForkProcessTestMainActivity_fork(JNIEnv *env, jobject
 //        setprogname(new_name);
         //字符串包括结尾符号\0不能超过16，而且这个只是改了proc/pid/stat/\status中的字符串
         LOGE("%d%s%d", pid, "  子进程 native pid = ", getpid());
-        LOGE("%s%d%s", "pid=",pid,getprogname())
+        LOGE("%s%d%s", "pid=", pid, getprogname())
     }
     return pid;
+}
+
+
+
+// Binder是什么？
+//机制：binder是一种进程间通信机制
+//驱动：Binder是一个虚拟物理设备驱动
+//应用层：Binder是一个能发起通信的类
+//Framework/native: Binder连接了client、service、service manager和Binder驱动程序，形成一套C/S的通信架构
+
+// Binder 是如何做到一次拷贝的？
+
+
+// Binder 机制是如何跨进程的？
+
+
+int8_t *m_prt;
+int32_t m_size;
+int m_fd;
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_wfy_myapplication_ForkProcessTestMainActivity_mmapTest(JNIEnv *env, jobject thiz,
+                                                                jstring buffer_path_) {
+    string file = "/sdcard/a.txt";
+
+    m_fd = open(file.c_str(), O_RDWR | S_IRWXU);
+    m_size = getpagesize();
+
+    ftruncate(m_fd, m_size);
+
+    m_prt = static_cast<int8_t *>(mmap(0, m_size, PROT_READ | PROT_WRITE, MAP_SHARED, m_fd, 0));
+
+
+    string data("sddsdssdf");
 }

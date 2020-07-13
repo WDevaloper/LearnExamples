@@ -1,5 +1,6 @@
 package com.wfy.myapplication;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityManager;
@@ -38,11 +39,12 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fork_proccess_test_main);
 
-        Log.e("tag", "主进程java pid: " + Process.myPid());
+        int mainP = Process.myPid();
+        Log.e("tag", "主进程----> " + mainP);
         //子进程拥有父进程当前运行到的位置
         int forkId = fork();
-        //让线程先不结束
-        Log.e("tag", forkId + ",结束了," + Process.myPid());
+        Log.e("tag", "forkId: " + forkId + "   当前进程Id：" + Process.myPid() + " ----->" + "fork结束了");
+        Log.e("tag", "mainP: " + mainP);
 
         String processName = getProcessName(ForkProcessTestMainActivity.this);
         Log.e("tag", "processName= " + processName);

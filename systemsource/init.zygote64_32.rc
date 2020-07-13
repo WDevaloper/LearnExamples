@@ -1,0 +1,48 @@
+// service 是 linux 启动进程的命令
+// service 是 init 加载的和是退出重启的（可选）程序。
+
+services:
+
+services（服务）是一个程序，以 service开头，由init进程启动，
+一般运行于另外一个init的子进程，所以启动service前需要判断对应的可执行文件是否存在。
+init生成的子进程，定义在rc文件，其中每一个service，在启动时会通过fork方式生成子进程。Services（服务）的形式如下：
+
+service <name> <pathname> [ <argument> ]* <option> <option>
+
+name:服务名
+pathname:当前服务对应的程序位置
+option：当前服务设置的选项
+argument 可选参数
+
+//  /system/core/rootdir/init.zygote64_32.rc
+
+service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote
+    class main
+    priority -20 // 优先级
+    user root    // 系统用户
+    group root readproc reserved_disk
+    socket zygote stream 660 root system // 660 权限 只有拥有者有读写权限；而属组用户和其他用户只有读权限。
+    socket usap_pool_primary stream 660 root system
+    onrestart write /sys/power/state on
+    onrestart restart audioserver  // 重启音频服务
+    onrestart restart cameraserver // 重启摄像头服务
+    onrestart restart media // 重启媒体服务
+    onrestart restart netd  // 重启网络服务
+    onrestart restart wificond  // 重启wifi服务
+    writepid /dev/cpuset/foreground/tasks // 创建子进程时，向 /dev/cpuset/foreground/tasks 写入pid
+
+
+service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary --enable-lazy-preload
+    class main
+    priority -20
+    user root
+    group root readproc reserved_disk
+    socket zygote_secondary stream 660 root system
+    socket usap_pool_secondary stream 660 root system
+    onrestart restart zygote
+    writepid /dev/cpuset/foreground/tasks
+
+通过service命令创建zygote进程，zygote进程对应的路径为system/bin/app_process，
+启动的入口即是class main所指的main函数，而app_process对应的代码定义在app_main.cpp中,
+而-Xzygote /system/bin --zygote --start-system-server --socket-name=zygote 这些是main函数的参数
+

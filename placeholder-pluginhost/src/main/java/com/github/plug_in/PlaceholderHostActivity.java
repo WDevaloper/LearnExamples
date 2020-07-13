@@ -83,12 +83,13 @@ public class PlaceholderHostActivity extends AppCompatActivity {
         startService(intent);
     }
 
-
-    //todo Receiver
-    public void registerReceiver(View view) {
+    public void registerStaticReceiver(View view) {
+        File file = new File(Environment.getExternalStorageDirectory() + File.separator + "plugin.apk");
+        PluginManager.getInstance().loadReceiverForPlugin(this, file);
     }
 
-    //todo Receiver
-    public void sendReceiver(View view) {
+    public void sendStaticReceiver(View view) {
+        Intent intent = new Intent("ACTION.StaticReceiver");
+        sendBroadcast(intent);
     }
 }
