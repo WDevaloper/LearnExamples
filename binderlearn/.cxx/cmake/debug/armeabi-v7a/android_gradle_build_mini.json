@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake",
-    "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt"
+    "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake",
+    "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt"
   ],
   "cleanCommands": [
-    "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\" clean"
+    "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\" clean"
   ],
-  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Debug-armeabi-v7a": {
       "artifactName": "native-lib",
-      "buildCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\" native-lib",
+      "buildCommand": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\" native-lib",
       "abi": "armeabi-v7a",
-      "output": "E:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libnative-lib.so"
+      "output": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a\\libnative-lib.so"
     }
   }
 }

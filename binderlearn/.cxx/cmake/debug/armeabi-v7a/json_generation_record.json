@@ -9,7 +9,7 @@
   },
   {
     "level": "INFO",
-    "message": "- CMake found in SDK at \u0027E:\\developer\\sdk\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027"
+    "message": "- CMake found in SDK at \u0027E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027"
   },
   {
     "level": "INFO",
@@ -17,7 +17,7 @@
   },
   {
     "level": "INFO",
-    "message": "JSON \u0027E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\\android_gradle_build.json\u0027 was up-to-date"
+    "message": "JSON \u0027E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\armeabi-v7a\\android_gradle_build.json\u0027 was up-to-date"
   },
   {
     "level": "INFO",
