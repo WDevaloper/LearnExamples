@@ -2,9 +2,13 @@ package com.wfy.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Process;
 import android.util.Log;
+
+import java.util.List;
 
 
 /**
@@ -35,20 +39,13 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fork_proccess_test_main);
 
         Log.e("tag", "主进程java pid: " + Process.myPid());
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    //子进程拥有父进程当前运行到的位置
-                    int forkId = fork();
-                    //让线程先不结束
-                    Log.e("tag", forkId + ",结束了," + Process.myPid());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
+        //子进程拥有父进程当前运行到的位置
+        int forkId = fork();
+        //让线程先不结束
+        Log.e("tag", forkId + ",结束了," + Process.myPid());
 
+        String processName = getProcessName(ForkProcessTestMainActivity.this);
+        Log.e("tag", "processName= " + processName);
     }
 
     static {
@@ -56,4 +53,27 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
     }
 
     public native int fork();
+
+    public static String getProcessName(Context cxt) {
+        int pid = Process.myPid();
+
+        Log.e("tag",">>>>>>>>>"+pid);
+        ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
+        if (runningApps == null) {
+            Log.e("tag",">>>>>>>>>"+runningApps);
+            return null;
+        }
+
+        Log.e("tag",">>>>>>>>>"+runningApps);
+        for (ActivityManager.RunningAppProcessInfo procInfo : runningApps) {
+            if (procInfo.pid == pid) {
+                return procInfo.processName;
+            }
+        }
+        Log.e("tag",">>>>>>>>>"+runningApps);
+
+        return null;
+    }
+
 }
