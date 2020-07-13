@@ -1,9 +1,0 @@
-# ninja log v5
-0	709	615978355	CMakeFiles/native-lib.dir/native-lib.cpp.o	d1165e782dcaef42
-711	921	615978355	E:/developer/project/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	8b26dc48c77267d4
-2	798	615978935	CMakeFiles/native-lib.dir/native-lib.cpp.o	d1165e782dcaef42
-799	1041	615978936	E:/developer/project/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	8b26dc48c77267d4
-2	486	615979035	CMakeFiles/native-lib.dir/native-lib.cpp.o	d1165e782dcaef42
-486	691	615979036	E:/developer/project/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	8b26dc48c77267d4
-2	477	615979125	CMakeFiles/native-lib.dir/native-lib.cpp.o	d1165e782dcaef42
-477	700	615979125	E:/developer/project/LearnExamples/ForkProccessTest/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	8b26dc48c77267d4
