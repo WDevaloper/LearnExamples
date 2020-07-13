@@ -1,5 +1,5 @@
 #include <jni.h>
-#include <string>
+#include <string.h>
 #include <android/log.h>
 #include <iostream>
 #include <sys/mman.h>
@@ -9,6 +9,12 @@
 #include <string>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <strings.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <string>
 
 
 using namespace std;
@@ -67,6 +73,13 @@ Java_com_wfy_myapplication_ForkProcessTestMainActivity_fork(JNIEnv *env, jobject
 // Binder 机制是如何跨进程的？
 
 
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <stdlib.h>
+#include <fcntl.h>
+
+
 int8_t *m_prt;
 int32_t m_size;
 int m_fd;
@@ -77,7 +90,8 @@ Java_com_wfy_myapplication_ForkProcessTestMainActivity_mmapTest(JNIEnv *env, job
                                                                 jstring buffer_path_) {
     string file = "/sdcard/a.txt";
 
-    m_fd = open(file.c_str(), O_RDWR | S_IRWXU);
+    m_fd = open(file.c_str(), O_CREAT | O_RDWR, 0666);
+
     m_size = getpagesize();
 
     ftruncate(m_fd, m_size);

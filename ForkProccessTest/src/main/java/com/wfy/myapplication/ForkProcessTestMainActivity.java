@@ -1,15 +1,11 @@
 package com.wfy.myapplication;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActivityManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Process;
 import android.util.Log;
 
-import java.util.List;
 
 
 /**
@@ -45,9 +41,6 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
         int forkId = fork();
         Log.e("tag", "forkId: " + forkId + "   当前进程Id：" + Process.myPid() + " ----->" + "fork结束了");
         Log.e("tag", "mainP: " + mainP);
-
-        String processName = getProcessName(ForkProcessTestMainActivity.this);
-        Log.e("tag", "processName= " + processName);
     }
 
     static {
@@ -56,26 +49,5 @@ public class ForkProcessTestMainActivity extends AppCompatActivity {
 
     public native int fork();
 
-    public static String getProcessName(Context cxt) {
-        int pid = Process.myPid();
-
-        Log.e("tag",">>>>>>>>>"+pid);
-        ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
-        if (runningApps == null) {
-            Log.e("tag",">>>>>>>>>"+runningApps);
-            return null;
-        }
-
-        Log.e("tag",">>>>>>>>>"+runningApps);
-        for (ActivityManager.RunningAppProcessInfo procInfo : runningApps) {
-            if (procInfo.pid == pid) {
-                return procInfo.processName;
-            }
-        }
-        Log.e("tag",">>>>>>>>>"+runningApps);
-
-        return null;
-    }
-
+    public native int mmapTest(String buffer_path_);
 }
