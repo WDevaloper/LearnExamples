@@ -1,6 +1,8 @@
 package com.github.netloader;
 
 
+import retrofit2.Retrofit;
+
 public class RequestTest {
 
     public static void main(String[] args) {
@@ -10,4 +12,6 @@ public class RequestTest {
                 .build();
         System.out.println(request);
     }
+
 }
+
