@@ -1,42 +1,38 @@
 [
   {
     "level": "INFO",
-    "message": "Start JSON generation. Platform version: 21 min SDK version: arm64-v8a"
+    "message": "Start JSON generation. Platform version: 21 min SDK version: arm64-v8a",
+    "file": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
   },
   {
     "level": "INFO",
-    "message": "rebuilding JSON E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\\android_gradle_build.json due to:"
+    "message": "Trying to locate CMake in local SDK repository.",
+    "file": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
   },
   {
     "level": "INFO",
-    "message": "- force flag, will remove stale json folder"
+    "message": "- CMake found in SDK at \u0027E:\\developer\\sdk\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027",
+    "file": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
   },
   {
     "level": "INFO",
-    "message": "removing stale contents from \u0027E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\u0027"
+    "message": "CMake \u00273.6.0\u0027 found in SDK did not match requested version \u00273.10.2\u0027.",
+    "file": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
   },
   {
     "level": "INFO",
-    "message": "created folder \u0027E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\u0027"
+    "message": "JSON \u0027E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\\android_gradle_build.json\u0027 was up-to-date",
+    "file": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
   },
   {
     "level": "INFO",
-    "message": "executing cmake Executable : E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe\narguments : \n-HE:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\n-BE:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\n-DANDROID_ABI\u003darm64-v8a\n-DANDROID_PLATFORM\u003dandroid-21\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\n-DCMAKE_BUILD_TYPE\u003dDebug\n-DANDROID_NDK\u003dE:\\developer\\sdk\\ndk\\21.1.6352462\n-DCMAKE_CXX_FLAGS\u003d\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_ANDROID_ARCH_ABI\u003darm64-v8a\n-DCMAKE_SYSTEM_VERSION\u003d21\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_ANDROID_NDK\u003dE:\\developer\\sdk\\ndk\\21.1.6352462\n-DCMAKE_TOOLCHAIN_FILE\u003dE:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake\n-G Ninja\n-DCMAKE_MAKE_PROGRAM\u003dE:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe\njvmArgs : \n\n"
-  },
-  {
-    "level": "INFO",
-    "message": "done executing cmake"
-  },
-  {
-    "level": "INFO",
-    "message": "write build output E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\\build_output.txt"
-  },
-  {
-    "level": "INFO",
-    "message": "write command file E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\arm64-v8a\\build_command.txt"
-  },
-  {
-    "level": "INFO",
-    "message": "JSON generation completed without problems"
+    "message": "JSON generation completed without problems",
+    "file": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "tag": "debug|arm64-v8a"
   }
 ]

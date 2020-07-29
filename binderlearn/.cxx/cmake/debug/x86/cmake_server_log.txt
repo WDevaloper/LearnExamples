@@ -37,20 +37,18 @@ CMAKE SERVER: {
   "type": "configure",
   "cacheArguments": [
     "",
-    "-DANDROID_ABI\u003dx86",
-    "-DANDROID_PLATFORM\u003dandroid-21",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\x86",
     "-DCMAKE_BUILD_TYPE\u003dDebug",
-    "-DANDROID_NDK\u003dE:\\developer\\sdk\\ndk\\21.1.6352462",
-    "-DCMAKE_CXX_FLAGS\u003d",
-    "-DCMAKE_SYSTEM_NAME\u003dAndroid",
-    "-DCMAKE_ANDROID_ARCH_ABI\u003dx86",
-    "-DCMAKE_SYSTEM_VERSION\u003d21",
-    "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
-    "-DCMAKE_ANDROID_NDK\u003dE:\\developer\\sdk\\ndk\\21.1.6352462",
     "-DCMAKE_TOOLCHAIN_FILE\u003dE:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "-G Ninja",
-    "-DCMAKE_MAKE_PROGRAM\u003dE:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+    "-DANDROID_ABI\u003dx86",
+    "-DANDROID_NDK\u003dE:\\developer\\sdk\\ndk\\21.1.6352462",
+    "-DANDROID_PLATFORM\u003dandroid-21",
+    "-DCMAKE_ANDROID_ARCH_ABI\u003dx86",
+    "-DCMAKE_ANDROID_NDK\u003dE:\\developer\\sdk\\ndk\\21.1.6352462",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\x86",
+    "-DCMAKE_MAKE_PROGRAM\u003dE:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-DCMAKE_SYSTEM_NAME\u003dAndroid",
+    "-DCMAKE_SYSTEM_VERSION\u003d21"
   ]
 }
 
@@ -324,6 +322,22 @@ CMAKE SERVER: ]== "CMake Server" ==]
 CMAKE SERVER: [== "CMake Server" ==[
 
 CMAKE SERVER: {"type":"cmakeInputs"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"","name":"dirty","type":"signal"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"","name":"fileChange","path":"E:/developer/project/LearnExamples/binderlearn/src/main/cpp/CMakeLists.txt","properties":["change"],"type":"signal"}
 
 CMAKE SERVER: ]== "CMake Server" ==]
 

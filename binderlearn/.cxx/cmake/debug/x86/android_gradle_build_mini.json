@@ -7,7 +7,7 @@
   "cleanCommands": [
     "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" clean"
   ],
-  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Debug-x86": {
       "artifactName": "native-lib",

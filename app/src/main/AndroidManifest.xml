@@ -16,6 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".rxjava.RxjavaActivity"></activity>
         <activity android:name=".widget.recycler.CustomRecyclerViewActivity" />
         <activity android:name=".aop.AOPActivity">
             <intent-filter>

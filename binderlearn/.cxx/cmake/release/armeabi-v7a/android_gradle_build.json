@@ -11,7 +11,7 @@
   "cleanCommands": [
     "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\armeabi-v7a\" clean"
   ],
-  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Release-armeabi-v7a": {
       "buildCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\armeabi-v7a\" native-lib",
