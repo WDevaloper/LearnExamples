@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadState
@@ -15,6 +16,8 @@ import androidx.paging.map
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.pokemon.base.BaseActivity
+import com.github.pokemon.base.BaseViewModel
 import kotlinx.android.synthetic.main.activity_jet_pack_pokemon_main.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
@@ -25,29 +28,32 @@ import kotlinx.coroutines.flow.collectLatest
  *
  * 假如你的项目架构是 Repository模式，那么非常简单了
  */
-class JetPackPokemonMainActivity : AppCompatActivity() {
 
+
+class JetPackPokemonMainActivity : BaseActivity() {
 
     private val mViewModel: MainViewModel by viewModels()
+
     private val mPomemonAdapter by lazy { PokeAdapter() }
 
 
-    @ExperimentalCoroutinesApi
-    @ExperimentalPagingApi
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jet_pack_pokemon_main)
+    override fun getLayoutId(): Int {
+        return R.layout.activity_jet_pack_pokemon_main
+    }
 
-
+    override fun initView() {
         mRv.layoutManager = LinearLayoutManager(this)
         mRv.adapter = mPomemonAdapter
+//
+//        mViewModel.postOfData().observe(this, Observer {
+//
+//            Log.e("tag", ">>>>>>>>>>>>>>>>>>>>")
+//            mPomemonAdapter.submitData(lifecycle, it)
+//        })
 
-        mViewModel.postOfData().observe(this, Observer {
-
-            Log.e("tag", ">>>>>>>>>>>>>>>>>>>>")
-            mPomemonAdapter.submitData(lifecycle, it)
+        mViewModel.postOfData2().observe(this, Observer {
+            Log.e("tag", ">>>>>>>>>>>>>>>>>>>>$it")
         })
-
 
 //        LoadState.Loading
         lifecycleScope.launchWhenCreated {
@@ -57,6 +63,9 @@ class JetPackPokemonMainActivity : AppCompatActivity() {
         }
     }
 
+    override fun getViewModel(): BaseViewModel {
+        return mViewModel
+    }
 
     class PokeAdapter : PagingDataAdapter<PokeResp, PokeViewHolder>(POST_COMPARATOR) {
         companion object {
