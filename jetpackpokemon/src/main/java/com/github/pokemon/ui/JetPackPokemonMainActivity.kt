@@ -48,6 +48,7 @@ class JetPackPokemonMainActivity : BaseActivity() {
 
 
     @ExperimentalPagingApi
+
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
         mViewModel.postOfData().observe(this, Observer {

@@ -2,5 +2,6 @@ include ':app', ':AndroidEvent', ':jetpackpokemon',
         ':usercenter', ':lifecycle-plugin', ':glide', ':placeholder-pluginhost',
         ':netloader', ':placeholder-plugintstand', ':placeholder-plugintaopp',
         ':ForkProccessTest', ':systemsource', ':hook-pluginhost', ':hook-plugin'
-include ':gradle_learn'
+
 include ':binderlearn'
+include ':gradle_learn'
