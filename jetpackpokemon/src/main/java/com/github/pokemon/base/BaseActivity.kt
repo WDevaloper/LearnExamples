@@ -1,28 +1,40 @@
 package com.github.pokemon.base
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
+import androidx.annotation.CallSuper
+import androidx.annotation.LayoutRes
+import androidx.annotation.MainThread
+import androidx.annotation.WorkerThread
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.github.pokemon.viewmodel.base.BaseViewModel
 
 abstract class BaseActivity : AppCompatActivity() {
+
+
+    @LayoutRes
+    abstract fun getLayoutId(): Int
+
+    /**
+     * 子类必须实现类该方法，提供具体类
+     */
+    abstract fun getViewModel(): BaseViewModel
+
+    abstract fun initView(savedInstanceState: Bundle?)
+
+    @SuppressLint("WrongThread")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentLayout()
-    }
-
-
-    open fun setContentLayout() {
         setContentView(getLayoutId())
-        initViewModelAction()
-        initView()
-        initData()
+        initActionViewModel()
+        initView(savedInstanceState)
+        initData(savedInstanceState)
     }
 
-    private fun initViewModelAction() {
+    private fun initActionViewModel() {
         getViewModel().let { baseViewModel ->
             baseViewModel.mStateLiveData.observe(this, Observer { stateActionState ->
-                Log.e("tag", "$stateActionState")
                 when (stateActionState) {
                     is ErrorState -> stateActionState.throwable.apply { handleError(this) }
                     is LoadState -> showLoading()
@@ -32,25 +44,31 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    abstract fun getLayoutId(): Int
 
-    abstract fun initView()
+    @MainThread
+    @CallSuper
+    open fun initData(savedInstanceState: Bundle?) = Unit
 
-    abstract fun getViewModel(): BaseViewModel
+    /**
+     * 显示开始加载数据的对话框
+     */
+    @MainThread
+    @CallSuper
+    open fun showLoading() = Unit
 
 
-    open fun initData() {}
+    /**
+     * 关闭加载对话框
+     */
+    @MainThread
+    @CallSuper
+    open fun dismissLoading() = Unit
 
-    open fun showLoading() {
-        Log.e("tag", "showLoading")
-    }
-
-    open fun dismissLoading() {
-        Log.e("tag", "dismissLoading")
-    }
-
-    open fun handleError(throwable: Throwable) {
-        Log.e("tag", "handleError")
-    }
+    /**
+     * 处理错误
+     */
+    @MainThread
+    @CallSuper
+    open fun handleError(throwable: Throwable) = Unit
 
 }

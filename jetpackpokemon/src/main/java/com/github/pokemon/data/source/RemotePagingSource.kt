@@ -1,11 +1,13 @@
-package com.github.pokemon
+package com.github.pokemon.data.source
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.github.pokemon.data.entity.PokeEntity
+import com.github.pokemon.data.api.PokeApi
 
-class RemotePagingSource(private val api: PokeApi) : PagingSource<Int, PokeResp>() {
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PokeResp> {
+class RemotePagingSource(private val api: PokeApi) : PagingSource<Int, PokeEntity>() {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PokeEntity> {
         return try {
             val nextPageNumber = params.key ?: 1
             val response = api.fetchPokemonList(params.key ?: 0, 20)
@@ -16,7 +18,7 @@ class RemotePagingSource(private val api: PokeApi) : PagingSource<Int, PokeResp>
     }
 
     @ExperimentalPagingApi
-    override fun getRefreshKey(state: PagingState<Int, PokeResp>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, PokeEntity>): Int? {
         return super.getRefreshKey(state)
     }
 }

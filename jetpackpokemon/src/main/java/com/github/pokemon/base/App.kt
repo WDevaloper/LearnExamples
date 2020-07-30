@@ -1,8 +1,8 @@
-package com.github.pokemon
+package com.github.pokemon.base
 
 import android.app.Application
 import androidx.room.Room
-import com.hi.dhl.pokemon.data.local.AppDataBase
+import com.github.pokemon.local.AppDataBase
 
 
 class App : Application() {
@@ -12,7 +12,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        db = Room.databaseBuilder(this, AppDataBase::class.java, "dhl.db")
+        db = Room.databaseBuilder(this, AppDataBase::class.java, "jet_pack.db")
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build()

@@ -1,5 +1,6 @@
-package com.github.pokemon
+package com.github.pokemon.data.api
 
+import com.github.pokemon.data.protocol.PokeResp
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -8,5 +9,5 @@ interface PokeApi {
     suspend fun fetchPokemonList(
             @Query("limit") limit: Int = 20,
             @Query("offset") offset: Int = 0
-    ): Resp
+    ): PokeResp
 }

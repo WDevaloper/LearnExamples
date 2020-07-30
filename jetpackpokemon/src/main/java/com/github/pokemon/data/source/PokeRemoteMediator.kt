@@ -1,9 +1,11 @@
-package com.github.pokemon
+package com.github.pokemon.data.source
 
 import android.util.Log
 import androidx.paging.*
 import androidx.room.withTransaction
-import com.hi.dhl.pokemon.data.local.AppDataBase
+import com.github.pokemon.data.entity.PokeEntity
+import com.github.pokemon.data.api.PokeApi
+import com.github.pokemon.local.AppDataBase
 import kotlinx.coroutines.delay
 
 
@@ -15,10 +17,10 @@ import kotlinx.coroutines.delay
 class PokeRemoteMediator(
         val api: PokeApi,
         val db: AppDataBase
-) : RemoteMediator<Int, PokeResp>() {
+) : RemoteMediator<Int, PokeEntity>() {
 
     //挂起函数
-    override suspend fun load(loadType: LoadType, state: PagingState<Int, PokeResp>): MediatorResult {
+    override suspend fun load(loadType: LoadType, state: PagingState<Int, PokeEntity>): MediatorResult {
         val pageKey = when (loadType) {
             // 首次访问 或者调用 PagingDataAdapter.refresh()
             LoadType.REFRESH -> {
@@ -42,7 +44,7 @@ class PokeRemoteMediator(
             val pokemonDao = db.pokemonDao()
 
             pokemonDao.insertPokemon(
-                    listOf(PokeResp("asfdsfsd", "fsdafdsafsdafsdafdsafsdafsadfsdafdsfsdfsdfsdfdsf"))
+                    listOf(PokeEntity("asfdsfsd", "12321"))
             )
         }
         delay(5000)

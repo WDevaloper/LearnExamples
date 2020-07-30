@@ -1,6 +1,7 @@
-package com.github
+package com.github.pokemon.data
 
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -8,6 +9,9 @@ object RetrofitFactory {
 
     fun getOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
+                .addInterceptor(HttpLoggingInterceptor().also {
+                    it.level = HttpLoggingInterceptor.Level.BODY
+                })
                 .build()
     }
 

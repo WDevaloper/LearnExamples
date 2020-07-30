@@ -1,25 +1,25 @@
-package com.github.pokemon
+package com.github.pokemon.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
-import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
-import androidx.paging.map
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.pokemon.R
 import com.github.pokemon.base.BaseActivity
-import com.github.pokemon.base.BaseViewModel
+import com.github.pokemon.viewmodel.base.BaseViewModel
+import com.github.pokemon.data.entity.PokeEntity
+import com.github.pokemon.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_jet_pack_pokemon_main.*
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest
 
 
@@ -41,21 +41,22 @@ class JetPackPokemonMainActivity : BaseActivity() {
         return R.layout.activity_jet_pack_pokemon_main
     }
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         mRv.layoutManager = LinearLayoutManager(this)
         mRv.adapter = mPomemonAdapter
-//
-//        mViewModel.postOfData().observe(this, Observer {
-//
-//            Log.e("tag", ">>>>>>>>>>>>>>>>>>>>")
-//            mPomemonAdapter.submitData(lifecycle, it)
-//        })
+    }
 
-        mViewModel.postOfData2().observe(this, Observer {
-            Log.e("tag", ">>>>>>>>>>>>>>>>>>>>$it")
+
+    @ExperimentalPagingApi
+    override fun initData(savedInstanceState: Bundle?) {
+        super.initData(savedInstanceState)
+        mViewModel.postOfData().observe(this, Observer {
+            Log.e("tag", ">>>>>>>>>>>>>>>>>>>>")
+            mPomemonAdapter.submitData(lifecycle, it)
         })
 
-//        LoadState.Loading
+
+        // LoadState.Loading
         lifecycleScope.launchWhenCreated {
             mPomemonAdapter.loadStateFlow.collectLatest { state ->
                 Log.e("tag", ">>>>>>>>>>>>>>>>>>>>${state}")
@@ -67,13 +68,13 @@ class JetPackPokemonMainActivity : BaseActivity() {
         return mViewModel
     }
 
-    class PokeAdapter : PagingDataAdapter<PokeResp, PokeViewHolder>(POST_COMPARATOR) {
+    class PokeAdapter : PagingDataAdapter<PokeEntity, PokeViewHolder>(POST_COMPARATOR) {
         companion object {
-            val POST_COMPARATOR = object : DiffUtil.ItemCallback<PokeResp>() {
-                override fun areContentsTheSame(oldItem: PokeResp, newItem: PokeResp): Boolean =
+            val POST_COMPARATOR = object : DiffUtil.ItemCallback<PokeEntity>() {
+                override fun areContentsTheSame(oldItem: PokeEntity, newItem: PokeEntity): Boolean =
                         oldItem == newItem
 
-                override fun areItemsTheSame(oldItem: PokeResp, newItem: PokeResp): Boolean =
+                override fun areItemsTheSame(oldItem: PokeEntity, newItem: PokeEntity): Boolean =
                         oldItem.url == newItem.url
             }
         }
@@ -90,8 +91,12 @@ class JetPackPokemonMainActivity : BaseActivity() {
 
 
     class PokeViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView) {
-        fun bind(data: PokeResp) {
+        fun bind(data: PokeEntity) {
             textView.text = data.name
         }
+    }
+
+    fun jumpSecondActivity(view: View) {
+        Intent(this, SecondActivity::class.java).run { startActivity(this) }
     }
 }
