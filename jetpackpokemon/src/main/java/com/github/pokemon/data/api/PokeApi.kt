@@ -10,4 +10,11 @@ interface PokeApi {
             @Query("limit") limit: Int = 20,
             @Query("offset") offset: Int = 0
     ): PokeResp
+
+
+    @GET("pokemon")
+    suspend fun fetchPokemonList2(
+            @Query("limit") limit: Int = 20,
+            @Query("offset") offset: Int = 0
+    ): PokeResp
 }

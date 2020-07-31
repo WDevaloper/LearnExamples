@@ -18,6 +18,8 @@ import com.github.pokemon.R
 import com.github.pokemon.base.BaseActivity
 import com.github.pokemon.viewmodel.base.BaseViewModel
 import com.github.pokemon.data.entity.PokeEntity
+import com.github.pokemon.event.EventType
+import com.github.pokemon.event.LiveDataBus
 import com.github.pokemon.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_jet_pack_pokemon_main.*
 import kotlinx.coroutines.flow.collectLatest
@@ -44,6 +46,18 @@ class JetPackPokemonMainActivity : BaseActivity() {
     override fun initView(savedInstanceState: Bundle?) {
         mRv.layoutManager = LinearLayoutManager(this)
         mRv.adapter = mPomemonAdapter
+
+
+        // 为什么加Type？因为我们需要避免LiveDataBus.with<EventType>("name")
+        LiveDataBus.with("EventType", EventType::class.java)
+                .observe(this, Observer {
+                    Log.e("tag", "JetPackPokemonMainActivity ${it.name}")
+                })
+
+    }
+
+    fun sendMessage(view: View) {
+        LiveDataBus.with("EventType",EventType::class.java).value = EventType("JetPackPokemonMainActivity")
     }
 
 
@@ -100,4 +114,6 @@ class JetPackPokemonMainActivity : BaseActivity() {
     fun jumpSecondActivity(view: View) {
         Intent(this, SecondActivity::class.java).run { startActivity(this) }
     }
+
+
 }
