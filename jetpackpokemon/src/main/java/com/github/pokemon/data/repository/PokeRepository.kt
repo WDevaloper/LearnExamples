@@ -34,4 +34,8 @@ class PokeRepository(
     //记住一定发射出去
     @ExperimentalCoroutinesApi
     fun postOf2(): Flow<PokeResp> = flow { emit(api.fetchPokemonList()) }.flowOn(Dispatchers.IO)
+
+
+    @ExperimentalCoroutinesApi
+    fun postOf3(): Flow<PokeResp> = flow { emit(api.fetchPokemonList2()) }.flowOn(Dispatchers.IO)
 }

@@ -7,4 +7,4 @@ object LoadState : StateActionEvent()
 
 object CompletionState : StateActionEvent()
 
-class ErrorState(val throwable: Throwable) : StateActionEvent()
+data class ErrorState(val throwable: Throwable) : StateActionEvent()
