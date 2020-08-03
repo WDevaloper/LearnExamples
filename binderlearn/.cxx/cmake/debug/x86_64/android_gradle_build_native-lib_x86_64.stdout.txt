@@ -1,2 +1,0 @@
-ninja: Entering directory `E:\AndroidStudioprojects\youbesun\LearnExamples\binderlearn\.cxx\cmake\debug\x86_64'
-ninja: no work to do.

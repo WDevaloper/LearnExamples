@@ -20,7 +20,7 @@ public class BinderMainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-    private ITestAidlInterface testAidlInterface;
+//    private ITestAidlInterface testAidlInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,10 @@ public class BinderMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_binder_main);
         String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "mmap.txt";
         init(path);
+    }
+
+    private void test() {
+        Log.e("tag", "test");
     }
 
     public native void init(String path);
