@@ -1,3 +1,4 @@
+include ':design-pattern'
 include ':app', ':AndroidEvent', ':jetpackpokemon',
         ':usercenter', ':lifecycle-plugin', ':glide', ':placeholder-pluginhost',
         ':netloader', ':placeholder-plugintstand', ':placeholder-plugintaopp',
