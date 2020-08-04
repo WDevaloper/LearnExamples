@@ -398,6 +398,7 @@ public class StackLayoutManager extends RecyclerView.LayoutManager {
      */
     public int getDecoratedMeasurementVertical(View view) {
         final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)
+
                 view.getLayoutParams();
         return getDecoratedMeasuredHeight(view) + params.topMargin
                 + params.bottomMargin;

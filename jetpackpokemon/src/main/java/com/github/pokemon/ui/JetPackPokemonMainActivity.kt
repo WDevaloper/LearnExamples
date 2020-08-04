@@ -54,10 +54,12 @@ class JetPackPokemonMainActivity : BaseActivity() {
                     Log.e("tag", "JetPackPokemonMainActivity ${it.name}")
                 })
 
+        LiveDataBus.with("",String::class.java).postValue("")
+        LiveDataBus.with("",String::class.java).value = ""
     }
 
     fun sendMessage(view: View) {
-        LiveDataBus.with("EventType",EventType::class.java).value = EventType("JetPackPokemonMainActivity")
+        LiveDataBus.with("EventType", EventType::class.java).value = EventType("JetPackPokemonMainActivity")
     }
 
 
