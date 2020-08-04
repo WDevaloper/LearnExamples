@@ -1,11 +1,2 @@
-ninja: Entering directory `E:\AndroidStudioprojects\youbesun\LearnExamples\binderlearn\.cxx\cmake\debug\armeabi-v7a'
-[1/2] Building CXX object CMakeFiles/native-lib.dir/native-lib.cpp.o
-E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/src/main/cpp/native-lib.cpp:54:16: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
-    LOGE("%d", filesize)
-          ~~   ^~~~~~~~
-          %ld
-E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/src/main/cpp/native-lib.cpp:9:80: note: expanded from macro 'LOGE'
-#define LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,"tag",FORMAT,##__VA_ARGS__);
-                                                                      ~~~~~~   ^~~~~~~~~~~
-1 warning generated.
-[2/2] Linking CXX shared library E:\AndroidStudioprojects\youbesun\LearnExamples\binderlearn\build\intermediates\cmake\debug\obj\armeabi-v7a\libnative-lib.so
+ninja: Entering directory `E:\developer\project\LearnExamples\binderlearn\.cxx\cmake\debug\armeabi-v7a'
+ninja: no work to do.

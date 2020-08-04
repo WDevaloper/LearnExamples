@@ -2,11 +2,14 @@ package com.github.binderlearn;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class User implements Parcelable {
     public String name;
 
-    public User(){}
+    public User() {
+        Log.e("tag", "<init>");
+    }
 
     protected User(Parcel in) {
         name = in.readString();

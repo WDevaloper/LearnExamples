@@ -6,9 +6,12 @@
 #include <android/log.h>
 #include <sys/stat.h>
 
+#include "Utils.h"
+
 #define LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,"tag",FORMAT,##__VA_ARGS__);
 
 using namespace std;
+using namespace util;
 
 int m_fd;
 int8_t *m_ptr;
@@ -40,6 +43,19 @@ size_t getPageSize() {
     return static_cast<size_t>(getpagesize());
 }
 
+JavaVM *_vm;
+
+JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+    LOGE("%s", "JNI_OnLoad")
+    _vm = vm;
+    return JNI_VERSION_1_6;
+}
+
+
+JNIEXPORT void JNI_OnUnload(JavaVM *vm, void *reserved) {
+    LOGE("%s", "JNI_OnUnload")
+}
+
 
 
 //物理地址
@@ -55,7 +71,7 @@ size_t getPageSize() {
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_github_binderlearn_BinderMainActivity_init(JNIEnv *env, jobject thiz, jstring path) {
-    filePath = env->GetStringUTFChars(path, NULL);
+    filePath = jstring2string(env, path);
 
     m_fd = open(filePath.c_str(), O_RDWR | O_CREAT, S_IRWXU);
     //获取到一个文件最小单元
@@ -63,10 +79,6 @@ Java_com_github_binderlearn_BinderMainActivity_init(JNIEnv *env, jobject thiz, j
     // 文件设置成 4096k 和内存一样   也就是一页
     ftruncate(m_fd, m_pagesize);
 
-    //重新定位文件指针
-    //SEEK_END文件末尾，0偏移量
-    long filesize = lseek(m_fd, 0, SEEK_END);
-    LOGE("%d", filesize)
     //返回当前的文件指针，相对于文件开头的位移量
     LOGE("%s%d", "m_pagesize", m_pagesize)
 
@@ -133,7 +145,15 @@ Java_com_github_binderlearn_BinderMainActivity_write(JNIEnv *env, jobject thiz, 
 extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_github_binderlearn_BinderMainActivity_read(JNIEnv *env, jobject thiz) {
-    jstring data;
-    memcpy(&data, m_ptr + 4, m_pagesize);
-    return data;
+    jclass userclass = env->FindClass("com/github/binderlearn/User");
+    jmethodID methodID = env->GetMethodID(userclass, "<init>", "()V");
+    jobject pJobject = env->NewObject(userclass, methodID);
+
+
+    //
+    jclass objectClass = env->GetObjectClass(thiz);
+    jmethodID pJmethodId = env->GetMethodID(objectClass, "test", "()V");
+    env->CallVoidMethod(thiz, pJmethodId, nullptr);
+
+    return env->NewStringUTF("hahah");
 }

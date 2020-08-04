@@ -1,7 +1,7 @@
 {
   "stringTable": {
     "0": "E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/.cxx/cmake/debug/x86",
-    "1": "--target=i686-none-linux-android21 --gcc-toolchain=E:/Users/wfy/AppData/Local/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=E:/Users/wfy/AppData/Local/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
+    "1": "--target=i686-none-linux-android21 --gcc-toolchain=E:/Users/wfy/AppData/Local/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=E:/Users/wfy/AppData/Local/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -IE:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/src/main/cpp/inc -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
     "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
@@ -22,6 +22,11 @@
       "files": [
         {
           "src": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\native-lib.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\Utils.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }

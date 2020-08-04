@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 public class BinderMainActivity extends AppCompatActivity {
 
@@ -20,14 +22,20 @@ public class BinderMainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-    private ITestAidlInterface testAidlInterface;
+//    private ITestAidlInterface testAidlInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binder_main);
         String path = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "mmap.txt";
+        Uri uri = Uri.parse(path);
+        Log.e("tag", uri.toString());
         init(path);
+    }
+
+    private void test() {
+        Log.e("tag", "test");
     }
 
     public native void init(String path);
