@@ -1,3 +1,4 @@
+include ':widget-define'
 include ':design-pattern'
 include ':app', ':AndroidEvent', ':jetpackpokemon',
         ':usercenter', ':lifecycle-plugin', ':glide', ':placeholder-pluginhost',

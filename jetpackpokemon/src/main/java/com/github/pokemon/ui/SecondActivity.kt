@@ -31,6 +31,7 @@ class SecondActivity : BaseActivity() {
 
 
     override fun initView(savedInstanceState: Bundle?) {
+
 //        mViewModel.postOfData2().observe(this, Observer {
 //            Log.e("tag", ".......................result: $it")
 //        })
