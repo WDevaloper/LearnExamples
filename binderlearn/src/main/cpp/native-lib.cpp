@@ -27,6 +27,21 @@ size_t readActualSize() {
 }
 
 
+static bool getFileSize(int fd, size_t &size) {
+    struct stat st = {};
+    if (fstat(fd, &st) != -1) {
+        size = (size_t) st.st_size;
+        return true;
+    }
+    return false;
+}
+
+size_t getPageSize() {
+    return static_cast<size_t>(getpagesize());
+}
+
+
+
 //物理地址
 //虚拟地址  不能访问物理地址
 
@@ -113,20 +128,6 @@ Java_com_github_binderlearn_BinderMainActivity_write(JNIEnv *env, jobject thiz, 
 
     //写入位置放在前面4(int)
     memcpy(m_ptr, &m_position, 4);
-}
-
-
-static bool getFileSize(int fd, size_t &size) {
-    struct stat st = {};
-    if (fstat(fd, &st) != -1) {
-        size = (size_t) st.st_size;
-        return true;
-    }
-    return false;
-}
-
-size_t getPageSize() {
-    return static_cast<size_t>(getpagesize());
 }
 
 extern "C"
