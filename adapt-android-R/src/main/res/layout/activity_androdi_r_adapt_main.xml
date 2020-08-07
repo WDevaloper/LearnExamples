@@ -17,6 +17,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="insertImage"
+        android:text="插入图片"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="query"
         android:text="查询"
         android:textAllCaps="false" />
@@ -33,6 +40,12 @@
         android:layout_height="wrap_content"
         android:onClick="delete"
         android:text="删除"
+        android:textAllCaps="false" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="copyFile"
+        android:text="删除图片"
         android:textAllCaps="false" />
 
     <ImageView

@@ -1,6 +1,9 @@
-package com.github.adapt_android_r.sanbox;
+package com.github.adapt_android_r.sanbox.file;
 
 import android.content.Context;
+
+import com.github.adapt_android_r.sanbox.request.BaseRequest;
+import com.github.adapt_android_r.sanbox.response.FileResponse;
 
 public interface IFile {
     <T extends BaseRequest> FileResponse newCreateFile(Context context, T baseRequest);
