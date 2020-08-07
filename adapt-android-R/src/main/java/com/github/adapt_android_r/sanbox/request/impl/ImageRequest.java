@@ -32,10 +32,10 @@ public class ImageRequest extends BaseRequest {
     public String getPath() {
         if (!TextUtils.isEmpty(getRelativePath()) && Util.isAndroidQ()) {
             //相对路径 Pictures/Images
-            return Environment.DIRECTORY_PICTURES + "/" + getRelativePath();
+            return Environment.DIRECTORY_PICTURES + File.separator + getRelativePath();
         }
         //绝对路径  /sdcard/Pictures/Images
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + getRelativePath();
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + getRelativePath();
     }
 
     @Override

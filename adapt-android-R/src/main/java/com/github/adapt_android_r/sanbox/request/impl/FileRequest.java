@@ -19,10 +19,10 @@ public class FileRequest extends BaseRequest {
     public String getPath() {
         if (!TextUtils.isEmpty(getRelativePath()) && Util.isAndroidQ()) {
             //相对路径 Download/Images
-            return Environment.DIRECTORY_DOWNLOADS + "/" + getRelativePath();
+            return Environment.DIRECTORY_DOWNLOADS + File.separator + getRelativePath();
         }
         //绝对路径  /sdcard/Download/Images
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + getRelativePath();
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator + getRelativePath();
     }
 
     @Override
