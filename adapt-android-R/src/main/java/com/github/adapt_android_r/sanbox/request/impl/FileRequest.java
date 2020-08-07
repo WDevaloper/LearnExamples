@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
-import com.github.adapt_android_r.sanbox.uitls.UriTypeUtil;
+import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.File;
 
@@ -17,7 +17,7 @@ public class FileRequest extends BaseRequest {
 
     //目录
     public String getPath() {
-        if (!TextUtils.isEmpty(getRelativePath()) && UriTypeUtil.isAndroidQ()) {
+        if (!TextUtils.isEmpty(getRelativePath()) && Util.isAndroidQ()) {
             //相对路径 Download/Images
             return Environment.DIRECTORY_DOWNLOADS + "/" + getRelativePath();
         }

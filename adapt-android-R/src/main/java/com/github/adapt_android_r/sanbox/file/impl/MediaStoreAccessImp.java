@@ -7,26 +7,21 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.widget.Toast;
 
 
 import androidx.annotation.RequiresApi;
 
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
 import com.github.adapt_android_r.sanbox.request.impl.CopyRequest;
-import com.github.adapt_android_r.sanbox.request.impl.FileRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
 import com.github.adapt_android_r.sanbox.file.IFile;
-import com.github.adapt_android_r.sanbox.uitls.UriTypeUtil;
+import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 //Android 11   实现
 @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -149,24 +144,26 @@ public class MediaStoreAccessImp implements IFile {
             return newDestFile;
         }
 
-        OutputStream outputStream = null;
-        InputStream inputStream = null;
+        BufferedOutputStream bos = null;
+        BufferedInputStream bis = null;
         try {
-            outputStream = context.getContentResolver().openOutputStream(destUri);
-            inputStream = context.getContentResolver().openInputStream(srcResponse.getUri());
-            BufferedOutputStream fileOutputStream = new BufferedOutputStream(outputStream);
-            BufferedInputStream fileInputStream = new BufferedInputStream(inputStream);
+            OutputStream outputStream = context.getContentResolver().openOutputStream(destUri);
+            InputStream inputStream = context.getContentResolver().openInputStream(srcResponse.getUri());
+            bos = new BufferedOutputStream(outputStream);
+            bis = new BufferedInputStream(inputStream);
 
             byte[] buf = new byte[1024];
-            while (fileInputStream.read(buf) != -1) {
-                fileOutputStream.write(buf);
+            while (bis.read(buf) != -1) {
+                bos.write(buf);
             }
-            fileInputStream.close();
-            fileOutputStream.close();
+            newDestFile.setSuccess(true);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            Util.closeIO(bis);
+            Util.closeIO(bos);
         }
-        return null;
+        return newDestFile;
     }
 
     @Override

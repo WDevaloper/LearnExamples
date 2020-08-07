@@ -7,7 +7,7 @@ import android.text.TextUtils;
 
 
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
-import com.github.adapt_android_r.sanbox.uitls.UriTypeUtil;
+import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.File;
 
@@ -30,7 +30,7 @@ public class ImageRequest extends BaseRequest {
     //目录
     @Override
     public String getPath() {
-        if (!TextUtils.isEmpty(getRelativePath()) && UriTypeUtil.isAndroidQ()) {
+        if (!TextUtils.isEmpty(getRelativePath()) && Util.isAndroidQ()) {
             //相对路径 Pictures/Images
             return Environment.DIRECTORY_PICTURES + "/" + getRelativePath();
         }

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import androidx.annotation.CallSuper;
 
 
-import com.github.adapt_android_r.sanbox.uitls.UriTypeUtil;
+import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.File;
 
@@ -34,7 +34,7 @@ public abstract class BaseRequest {
         return file;
     }
 
-    public void setPath(String path) {
+    public void setRelativePath(String path) {
         this.relativePath = path;
     }
 
@@ -42,11 +42,16 @@ public abstract class BaseRequest {
         return displayName;
     }
 
+    /**
+     * 无论如何改参数是比=必传参数，如果是AndroidQ 会根据文件名构造URI
+     *
+     * @param displayName 文件名
+     */
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !Environment.isExternalStorageLegacy()) {
             //只有调用次方才能拿到URI地址
-            UriTypeUtil.setFileType(this);
+            Util.setFileType(this);
         }
     }
 
@@ -70,8 +75,14 @@ public abstract class BaseRequest {
         return uriType;
     }
 
+    // 返回的外置卡的公共目录   AndroidQ会返回相对目录  AndroidQ以下返回的是绝对路径
     public abstract String getPath();
 
+    /**
+     * 一般只有Android Q的时候需要构造ContentValues
+     *
+     * @return ContentValues
+     */
     @CallSuper
     public ContentValues getContentValues() {
         if (!TextUtils.isEmpty(displayName)) {

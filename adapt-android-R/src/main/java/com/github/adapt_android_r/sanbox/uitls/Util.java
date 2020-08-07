@@ -8,7 +8,10 @@ import androidx.annotation.RequiresApi;
 import com.github.adapt_android_r.sanbox.file.impl.MediaStoreAccessImp;
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
 
-public class UriTypeUtil {
+import java.io.Closeable;
+import java.io.IOException;
+
+public class Util {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     public static void setFileType(BaseRequest baseRequest) {
         if (baseRequest.getDisplayName().endsWith("mp3")
@@ -30,5 +33,15 @@ public class UriTypeUtil {
 
     public static boolean isAndroidQ() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !Environment.isExternalStorageLegacy();
+    }
+
+    public static void closeIO(Closeable closeable) {
+        try {
+            if (closeable != null) {
+                closeable.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -37,7 +37,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         FileRequest fileRequest = new FileRequest(new File("ExternalScopeTest/"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
-                FileAccessFactory.create(fileRequest).newCreateFile(this, fileRequest);
+                FileAccessFactory.create().newCreateFile(this, fileRequest);
         //文件   写入流   文件夹不需要 ， 如果你只想创建文件夹，那么下面的内容就不要执行了
         if (fileResponse.isSuccess()) {
             String data = "我在这里等和你回来";
@@ -57,7 +57,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         ImageRequest imageRequest = new ImageRequest(new File("Images"));
         imageRequest.setDisplayName("test.jpg");
         imageRequest.setMimeType("image/jpeg");
-        FileResponse fileResponse = FileAccessFactory.create(imageRequest).newCreateFile(this, imageRequest);
+        FileResponse fileResponse = FileAccessFactory.create().newCreateFile(this, imageRequest);
 //        不需要更改架构
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.activity);
         try {
@@ -73,7 +73,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     public void query(View view) {
         ImageRequest imageRequest = new ImageRequest(new File("Images"));
         imageRequest.setDisplayName("test.jpg");
-        FileResponse response = FileAccessFactory.create(imageRequest).query(this, imageRequest);
+        FileResponse response = FileAccessFactory.create().query(this, imageRequest);
         if (response.isSuccess()) {
             InputStream inputStream = null;
             try {
@@ -94,14 +94,14 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         ImageRequest item = new ImageRequest(new File("Images"));
         item.setDisplayName("testapp.jpg");
 //        分区存储     难
-        FileAccessFactory.create(where).renameTo(this, where, item);
+        FileAccessFactory.create().renameTo(this, where, item);
     }
 
     // 如果不是自己的图片那么需要申请权限
     public void delete(View view) {
         ImageRequest imageRequest = new ImageRequest(new File("Images"));
         imageRequest.setDisplayName("test.jpg");
-        FileAccessFactory.create(imageRequest).delete(this, imageRequest);
+        FileAccessFactory.create().delete(this, imageRequest);
     }
 
     public void copyFile(View view) {
@@ -112,7 +112,10 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         // Pictures/Test/TestApp.jpg
         destRequest.setDisplayName("TestApp.jpg");
         CopyRequest<ImageRequest> copyRequest = new CopyRequest<>(srcRequest, destRequest);
-        FileAccessFactory.create(copyRequest).copyFile(this, copyRequest);
+        FileResponse copyResponse = FileAccessFactory.create().copyFile(this, copyRequest);
+        if (copyResponse.isSuccess()) {
+            Toast.makeText(this, "复制成功", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
