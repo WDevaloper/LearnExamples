@@ -21,7 +21,10 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 //Android 11   实现
 @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -30,7 +33,8 @@ public class MediaStoreAccessImp implements IFile {
     public static final String AUDIO = "Audio";
     public static final String VIDEO = "Video";
     public static final String IMAGE = "Pictures";
-    public static final String DOWNLOADS = "Downloads";//什么都可以放
+    public static final String DOWNLOADS = "Downloads";// 什么都可以放
+
     //    外置卡的uri 放到map
     private HashMap<String, Uri> uriMap = new HashMap<>();
     private static MediaStoreAccessImp sInstance;
@@ -170,8 +174,9 @@ public class MediaStoreAccessImp implements IFile {
     public <T extends BaseRequest> FileResponse query(Context context, T baseRequest) {
         Uri uri = uriMap.get(baseRequest.getUriType());
         String[] projection = new String[]{MediaStore.Images.Media._ID};
-        String selection = "1=1 and _display_name =?";
-        String[] selectionArgs = {baseRequest.getDisplayName()};
+        Condition condition = new Condition(baseRequest.getContentValues());
+        String selection = condition.whereCase;
+        String[] selectionArgs = condition.whereArgs;
         Cursor cursor = null;
         try {
             // 注意不要使用relative_path 这样是查不到数据的，一般就通过文件名即可查询到数据
@@ -195,5 +200,28 @@ public class MediaStoreAccessImp implements IFile {
             fileResponse.setSuccess(false);
         }
         return fileResponse;
+    }
+
+
+    private static class Condition {
+        private String whereCase;
+        private String[] whereArgs;
+
+        public Condition(ContentValues contentValues) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("1=1");
+            //whereArgs里面的内容存入list
+            ArrayList<Object> list = new ArrayList<>(contentValues.size());
+            for (Map.Entry<String, Object> entry : contentValues.valueSet()) {
+                String key = entry.getKey();
+                String value = (String) entry.getValue();
+                if (value != null) {
+                    stringBuilder.append(" and ").append(key).append(" =? ");
+                    list.add(value);
+                }
+            }
+            this.whereCase = stringBuilder.toString();
+            this.whereArgs = (String[]) list.toArray(new String[0]);
+        }
     }
 }

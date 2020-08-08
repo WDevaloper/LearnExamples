@@ -18,10 +18,12 @@ public class FileRequest extends BaseRequest {
     //目录
     public String getPath() {
         if (!TextUtils.isEmpty(getRelativePath()) && Util.isAndroidQ()) {
-            //相对路径 Download/Images
+            //相对路径 Download/Images   在数据库中是这样的Download/ExternalScopeTest/
+            // 数据库 external.db
             return Environment.DIRECTORY_DOWNLOADS + File.separator + getRelativePath();
         }
         //绝对路径  /sdcard/Download/Images
+        // 数据库 external.db
         return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator + getRelativePath();
     }
 

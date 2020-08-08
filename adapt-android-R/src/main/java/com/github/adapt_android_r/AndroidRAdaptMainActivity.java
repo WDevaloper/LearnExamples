@@ -47,7 +47,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     }
 
     public void insert(View view) {
-        FileRequest fileRequest = new FileRequest(new File("ExternalScopeTestApp/"));
+        FileRequest fileRequest = new FileRequest(new File("TestExternalScope"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
                 FileAccessFactory.create().newCreateFile(this, fileRequest);
@@ -67,11 +67,12 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     }
 
     public void insertImage(View view) {
-        ImageRequest imageRequest = new ImageRequest(new File("Images"));
-        imageRequest.setDisplayName("test.jpg");
+        ImageRequest imageRequest = new ImageRequest(new File("images"));
+        imageRequest.setDisplayName("ImageTest.jpg");
         imageRequest.setMimeType("image/jpeg");
         FileResponse fileResponse = FileAccessFactory.create().newCreateFile(this, imageRequest);
-//        不需要更改架构
+        if (!fileResponse.isSuccess()) return;
+        // 不需要更改架构
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.activity);
         try {
             OutputStream outputStream = getContentResolver().openOutputStream(fileResponse.getUri());
@@ -98,7 +99,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //            }
 //        }
 
-        FileRequest imageRequest = new FileRequest(new File("ExternalScopeTestApp"));
+        FileRequest imageRequest = new FileRequest(new File("TestExternalScope"));
         imageRequest.setDisplayName("test.txt");
         FileResponse response = FileAccessFactory.create().query(this, imageRequest);
         if (response.isSuccess()) {
@@ -124,9 +125,9 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 ////        分区存储     难
 //        FileAccessFactory.create().renameTo(this, where, item);
 
-        FileRequest where = new FileRequest(new File("ExternalScopeTestApp"));
+        FileRequest where = new FileRequest(new File("TestExternalScope"));
         where.setDisplayName("test.txt");
-        FileRequest destFile = new FileRequest(new File("ExternalScopeTest"));
+        FileRequest destFile = new FileRequest(new File("TestExternalScope"));
         destFile.setDisplayName("testapp.txt");
 //        分区存储     难
         FileAccessFactory.create().renameTo(this, where, destFile);
@@ -139,7 +140,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //        FileAccessFactory.create().delete(this, imageRequest);
 
 
-        FileRequest fileRequest = new FileRequest(new File("ExternalScopeTestApp"));
+        FileRequest fileRequest = new FileRequest(new File("TestExternalScope"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
                 FileAccessFactory.create().delete(this, fileRequest);
@@ -158,7 +159,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //            Toast.makeText(this, "复制成功", Toast.LENGTH_SHORT).show();
 //        }
 
-        FileRequest srcRequest = new FileRequest(new File("ExternalScopeTestApp"));
+        FileRequest srcRequest = new FileRequest(new File("TestExternalScope"));
         srcRequest.setDisplayName("test.txt");
         FileRequest destRequest = new FileRequest(new File("Test"));
         // Pictures/Test/TestApp.jpg

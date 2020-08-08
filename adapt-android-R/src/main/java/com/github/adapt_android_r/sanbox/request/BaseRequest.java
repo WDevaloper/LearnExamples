@@ -63,8 +63,15 @@ public abstract class BaseRequest {
         this.title = title;
     }
 
+    //  在数据库中是这样的Download/ExternalScopeTest/
+    //  所以想通过相对路径查询sql： and relativePath = xxxx你可以使用 %LIKE%
+    // 要不然会影响你的查询和删除，如果你只使用display_name 将会删除在Download的所有display_name相同的文件
+    //  数据库 external.db
     public String getRelativePath() {
-        return relativePath;
+        if (relativePath.endsWith(File.separator)) {
+            return relativePath;
+        }
+        return relativePath + File.separator;
     }
 
     public void setUriType(String uriType) {
@@ -88,9 +95,7 @@ public abstract class BaseRequest {
         if (!TextUtils.isEmpty(displayName)) {
             contentValues.put(MediaStore.Downloads.DISPLAY_NAME, getDisplayName());
         }
-        if (!TextUtils.isEmpty(relativePath) &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                !Environment.isExternalStorageLegacy()) {
+        if (!TextUtils.isEmpty(relativePath) && Util.isAndroidQ()) {
             contentValues.put(MediaStore.Downloads.RELATIVE_PATH, getPath());
         }
         if (!TextUtils.isEmpty(title)) {
