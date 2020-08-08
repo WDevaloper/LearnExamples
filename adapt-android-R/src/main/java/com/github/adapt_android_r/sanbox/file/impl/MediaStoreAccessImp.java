@@ -12,7 +12,7 @@ import android.provider.MediaStore;
 import androidx.annotation.RequiresApi;
 
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
-import com.github.adapt_android_r.sanbox.request.impl.CopyRequest;
+import com.github.adapt_android_r.sanbox.request.impl.WrapperRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
 import com.github.adapt_android_r.sanbox.file.IFile;
 import com.github.adapt_android_r.sanbox.uitls.Util;
@@ -23,7 +23,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 //Android 11   实现
@@ -95,6 +94,12 @@ public class MediaStoreAccessImp implements IFile {
         return fileResponse;
     }
 
+    @Override
+    public <T extends BaseRequest> FileResponse renameTo(Context context, T wrapperRequest) {
+        WrapperRequest<T> tWrapperRequest = (WrapperRequest<T>) wrapperRequest;
+        return renameTo(context, tWrapperRequest.getSrcRequest(), tWrapperRequest.getDestRequest());
+    }
+
     //重命名文件
     @Override
     public <T extends BaseRequest> FileResponse renameTo(Context context, T where, T request) {
@@ -116,20 +121,27 @@ public class MediaStoreAccessImp implements IFile {
 
     }
 
+
+    @Override
+    public <T extends BaseRequest> FileResponse copyFile(Context context, T srcRequest, T destRequest) {
+        WrapperRequest<T> wrapperRequest = new WrapperRequest<>(srcRequest, destRequest);
+        return copyFile(context, wrapperRequest);
+    }
+
     @Override
     public <T extends BaseRequest> FileResponse copyFile(Context context, T baseRequest) {
         FileResponse fileResponse = new FileResponse(context.getContentResolver());
-        CopyRequest copyRequest = (CopyRequest) baseRequest;
+        WrapperRequest wrapperRequest = (WrapperRequest) baseRequest;
 
         // 判断源文件存不存
-        FileResponse srcResponse = query(context, copyRequest.getSrcRequest());
+        FileResponse srcResponse = query(context, wrapperRequest.getSrcRequest());
         if (!srcResponse.isSuccess() || srcResponse.getUri() == null) {
             fileResponse.setSuccess(false);
             return fileResponse;
         }
 
         // 目标文件可能不存在,存在那就删除
-        BaseRequest destFileRequest = copyRequest.getDestRequest();
+        BaseRequest destFileRequest = wrapperRequest.getDestRequest();
         FileResponse destResponse = query(context, destFileRequest);
         if (destResponse.isSuccess()) {
             //存在,那么删除该文件

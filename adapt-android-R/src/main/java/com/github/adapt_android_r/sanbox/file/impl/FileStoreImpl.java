@@ -7,7 +7,7 @@ import android.net.Uri;
 import androidx.annotation.RequiresPermission;
 
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
-import com.github.adapt_android_r.sanbox.request.impl.CopyRequest;
+import com.github.adapt_android_r.sanbox.request.impl.WrapperRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
 import com.github.adapt_android_r.sanbox.file.IFile;
 import com.github.adapt_android_r.sanbox.uitls.Util;
@@ -17,7 +17,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Objects;
 
 //Android10一下
 public class FileStoreImpl implements IFile {
@@ -52,6 +51,13 @@ public class FileStoreImpl implements IFile {
         return queryResp;
     }
 
+    @Override
+    @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    public <T extends BaseRequest> FileResponse renameTo(Context context, T wrapperRequest) {
+        WrapperRequest<T> tWrapperRequest = (WrapperRequest<T>) wrapperRequest;
+        return renameTo(context, tWrapperRequest.getSrcRequest(), tWrapperRequest.getDestRequest());
+    }
+
     @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     @Override
     public <T extends BaseRequest> FileResponse renameTo(Context context, T where, T request) {
@@ -71,10 +77,17 @@ public class FileStoreImpl implements IFile {
         return queryResp;
     }
 
+    @Override
+    @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    public <T extends BaseRequest> FileResponse copyFile(Context context, T srcRequest, T destRequest) {
+        WrapperRequest<T> tWrapperRequest = new WrapperRequest<>(srcRequest, destRequest);
+        return copyFile(context, tWrapperRequest);
+    }
+
     @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     @Override
     public <T extends BaseRequest> FileResponse copyFile(Context context, T baseRequest) {
-        CopyRequest copyRequest = (CopyRequest) baseRequest;
+        WrapperRequest<T> copyRequest = (WrapperRequest<T>) baseRequest;
 
         // 判断源文件存不存
         FileResponse srcQueryResp = query(context, copyRequest.getSrcRequest());

@@ -4,11 +4,11 @@ package com.github.adapt_android_r.sanbox.request.impl;
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
 
 
-public class CopyRequest<T extends BaseRequest> extends BaseRequest {
+public class WrapperRequest<T extends BaseRequest> extends BaseRequest {
     private T srcRequest;
     private T destRequest;
 
-    public CopyRequest(T srcRequest, T destRequest) {
+    public WrapperRequest(T srcRequest, T destRequest) {
         super(srcRequest.getFile());
         this.srcRequest = srcRequest;
         this.destRequest = destRequest;

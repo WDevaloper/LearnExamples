@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.github.adapt_android_r.sanbox.request.impl.CopyRequest;
+import com.github.adapt_android_r.sanbox.request.impl.WrapperRequest;
 import com.github.adapt_android_r.sanbox.FileAccessFactory;
 import com.github.adapt_android_r.sanbox.request.impl.FileRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
@@ -22,7 +22,6 @@ import com.github.adapt_android_r.sanbox.request.impl.ImageRequest;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -60,6 +59,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
                 BufferedOutputStream bos = new BufferedOutputStream(outputStream);
                 bos.write(data.getBytes());
                 bos.close();
+                Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -109,6 +109,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 String readLine = reader.readLine();
                 Log.e("tag", "" + readLine);
+                Toast.makeText(this, "查询成功", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -130,7 +131,11 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         FileRequest destFile = new FileRequest(new File("TestExternalScope"));
         destFile.setDisplayName("testapp.txt");
 //        分区存储     难
-        FileAccessFactory.create().renameTo(this, where, destFile);
+        FileResponse fileResponse = FileAccessFactory.create().renameTo(this, where, destFile);
+
+        if (fileResponse.isSuccess()) {
+            Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
+        }
     }
 
     // 如果不是自己的图片那么需要申请权限
@@ -139,11 +144,13 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //        imageRequest.setDisplayName("test.jpg");
 //        FileAccessFactory.create().delete(this, imageRequest);
 
-
         FileRequest fileRequest = new FileRequest(new File("TestExternalScope"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
                 FileAccessFactory.create().delete(this, fileRequest);
+        if (fileResponse.isSuccess()) {
+            Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void copyFile(View view) {
@@ -164,8 +171,11 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         FileRequest destRequest = new FileRequest(new File("Test"));
         // Pictures/Test/TestApp.jpg
         destRequest.setDisplayName("test.txt");
-        CopyRequest<FileRequest> copyRequest = new CopyRequest<>(srcRequest, destRequest);
+        WrapperRequest<FileRequest> copyRequest = new WrapperRequest<>(srcRequest, destRequest);
         FileResponse copyResponse = FileAccessFactory.create().copyFile(this, copyRequest);
+        if (copyResponse.isSuccess()) {
+            Toast.makeText(this, "复制成功", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
