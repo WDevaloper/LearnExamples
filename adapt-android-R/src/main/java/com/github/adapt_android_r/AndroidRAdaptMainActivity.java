@@ -47,7 +47,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     }
 
     public void insert(View view) {
-        FileRequest fileRequest = new FileRequest(new File("ExternalScopeTest/"));
+        FileRequest fileRequest = new FileRequest(new File("ExternalScopeTestApp/"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
                 FileAccessFactory.create().newCreateFile(this, fileRequest);
@@ -98,7 +98,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //            }
 //        }
 
-        FileRequest imageRequest = new FileRequest(new File("ExternalScopeTest"));
+        FileRequest imageRequest = new FileRequest(new File("ExternalScopeTestApp"));
         imageRequest.setDisplayName("test.txt");
         FileResponse response = FileAccessFactory.create().query(this, imageRequest);
         if (response.isSuccess()) {
@@ -124,7 +124,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 ////        分区存储     难
 //        FileAccessFactory.create().renameTo(this, where, item);
 
-        FileRequest where = new FileRequest(new File("ExternalScopeTest"));
+        FileRequest where = new FileRequest(new File("ExternalScopeTestApp"));
         where.setDisplayName("test.txt");
         FileRequest destFile = new FileRequest(new File("ExternalScopeTest"));
         destFile.setDisplayName("testapp.txt");
@@ -139,7 +139,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //        FileAccessFactory.create().delete(this, imageRequest);
 
 
-        FileRequest fileRequest = new FileRequest(new File("ExternalScopeTest"));
+        FileRequest fileRequest = new FileRequest(new File("ExternalScopeTestApp"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
                 FileAccessFactory.create().delete(this, fileRequest);
@@ -158,7 +158,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 //            Toast.makeText(this, "复制成功", Toast.LENGTH_SHORT).show();
 //        }
 
-        FileRequest srcRequest = new FileRequest(new File("ExternalScopeTest"));
+        FileRequest srcRequest = new FileRequest(new File("ExternalScopeTestApp"));
         srcRequest.setDisplayName("test.txt");
         FileRequest destRequest = new FileRequest(new File("Test"));
         // Pictures/Test/TestApp.jpg

@@ -43,19 +43,7 @@
   },
   {
     "level": "INFO",
-    "message": "  - E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "file": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
-    "tag": "release|armeabi-v7a"
-  },
-  {
-    "level": "INFO",
-    "message": "  - E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake",
-    "file": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
-    "tag": "release|armeabi-v7a"
-  },
-  {
-    "level": "INFO",
-    "message": "  - E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+    "message": "  - E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
     "file": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
     "tag": "release|armeabi-v7a"
   },
