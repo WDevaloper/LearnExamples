@@ -1,5 +1,6 @@
 package com.github.adapt_android_r.sanbox.file.impl;
 
+import android.app.RecoverableSecurityException;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -78,7 +79,7 @@ public class MediaStoreAccessImp implements IFile {
 
     //删除
     @Override
-    public <T extends BaseRequest> FileResponse delete(Context context, T baseRequest) {
+    public <T extends BaseRequest> FileResponse delete(Context context, T baseRequest) throws RuntimeException {
         Uri uri = query(context, baseRequest).getUri();
         FileResponse fileResponse = new FileResponse(context.getContentResolver());
         if (uri == null) {
@@ -95,14 +96,14 @@ public class MediaStoreAccessImp implements IFile {
     }
 
     @Override
-    public <T extends BaseRequest> FileResponse renameTo(Context context, T wrapperRequest) {
+    public <T extends BaseRequest> FileResponse renameTo(Context context, T wrapperRequest) throws RuntimeException {
         WrapperRequest<T> tWrapperRequest = (WrapperRequest<T>) wrapperRequest;
         return renameTo(context, tWrapperRequest.getSrcRequest(), tWrapperRequest.getDestRequest());
     }
 
     //重命名文件
     @Override
-    public <T extends BaseRequest> FileResponse renameTo(Context context, T where, T request) {
+    public <T extends BaseRequest> FileResponse renameTo(Context context, T where, T request) throws RuntimeException {
         Uri uri = query(context, where).getUri();
         FileResponse fileResponse = new FileResponse(context.getContentResolver());
         if (uri == null) {

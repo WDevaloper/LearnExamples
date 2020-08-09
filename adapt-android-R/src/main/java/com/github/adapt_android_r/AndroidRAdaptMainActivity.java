@@ -1,8 +1,13 @@
 package com.github.adapt_android_r;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.RecoverableSecurityException;
+import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -187,14 +192,45 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     //能不能删除其他应用的图片名字？
     // 不能删除其他用的文件名 cr.delete：RecoverableSecurityException
     public void deleteImage(View view) {
-        ImageRequest imageRequest = new ImageRequest(new File(""));
-        imageRequest.setDisplayName("1596136692831.jpg");
-        FileResponse fileResponse = FileAccessFactory.create().delete(this, imageRequest);
-        if (!fileResponse.isSuccess()) {
-            Toast.makeText(this, "删除失败", Toast.LENGTH_SHORT).show();
-            return;
+        try {
+            ImageRequest imageRequest = new ImageRequest(new File(""));
+            imageRequest.setDisplayName("1596136740273.jpg");
+            FileResponse fileResponse = FileAccessFactory.create().delete(this, imageRequest);
+            if (!fileResponse.isSuccess()) {
+                Toast.makeText(this, "删除失败", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (Util.isAndroidQ() && e instanceof RecoverableSecurityException) {
+                try {
+                    startIntentSenderForResult(
+                            ((RecoverableSecurityException) e)
+                                    .getUserAction()
+                                    .getActionIntent()
+                                    .getIntentSender(),
+                            REQUEST_DELETE_PERMISSION,
+                            null, 0,
+                            0, 0, null);
+                } catch (IntentSender.SendIntentException ex) {
+                    ex.printStackTrace();
+                }
+            }
         }
-        Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+    }
+
+    private static int REQUEST_DELETE_PERMISSION = 1000;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK &&
+                requestCode == REQUEST_DELETE_PERMISSION
+        ) {
+            // 执行之前的删除逻辑
+            deleteImage(null);
+        }
     }
 
     // 能不能复制其他应用的图片？
