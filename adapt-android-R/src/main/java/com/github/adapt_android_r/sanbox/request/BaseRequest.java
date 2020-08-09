@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import androidx.annotation.CallSuper;
 
 
+import com.github.adapt_android_r.sanbox.uitls.MimeTypeUtils;
 import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.File;
@@ -23,6 +24,9 @@ public abstract class BaseRequest {
     private String displayName;// 文件名
     private String relativePath;//getPath 目录
     private String title;  //标题
+    //image  video
+    public String mimeType;
+    private String ownerPackageName;//文件所属者
 
 
     public BaseRequest(File file) {
@@ -42,6 +46,14 @@ public abstract class BaseRequest {
         return displayName;
     }
 
+    public String getMimeType() {
+        return mimeType;
+    }
+
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
+    }
+
     /**
      * 无论如何改参数是比=必传参数，如果是AndroidQ 会根据文件名构造URI
      *
@@ -49,6 +61,7 @@ public abstract class BaseRequest {
      */
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+        mimeType = MimeTypeUtils.getMimeType(getDisplayName());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !Environment.isExternalStorageLegacy()) {
             //只有调用次方才能拿到URI地址
             Util.setFileType(this);
@@ -98,6 +111,7 @@ public abstract class BaseRequest {
         if (!TextUtils.isEmpty(relativePath) && Util.isAndroidQ()) {
             contentValues.put(MediaStore.Downloads.RELATIVE_PATH, getPath());
         }
+
         if (!TextUtils.isEmpty(title)) {
             contentValues.put(MediaStore.Downloads.TITLE, getTitle());
         }

@@ -2,6 +2,7 @@ package com.github.adapt_android_r;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.TraceCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -13,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,6 +25,7 @@ import com.github.adapt_android_r.sanbox.FileAccessFactory;
 import com.github.adapt_android_r.sanbox.request.impl.FileRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
 import com.github.adapt_android_r.sanbox.request.impl.ImageRequest;
+import com.github.adapt_android_r.sanbox.uitls.MimeTypeUtils;
 import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.BufferedOutputStream;
@@ -53,6 +56,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     }
 
     public void insert(View view) {
+        Debug.startMethodTracing(getFilesDir().getAbsolutePath() + File.separator + "app.trace");
         FileRequest fileRequest = new FileRequest(new File("TestExternalScope"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
@@ -73,6 +77,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "添加失败", Toast.LENGTH_SHORT).show();
         }
+        Debug.stopMethodTracing();
     }
 
     public void insertImage(View view) {
@@ -101,6 +106,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         imageRequest.setDisplayName("test.txt");
         FileResponse response = FileAccessFactory.create().query(this, imageRequest);
         if (response.isSuccess()) {
+            Log.e("tag", "query: " + response.getOwnerPackageName());
             InputStream inputStream;
             try {
                 inputStream = response.openInputStream();

@@ -2,6 +2,7 @@ package com.example.widget_define;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.os.TraceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;

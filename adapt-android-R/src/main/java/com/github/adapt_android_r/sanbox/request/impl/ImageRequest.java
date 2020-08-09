@@ -12,19 +12,9 @@ import com.github.adapt_android_r.sanbox.uitls.Util;
 import java.io.File;
 
 public class ImageRequest extends BaseRequest {
-    //image  video
-    public String mimeType;
 
     public ImageRequest(File file) {
         super(file);
-    }
-
-    public String getMimeType() {
-        return mimeType;
-    }
-
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
     }
 
     //目录

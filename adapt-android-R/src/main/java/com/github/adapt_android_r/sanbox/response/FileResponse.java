@@ -3,6 +3,7 @@ package com.github.adapt_android_r.sanbox.response;
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
+import android.provider.MediaStore;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,6 +17,9 @@ public class FileResponse {
     //    路径  ---》 uri  ---》 读写
     private Uri uri;
     private File file;
+
+
+    private String ownerPackageName;//文件所属者,可通过所有者对文件进行擦欧洲哦
 
     public FileResponse(ContentResolver contentResolver) {
         this.contentResolver = contentResolver;
@@ -47,6 +51,15 @@ public class FileResponse {
 
     public ParcelFileDescriptor open() throws FileNotFoundException {
         return contentResolver.openFileDescriptor(uri, "rw");
+    }
+
+
+    public String getOwnerPackageName() {
+        return ownerPackageName;
+    }
+
+    public void setOwnerPackageName(String ownerPackageName) {
+        this.ownerPackageName = ownerPackageName;
     }
 
     public OutputStream openOutputStream() throws FileNotFoundException {

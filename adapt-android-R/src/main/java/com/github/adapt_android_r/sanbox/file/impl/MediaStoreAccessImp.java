@@ -186,7 +186,7 @@ public class MediaStoreAccessImp implements IFile {
     @Override
     public <T extends BaseRequest> FileResponse query(Context context, T baseRequest) {
         Uri uri = uriMap.get(baseRequest.getUriType());
-        String[] projection = new String[]{MediaStore.Images.Media._ID};
+        String[] projection = new String[]{MediaStore.Downloads._ID, MediaStore.Downloads.OWNER_PACKAGE_NAME};
         Condition condition = new Condition(baseRequest.getContentValues());
         String selection = condition.whereCase;
         String[] selectionArgs = condition.whereArgs;
@@ -199,8 +199,10 @@ public class MediaStoreAccessImp implements IFile {
         }
 
         Uri queryUri = null;
+        String ownerPackageName = null;
         if (cursor != null && cursor.moveToFirst()) {
             queryUri = ContentUris.withAppendedId(uri, cursor.getLong(0));
+            ownerPackageName = cursor.getString(1);
             cursor.close();
         }
 
@@ -209,6 +211,7 @@ public class MediaStoreAccessImp implements IFile {
         if (queryUri != null) {
             fileResponse.setUri(queryUri);
             fileResponse.setSuccess(true);
+            fileResponse.setOwnerPackageName(ownerPackageName);
         } else {
             fileResponse.setSuccess(false);
         }
