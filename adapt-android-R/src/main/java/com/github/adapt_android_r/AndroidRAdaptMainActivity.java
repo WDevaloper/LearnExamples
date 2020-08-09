@@ -18,10 +18,12 @@ import com.github.adapt_android_r.sanbox.FileAccessFactory;
 import com.github.adapt_android_r.sanbox.request.impl.FileRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
 import com.github.adapt_android_r.sanbox.request.impl.ImageRequest;
+import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -63,6 +65,8 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            Toast.makeText(this, "添加失败", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -71,7 +75,10 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         imageRequest.setDisplayName("ImageTest.jpg");
         imageRequest.setMimeType("image/jpeg");
         FileResponse fileResponse = FileAccessFactory.create().newCreateFile(this, imageRequest);
-        if (!fileResponse.isSuccess()) return;
+        if (!fileResponse.isSuccess()) {
+            Toast.makeText(this, "添加图片失败", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // 不需要更改架构
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.activity);
         try {
@@ -85,25 +92,11 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     }
 
     public void query(View view) {
-//        ImageRequest imageRequest = new ImageRequest(new File("Images"));
-//        imageRequest.setDisplayName("test.jpg");
-//        FileResponse response = FileAccessFactory.create().query(this, imageRequest);
-//        if (response.isSuccess()) {
-//            InputStream inputStream = null;
-//            try {
-//                inputStream = response.openInputStream();
-//                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-//                image.setImageBitmap(bitmap);
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        }
-
         FileRequest imageRequest = new FileRequest(new File("TestExternalScope"));
         imageRequest.setDisplayName("test.txt");
         FileResponse response = FileAccessFactory.create().query(this, imageRequest);
         if (response.isSuccess()) {
-            InputStream inputStream = null;
+            InputStream inputStream;
             try {
                 inputStream = response.openInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -118,14 +111,6 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 
     // 如果不是自己的图片那么需要申请权限
     public void update(View view) {
-//        重命名什么文件
-//        ImageRequest where = new ImageRequest(new File("Images"));
-//        where.setDisplayName("test.jpg");
-//        ImageRequest item = new ImageRequest(new File("Images"));
-//        item.setDisplayName("testapp.jpg");
-////        分区存储     难
-//        FileAccessFactory.create().renameTo(this, where, item);
-
         FileRequest where = new FileRequest(new File("TestExternalScope"));
         where.setDisplayName("test.txt");
         FileRequest destFile = new FileRequest(new File("TestExternalScope"));
@@ -140,10 +125,6 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 
     // 如果不是自己的图片那么需要申请权限
     public void delete(View view) {
-//        ImageRequest imageRequest = new ImageRequest(new File("Images"));
-//        imageRequest.setDisplayName("test.jpg");
-//        FileAccessFactory.create().delete(this, imageRequest);
-
         FileRequest fileRequest = new FileRequest(new File("TestExternalScope"));
         fileRequest.setDisplayName("test.txt");
         FileResponse fileResponse =
@@ -154,18 +135,6 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     }
 
     public void copyFile(View view) {
-        // Pictures/Images/text.jpg
-//        ImageRequest srcRequest = new ImageRequest(new File("Images"));
-//        srcRequest.setDisplayName("test.jpg");
-//        ImageRequest destRequest = new ImageRequest(new File("Test"));
-//        // Pictures/Test/TestApp.jpg
-//        destRequest.setDisplayName("TestApp.jpg");
-//        CopyRequest<ImageRequest> copyRequest = new CopyRequest<>(srcRequest, destRequest);
-//        FileResponse copyResponse = FileAccessFactory.create().copyFile(this, copyRequest);
-//        if (copyResponse.isSuccess()) {
-//            Toast.makeText(this, "复制成功", Toast.LENGTH_SHORT).show();
-//        }
-
         FileRequest srcRequest = new FileRequest(new File("TestExternalScope"));
         srcRequest.setDisplayName("test.txt");
         FileRequest destRequest = new FileRequest(new File("Test"));
@@ -178,4 +147,76 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         }
     }
 
+
+    //能不能查询到其他应用的图片？
+    // 可以查询到其他应用的图片，并且可以读取内容，前提是有储存权限
+    public void queryImage(View view) {
+        ImageRequest imageRequest = new ImageRequest(new File(""));
+        imageRequest.setDisplayName("1596136692831.jpg");
+        FileResponse response = FileAccessFactory.create().query(this, imageRequest);
+
+        if (!response.isSuccess()) {
+            Toast.makeText(this, "没有找到图片", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        InputStream inputStream = null;
+        try {
+            inputStream = response.openInputStream();
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            image.setImageBitmap(bitmap);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            Util.closeIO(inputStream);
+        }
+    }
+
+    //能不能修改其他应用的图片名字？
+    // 不能修改其他用的文件名 cr.update：RecoverableSecurityException
+    public void updateImageName(View view) {
+        // 重命名什么文件
+        ImageRequest where = new ImageRequest(new File(""));
+        where.setDisplayName("1596136692831.jpg");
+        ImageRequest item = new ImageRequest(new File(""));
+        item.setDisplayName("update.jpg");
+        //        分区存储     难
+        FileAccessFactory.create().renameTo(this, where, item);
+    }
+
+    //能不能删除其他应用的图片名字？
+    // 不能删除其他用的文件名 cr.delete：RecoverableSecurityException
+    public void deleteImage(View view) {
+        ImageRequest imageRequest = new ImageRequest(new File(""));
+        imageRequest.setDisplayName("1596136692831.jpg");
+        FileResponse fileResponse = FileAccessFactory.create().delete(this, imageRequest);
+        if (!fileResponse.isSuccess()) {
+            Toast.makeText(this, "删除失败", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+    }
+
+    // 能不能复制其他应用的图片？
+    // 能复制其他用的文件名 cr.delete：RecoverableSecurityException
+    public void copyImage(View view) {
+        // Pictures / Images / text.jpg
+        ImageRequest srcRequest = new ImageRequest(new File(""));
+        srcRequest.setDisplayName("1596136692831.jpg");
+        ImageRequest destRequest = new ImageRequest(new File("Test"));
+        // Pictures/Test/TestApp.jpg
+        destRequest.setDisplayName("TestApp.jpg");
+        WrapperRequest<ImageRequest> copyRequest = new WrapperRequest<>(srcRequest, destRequest);
+        FileResponse copyResponse = FileAccessFactory.create().copyFile(this, copyRequest);
+        if (copyResponse.isSuccess()) {
+            Toast.makeText(this, "复制成功", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void queryAllImage(View view) {
+
+    }
+
+    public void deleteOtherUserImage(View view) {
+    }
 }
