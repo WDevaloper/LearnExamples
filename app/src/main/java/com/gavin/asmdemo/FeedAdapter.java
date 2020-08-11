@@ -22,18 +22,18 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
     @Override
     public void onBindViewHolder(@NonNull FeedHolder feedHolder, int i) {
         //用户头像
-        Picasso.with(feedHolder.itemView.getContext())
-                .load(getAvatarResId(i))
-                .centerInside()
-                .fit()
-                .into(feedHolder.mIvAvatar);
-
-        //内容图片
-        Picasso.with(feedHolder.itemView.getContext())
-                .load(getContentResId(i))
-                .centerInside()
-                .fit()
-                .into(feedHolder.mIvContent);
+//        Picasso.with(feedHolder.itemView.getContext())
+//                .load(getAvatarResId(i))
+//                .centerInside()
+//                .fit()
+//                .into(feedHolder.mIvAvatar);
+//
+//        //内容图片
+//        Picasso.with(feedHolder.itemView.getContext())
+//                .load(getContentResId(i))
+//                .centerInside()
+//                .fit()
+//                .into(feedHolder.mIvContent);
 
         //nickname
         feedHolder.mTvNickname.setText("NetEase " + i);

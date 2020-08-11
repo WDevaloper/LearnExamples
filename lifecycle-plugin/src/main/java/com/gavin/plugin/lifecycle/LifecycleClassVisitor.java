@@ -43,6 +43,10 @@ public class LifecycleClassVisitor extends ClassVisitor implements Opcodes {
     @Override
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
         System.out.println("LifecycleClassVisitor : visit -----> started: " + name);
+
+        //可以修改父类名 继承关系
+//        cw.visit(Opcodes.V1_7, Opcodes.ACC_PUBLIC + Opcodes.ACC_SUPER, "com/github/myapplication/Test", null, "com/github/myapplication/TestSuper", null);
+//
         super.visit(version, access, name, signature, superName, interfaces);
     }
 
@@ -60,6 +64,7 @@ public class LifecycleClassVisitor extends ClassVisitor implements Opcodes {
         FieldVisitor fv = cv.visitField(access, name, desc, signature, value);
         return new MyFieldVisitor(fv);
     }
+
 
     //访问类的注解
     @Override

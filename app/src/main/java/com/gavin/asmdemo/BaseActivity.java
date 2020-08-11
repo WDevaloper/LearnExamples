@@ -3,6 +3,8 @@ package com.gavin.asmdemo;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.provider.MediaStore;
+
 import androidx.annotation.Nullable;
 
 import io.reactivex.Observable;
@@ -30,5 +32,6 @@ public abstract class BaseActivity extends Activity {
         });
         Observable.concat(Observable.just(""), Observable.just(""))
                 .subscribe();
+
     }
 }
