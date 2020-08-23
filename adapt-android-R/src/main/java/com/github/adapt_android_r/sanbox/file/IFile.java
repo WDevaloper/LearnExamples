@@ -11,6 +11,8 @@ public interface IFile {
 
     <T extends BaseRequest> FileResponse delete(Context context, T baseRequest) throws RuntimeException;
 
+    <T extends BaseRequest> void delete(Context context, T baseRequest, FileCallback callback) throws RuntimeException;
+
     <T extends BaseRequest> FileResponse renameTo(Context context, T srcRequest, T destRequest) throws RuntimeException;
 
     <T extends BaseRequest> FileResponse renameTo(Context context, T wrapperRequest) throws RuntimeException;

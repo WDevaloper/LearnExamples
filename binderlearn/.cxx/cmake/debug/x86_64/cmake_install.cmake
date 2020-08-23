@@ -1,4 +1,4 @@
-# Install script for directory: E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/src/main/cpp
+# Install script for directory: E:/developer/project/LearnExamples/binderlearn/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/AndroidStudioprojects/youbesun/LearnExamples/binderlearn/.cxx/cmake/debug/x86_64/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/developer/project/LearnExamples/binderlearn/.cxx/cmake/debug/x86_64/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

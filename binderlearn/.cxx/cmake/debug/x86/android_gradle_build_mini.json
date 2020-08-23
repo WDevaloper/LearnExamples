@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake",
-    "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt"
+    "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake",
+    "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt"
   ],
   "cleanCommands": [
-    "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" clean"
+    "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" clean"
   ],
-  "buildTargetsCommand": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Debug-x86": {
       "artifactName": "native-lib",
-      "buildCommand": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" native-lib",
+      "buildCommand": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\debug\\x86\" native-lib",
       "abi": "x86",
-      "output": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so"
+      "output": "E:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so"
     }
   }
 }

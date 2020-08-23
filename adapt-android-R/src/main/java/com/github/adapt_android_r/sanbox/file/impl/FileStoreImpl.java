@@ -6,6 +6,7 @@ import android.net.Uri;
 
 import androidx.annotation.RequiresPermission;
 
+import com.github.adapt_android_r.sanbox.file.FileCallback;
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
 import com.github.adapt_android_r.sanbox.request.impl.WrapperRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
@@ -49,6 +50,13 @@ public class FileStoreImpl implements IFile {
             queryResp.setSuccess(file.delete());
         }
         return queryResp;
+    }
+
+    @Override
+    @RequiresPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    public <T extends BaseRequest> void delete(Context context, T baseRequest, FileCallback callback) throws RuntimeException {
+        FileResponse response = delete(context, baseRequest);
+        callback.onCallback(response);
     }
 
     @Override

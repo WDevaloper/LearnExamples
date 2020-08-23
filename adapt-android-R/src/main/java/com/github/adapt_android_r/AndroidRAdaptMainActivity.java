@@ -2,7 +2,6 @@ package com.github.adapt_android_r;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.os.TraceCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -15,11 +14,13 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.github.adapt_android_r.sanbox.file.FileCallback;
 import com.github.adapt_android_r.sanbox.request.impl.WrapperRequest;
 import com.github.adapt_android_r.sanbox.FileAccessFactory;
 import com.github.adapt_android_r.sanbox.request.impl.FileRequest;
@@ -31,6 +32,7 @@ import com.github.adapt_android_r.sanbox.uitls.Util;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,6 +57,13 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * DISPLAY_NAME：图片的名字，需要包含后缀名。在这里，我们使用的是当前的时间戳命名
+     * MIME_TYPE：文件的mime类型。在这里，我们使用的是image/jpeg
+     * RELATIVE_PATH、DATA：文件的存储路径。在Android 10中，新增了RELATIVE_PATH，
+     * 它表示文件存储的相对路径，可选值其实就是Environment里面那堆，比如Pictures、Music等.
+     * DATA这个字段是Android 10以前使用的字段，在Android 10中已经废弃，但为了兼容老版本系统， 我们还是要用。这个字段需要文件的绝对路径。
+     */
     public void insert(View view) {
         Debug.startMethodTracing(getFilesDir().getAbsolutePath() + File.separator + "app.trace");
         FileRequest fileRequest = new FileRequest(new File("TestExternalScope"));
@@ -75,8 +84,10 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else {
+
             Toast.makeText(this, "添加失败", Toast.LENGTH_SHORT).show();
         }
+
         Debug.stopMethodTracing();
     }
 
@@ -192,7 +203,8 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         ImageRequest item = new ImageRequest(new File(""));
         item.setDisplayName("update.jpg");
         //        分区存储     难
-        FileAccessFactory.create().renameTo(this, where, item);
+        FileAccessFactory.create().renameTo(this,
+                where, item);
     }
 
     //能不能删除其他应用的图片名字？
@@ -200,7 +212,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
     public void deleteImage(View view) {
         try {
             ImageRequest imageRequest = new ImageRequest(new File(""));
-            imageRequest.setDisplayName("1596136740273.jpg");
+            imageRequest.setDisplayName("aaa.png");
             FileResponse fileResponse = FileAccessFactory.create().delete(this, imageRequest);
             if (!fileResponse.isSuccess()) {
                 Toast.makeText(this, "删除失败", Toast.LENGTH_SHORT).show();
@@ -225,6 +237,22 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void deleteOtherImage(View view) {
+        ImageRequest imageRequest = new ImageRequest(new File(""));
+        imageRequest.setDisplayName("ImageTest.jpg");
+        FileAccessFactory.create().delete(this, imageRequest, new FileCallback() {
+            @Override
+            public void onCallback(FileResponse response) {
+                if (!response.isSuccess()) {
+                    Toast.makeText(AndroidRAdaptMainActivity.this, "删除失败", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Toast.makeText(AndroidRAdaptMainActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     private static int REQUEST_DELETE_PERMISSION = 1000;
 
@@ -255,10 +283,12 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
         }
     }
 
+
     public void queryAllImage(View view) {
 
     }
 
     public void deleteOtherUserImage(View view) {
     }
+
 }

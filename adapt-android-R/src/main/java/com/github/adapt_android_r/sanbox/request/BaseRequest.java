@@ -61,8 +61,10 @@ public abstract class BaseRequest {
      */
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
-        mimeType = MimeTypeUtils.getMimeType(getDisplayName());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && !Environment.isExternalStorageLegacy()) {
+        if (TextUtils.isEmpty(mimeType)) {
+            mimeType = MimeTypeUtils.getMimeType(getDisplayName());
+        }
+        if (Util.isAndroidQ()) {
             //只有调用次方才能拿到URI地址
             Util.setFileType(this);
         }
@@ -108,8 +110,15 @@ public abstract class BaseRequest {
         if (!TextUtils.isEmpty(displayName)) {
             contentValues.put(MediaStore.Downloads.DISPLAY_NAME, getDisplayName());
         }
+
         if (!TextUtils.isEmpty(relativePath) && Util.isAndroidQ()) {
             contentValues.put(MediaStore.Downloads.RELATIVE_PATH, getPath());
+        }
+
+
+        //不添加 mime type 系统不会吧后缀名认为是文件的拓展名称
+        if (!TextUtils.isEmpty(mimeType) && Util.isAndroidQ()) {
+            contentValues.put(MediaStore.Downloads.MIME_TYPE, getMimeType());
         }
 
         if (!TextUtils.isEmpty(title)) {

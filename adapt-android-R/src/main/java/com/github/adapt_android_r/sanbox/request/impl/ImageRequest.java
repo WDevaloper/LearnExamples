@@ -27,13 +27,4 @@ public class ImageRequest extends BaseRequest {
         //绝对路径  /sdcard/Pictures/Images
         return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + getRelativePath();
     }
-
-    @Override
-    public ContentValues getContentValues() {
-        ContentValues contentValues = super.getContentValues();
-        if (!TextUtils.isEmpty(getMimeType())) {
-            contentValues.put(MediaStore.Images.ImageColumns.MIME_TYPE, getMimeType());
-        }
-        return contentValues;
-    }
 }

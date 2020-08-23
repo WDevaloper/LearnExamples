@@ -1,9 +1,12 @@
 package com.github.adapt_android_r.sanbox.file.impl;
 
+import android.app.Activity;
 import android.app.RecoverableSecurityException;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentSender;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -12,10 +15,13 @@ import android.provider.MediaStore;
 
 import androidx.annotation.RequiresApi;
 
+import com.github.adapt_android_r.sanbox.file.FileCallback;
 import com.github.adapt_android_r.sanbox.request.BaseRequest;
 import com.github.adapt_android_r.sanbox.request.impl.WrapperRequest;
 import com.github.adapt_android_r.sanbox.response.FileResponse;
 import com.github.adapt_android_r.sanbox.file.IFile;
+import com.github.adapt_android_r.sanbox.ui.PermissionActivity;
+import com.github.adapt_android_r.sanbox.ui.PermissionCallback;
 import com.github.adapt_android_r.sanbox.uitls.Util;
 
 import java.io.BufferedInputStream;
@@ -93,6 +99,47 @@ public class MediaStoreAccessImp implements IFile {
         }
         fileResponse.setSuccess(true);
         return fileResponse;
+    }
+
+    @Override
+    public <T extends BaseRequest> void delete(final Context context, final T baseRequest, final FileCallback callback) throws RuntimeException {
+        Uri uri = query(context, baseRequest).getUri();
+        FileResponse fileResponse = new FileResponse(context.getContentResolver());
+        if (uri == null) {
+            fileResponse.setSuccess(false);
+            callback.onCallback(fileResponse);
+            return;
+        }
+
+        Condition condition = new Condition(baseRequest.getContentValues());
+        String selection = condition.whereCase;
+        String[] selectionArgs = condition.whereArgs;
+
+        int delete = 0;
+        try {
+            delete = context.getContentResolver().delete(uri, selection, selectionArgs);
+            fileResponse.setSuccess(delete > 0);
+            fileResponse.setUri(uri);
+            callback.onCallback(fileResponse);
+            if (delete > 0) {
+                Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                intent.setData(Uri.parse(baseRequest.getPath() + baseRequest.getDisplayName()));
+                context.sendBroadcast(intent);
+            }
+        } catch (Exception e) {   //todo 删除授权
+            if (Util.isAndroidQ() && e instanceof RecoverableSecurityException) {
+                RecoverableSecurityException recoverableSecurityException = (RecoverableSecurityException) e;
+                IntentSender intentSender = recoverableSecurityException.getUserAction().getActionIntent().getIntentSender();
+                PermissionActivity.requestPermission(context, intentSender, new PermissionCallback() {
+                    @Override
+                    public void onPermissionResult(int result) {
+                        if (result == Activity.RESULT_OK) {
+                            delete(context, baseRequest, callback);
+                        }
+                    }
+                });
+            }
+        }
     }
 
     @Override
