@@ -1,3 +1,5 @@
+include ':encrypt'
+include ':skin_core'
 include ':adapt-android-R'
 include ':widget-define'
 include ':design-pattern'
@@ -7,3 +9,4 @@ include ':app', ':AndroidEvent', ':jetpackpokemon',
         ':ForkProccessTest', ':systemsource', ':hook-pluginhost', ':hook-plugin'
 include ':gradle_learn'
 include ':binderlearn'
+include ':apm'

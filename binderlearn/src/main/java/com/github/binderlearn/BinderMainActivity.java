@@ -22,7 +22,7 @@ public class BinderMainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
-//    private ITestAidlInterface testAidlInterface;
+    //private ITestAidlInterface testAidlInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
