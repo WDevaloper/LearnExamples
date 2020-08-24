@@ -13,10 +13,12 @@ import com.github.pokemon.event.EventType
 import com.github.pokemon.event.LiveDataBus
 import com.github.pokemon.viewmodel.base.BaseViewModel
 import com.github.pokemon.viewmodel.SecondViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class SecondActivity : BaseActivity() {
 
     private val mViewModel: SecondViewModel by viewModels()

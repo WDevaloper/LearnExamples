@@ -3,8 +3,10 @@ package com.github.pokemon.base
 import android.app.Application
 import androidx.room.Room
 import com.github.pokemon.local.AppDataBase
+import dagger.hilt.android.HiltAndroidApp
 
 
+@HiltAndroidApp
 class App : Application() {
     companion object {
         lateinit var db: AppDataBase

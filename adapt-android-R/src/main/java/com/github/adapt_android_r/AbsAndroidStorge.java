@@ -1,4 +1,4 @@
-package com.github.binderlearn;
+package com.github.adapt_android_r;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
-import android.text.TextUtils;
 
 import androidx.annotation.RequiresApi;
 

@@ -1,4 +1,4 @@
-package com.github.binderlearn;
+package com.github.adapt_android_r;
 
 
 import android.net.Uri;

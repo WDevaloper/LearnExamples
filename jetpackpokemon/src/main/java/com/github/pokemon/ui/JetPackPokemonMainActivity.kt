@@ -47,7 +47,6 @@ class JetPackPokemonMainActivity : BaseActivity() {
         mRv.layoutManager = LinearLayoutManager(this)
         mRv.adapter = mPomemonAdapter
 
-
         // 为什么加Type？因为我们需要避免LiveDataBus.with<EventType>("name")
         LiveDataBus.with("EventType", EventType::class.java)
                 .observe(this, Observer {

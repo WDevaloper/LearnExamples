@@ -15,19 +15,11 @@ public class NetWorkMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_net_work_main);
-
-        OkHttpClient client = new OkHttpClient.Builder()
-                .build();
-
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .build();
+        OkHttpClient client = new OkHttpClient.Builder().build();
+        Retrofit retrofit = new Retrofit.Builder().build();
         Api api = retrofit.create(Api.class);
-
     }
 
-
     interface Api {
-
     }
 }
