@@ -17,6 +17,7 @@ class AOPActivity : AppCompatActivity() {
     @VipCheck("svip")
     fun svip(view: View) {
         Log.e("tag", "svip")
+        testAopArgs("hahahhahahhah")
     }
 
     @VipCheck("vip")
@@ -39,6 +40,13 @@ class AOPActivity : AppCompatActivity() {
 
 
     fun testAopStatic(view: View) {
+        val testStattic = TestStattic("obejct")
+        testStatic("yyyyyyyyyymmmmmmmmmmmmmmmmmm", testStattic)
+        testStattic.name = "对象"
+        testStatic("yyyyyyyyyymmmmmmmmmmmmmmmmmm", testStattic)
+    }
+
+    fun testAopArgs(args: String) {
         val testStattic = TestStattic("obejct")
         testStatic("yyyyyyyyyymmmmmmmmmmmmmmmmmm", testStattic)
         testStattic.name = "对象"

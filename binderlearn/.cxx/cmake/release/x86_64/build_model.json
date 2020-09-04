@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
-    "cmakeServerLogFile": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64\\cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cxx\\release\\x86_64",
+    "cmakeArtifactsBaseFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
+    "cmakeServerLogFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64\\cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cxx\\release\\x86_64",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,9 +15,9 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
-      "cmakeToolchain": "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-      "cmakeExecutable": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+      "buildRoot": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
+      "cmakeToolchain": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+      "cmakeExecutable": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
       "variables": [
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -25,7 +25,7 @@
         },
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake"
+          "value": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake"
         },
         {
           "name": "ANDROID_ABI",
@@ -33,7 +33,7 @@
         },
         {
           "name": "ANDROID_NDK",
-          "value": "E:\\developer\\sdk\\ndk\\21.1.6352462"
+          "value": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462"
         },
         {
           "name": "ANDROID_PLATFORM",
@@ -45,7 +45,7 @@
         },
         {
           "name": "CMAKE_ANDROID_NDK",
-          "value": "E:\\developer\\sdk\\ndk\\21.1.6352462"
+          "value": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462"
         },
         {
           "name": "CMAKE_EXPORT_COMPILE_COMMANDS",
@@ -53,11 +53,11 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "E:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\release\\obj\\x86_64"
+          "value": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\release\\obj\\x86_64"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
-          "value": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+          "value": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
         },
         {
           "name": "CMAKE_SYSTEM_NAME",
@@ -70,14 +70,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
+  "cxxBuildFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
   "info": {
     "abi": "X86_64",
     "bitness": 64,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
+  "originalCxxBuildFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx\\cmake\\release\\x86_64",
   "variant": {
     "buildSystemArgumentList": [],
     "buildTargetSet": [],
@@ -90,24 +90,24 @@
     "module": {
       "buildSystem": "CMAKE",
       "cmake": {
-        "cmakeExe": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+        "cmakeExe": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
         "minimumCmakeVersion": "3.10.2",
-        "ninjaExe": "E:\\developer\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+        "ninjaExe": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
       },
-      "cmakeToolchainFile": "E:\\developer\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-      "cxxFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\.cxx",
+      "cmakeToolchainFile": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+      "cxxFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\.cxx",
       "gradleModulePathName": ":binderlearn",
-      "intermediatesFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates",
-      "makeFile": "E:\\developer\\project\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
-      "moduleBuildFile": "E:\\developer\\project\\LearnExamples\\binderlearn\\build.gradle",
-      "moduleRootFolder": "E:\\developer\\project\\LearnExamples\\binderlearn",
+      "intermediatesFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\build\\intermediates",
+      "makeFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\src\\main\\cpp\\CMakeLists.txt",
+      "moduleBuildFile": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\build.gradle",
+      "moduleRootFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn",
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
         "X86",
         "X86_64"
       ],
-      "ndkFolder": "E:\\developer\\sdk\\ndk\\21.1.6352462",
+      "ndkFolder": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462",
       "ndkMetaAbiList": [
         {
           "abi": "ARMEABI_V7A",
@@ -163,28 +163,28 @@
       ],
       "ndkVersion": "21.1.6352462",
       "project": {
-        "compilerSettingsCacheFolder": "E:\\developer\\project\\LearnExamples\\.cxx",
-        "cxxFolder": "E:\\developer\\project\\LearnExamples\\.cxx",
+        "compilerSettingsCacheFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\.cxx",
+        "cxxFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\.cxx",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "E:\\developer\\project\\LearnExamples",
-        "sdkFolder": "E:\\developer\\sdk"
+        "rootBuildGradleFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples",
+        "sdkFolder": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk"
       },
       "splitsAbiFilterSet": [],
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "E:\\developer\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
-          "ARM64_V8A": "E:\\developer\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-          "X86": "E:\\developer\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-          "X86_64": "E:\\developer\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+          "ARMEABI_V7A": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "E:\\Users\\wfy\\AppData\\Local\\Android\\sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       }
     },
-    "objFolder": "E:\\developer\\project\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\release\\obj",
+    "objFolder": "E:\\AndroidStudioprojects\\youbesun\\LearnExamples\\binderlearn\\build\\intermediates\\cmake\\release\\obj",
     "variantName": "release",
     "validAbiList": [
       "ARMEABI_V7A",

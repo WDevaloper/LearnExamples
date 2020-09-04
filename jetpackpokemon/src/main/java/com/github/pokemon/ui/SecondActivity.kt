@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.github.pokemon.R
 import com.github.pokemon.base.BaseActivity
+import com.github.pokemon.base.MyLifecycle
 import com.github.pokemon.event.EventType
 import com.github.pokemon.event.LiveDataBus
 import com.github.pokemon.viewmodel.base.BaseViewModel
@@ -47,9 +48,6 @@ class SecondActivity : BaseActivity() {
 //        mViewModel.postOfData7().observe(this, Observer {
 //            Log.e("tag", ".......................list result: $it")
 //        })
-
-
-
 
 
         mViewModel.postOf8().observe(this, Observer {

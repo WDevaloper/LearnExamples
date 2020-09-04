@@ -6,6 +6,7 @@ import androidx.core.os.TraceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.graphics.BitmapRegionDecoder;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;

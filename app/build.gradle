@@ -60,7 +60,7 @@ dependencies {
 
     //http://greenrobot.org/eventbus/documentation/subscriber-index/
     implementation 'org.greenrobot:eventbus:3.2.0'
-    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.2.0'
+//    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.2.0'
 
 
     implementation 'com.jakewharton:butterknife:10.2.1'

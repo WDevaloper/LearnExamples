@@ -2,6 +2,7 @@ package com.github.apm;
 
 import android.util.Log;
 
+
 public class LauncherTimer {
     private static long sTime;
 
