@@ -568,7 +568,8 @@ IRT_ENTRY_NO_ASYNC(void, InterpreterRuntime::monitorenter(JavaThread* thread, Ba
   Handle h_obj(thread, elem->obj());
   assert(Universe::heap()->is_in_reserved_or_null(h_obj()),
          "must be NULL or an object");
-  if (UseBiasedLocking) {
+  if (UseBiasedLocking) {//是否是偏向锁，如果是偏向锁那么直接获取锁
+    // 如果取消了偏见，请重试快速进入，以避免不必要的通货膨胀
     // Retry fast entry if bias is revoked to avoid unnecessary inflation
     ObjectSynchronizer::fast_enter(h_obj, elem->lock(), true, CHECK);
   } else {
