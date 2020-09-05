@@ -1,7 +1,12 @@
 # ninja log v5
+<<<<<<< HEAD
 1	18	0	clean	af664f06f016d3c4
 0	16	0	clean	af664f06f016d3c4
 0	23	0	clean	af664f06f016d3c4
 0	18	0	clean	af664f06f016d3c4
 0	17	0	clean	af664f06f016d3c4
 0	16	0	clean	af664f06f016d3c4
+=======
+0	34	0	clean	5f16572234e6345f
+>>>>>>> 53dec99e4dc8e84c7f1750042982b81a037d5938
+0	153	0	clean	af664f06f016d3c4

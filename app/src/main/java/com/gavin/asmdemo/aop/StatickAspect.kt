@@ -28,6 +28,7 @@ class StatickAspect {
         val signature = joinPoint.signature as MethodSignature
 
         val className = signature.declaringType.simpleName
+
         val args = joinPoint.args
 
         signature.parameterNames.forEach {

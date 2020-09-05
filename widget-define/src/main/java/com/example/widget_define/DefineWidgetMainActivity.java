@@ -3,6 +3,7 @@ package com.example.widget_define;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.os.TraceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -15,6 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DefineWidgetMainActivity extends AppCompatActivity {
 
 
@@ -26,11 +30,19 @@ public class DefineWidgetMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_define_widget_main);
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new StackLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new StackAdapter(this);
+        recyclerView.addItemDecoration(new TimeAxisItemDecoration(this, dynasty));
         recyclerView.setAdapter(adapter);
     }
 
+    private static List<String> dynasty = new ArrayList<>();
+
+    static {
+        for (int i = 0; i < 50; i++) {
+            dynasty.add("position: " + i);
+        }
+    }
 
     static class StackAdapter extends RecyclerView.Adapter<StackViewHolder> {
         private final Context context;
@@ -61,7 +73,7 @@ public class DefineWidgetMainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 50;
+            return dynasty.size();
         }
     }
 

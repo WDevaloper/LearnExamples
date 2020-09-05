@@ -209,6 +209,7 @@ public class AndroidRAdaptMainActivity extends AppCompatActivity {
 
     //能不能删除其他应用的图片名字？
     // 不能删除其他用的文件名 cr.delete：RecoverableSecurityException
+    // 能删除，但只能删除数据库中的记录，真是文件不能被删除掉。
     public void deleteImage(View view) {
         try {
             ImageRequest imageRequest = new ImageRequest(new File(""));

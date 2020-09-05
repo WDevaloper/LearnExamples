@@ -46,8 +46,6 @@ public class NetWorkMainActivity extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         return super.dispatchTouchEvent(ev);
     }
-
     interface Api {
-
     }
 }
