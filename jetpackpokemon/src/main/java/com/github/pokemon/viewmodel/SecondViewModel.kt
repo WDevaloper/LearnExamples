@@ -24,7 +24,8 @@ class SecondViewModel : BaseViewModel() {
 
 
 
-    fun postOf8():LiveData<PokeResp> = pokemonRepository.postOf3().executeFlow().asLiveData()
+    fun postOf8():LiveData<PokeResp> = pokemonRepository.postOf3()
+            .executeFlow().asLiveData()
 
     @ExperimentalCoroutinesApi
     fun postOfData2(): LiveData<PokeResp> = pokemonRepository.postOf2().executeFlow().asLiveData()
