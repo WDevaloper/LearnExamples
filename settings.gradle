@@ -1,3 +1,7 @@
+include ':annotation'
+include ':compiler'
+include ':butterknifelib'
+include ':apt-ioc'
 include ':adapt-android-R'
 include ':widget-define'
 include ':design-pattern'

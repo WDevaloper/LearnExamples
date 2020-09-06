@@ -18,7 +18,7 @@ class MainViewModel : BaseViewModel() {
     private val pokemonRepository: PokeRepository by lazy {
         PokemonFactory.makePokemonRepository(RetrofitFactory.createApi(PokeApi::class.java), App.db)
     }
+
     @ExperimentalPagingApi
-    fun postOfData(): LiveData<PagingData<PokeEntity>> = pokemonRepository.postOf()
-            .asLiveData()
+    fun postOfData(): LiveData<PagingData<PokeEntity>> = pokemonRepository.postOf().asLiveData()
 }

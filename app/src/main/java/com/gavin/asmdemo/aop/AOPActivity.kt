@@ -27,6 +27,7 @@ class AOPActivity : AppCompatActivity() {
     @VipCheck("普通会员")
     fun pvip(view: View) {
 
+
     }
 
     /**
@@ -44,4 +45,15 @@ class AOPActivity : AppCompatActivity() {
         testStattic.name = "对象"
         testStatic("yyyyyyyyyymmmmmmmmmmmmmmmmmm", testStattic)
     }
+
+
+    fun args(view: View) {
+        val testArgs = testArgs("aaaa", "bbb")
+        Log.e("tag", testArgs)
+    }
+
+    fun testArgs(arg1: String, args2: String): String {
+        return "Hello Args1 >>>$arg1   Args2 >>>>$args2"
+    }
+
 }

@@ -14,6 +14,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.retry
 
 
 class PokeRepository(
@@ -33,7 +34,8 @@ class PokeRepository(
 
     //记住一定发射出去
     @ExperimentalCoroutinesApi
-    fun postOf2(): Flow<PokeResp> = flow { emit(api.fetchPokemonList()) }.flowOn(Dispatchers.IO)
+    fun postOf2(): Flow<PokeResp> = flow { emit(api.fetchPokemonList()) }
+            .flowOn(Dispatchers.IO)
 
 
     @ExperimentalCoroutinesApi

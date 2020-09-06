@@ -14,6 +14,7 @@ import com.github.pokemon.event.LiveDataBus
 import com.github.pokemon.viewmodel.base.BaseViewModel
 import com.github.pokemon.viewmodel.SecondViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import dalvik.system.BaseDexClassLoader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
@@ -49,9 +50,6 @@ class SecondActivity : BaseActivity() {
 //        })
 
 
-
-
-
         mViewModel.postOf8().observe(this, Observer {
             Log.e("tag", "result>>>> $it")
         })
@@ -65,6 +63,9 @@ class SecondActivity : BaseActivity() {
                 } // will be executed on IO if context wasn't specified before
                         .map { Log.e("tag", "map>>>${Thread.currentThread().name}") } // Will be executed in IO
                         .flowOn(Dispatchers.IO)
+                        .retry(3000) { true }
+                        .catch { }
+                        .buffer()
                         .filter {
                             Log.e("tag", "filter>>>${Thread.currentThread().name}")
                             true
