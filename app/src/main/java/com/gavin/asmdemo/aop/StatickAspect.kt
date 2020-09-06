@@ -18,7 +18,7 @@ import org.aspectj.lang.reflect.MethodSignature
 @Aspect
 class StatickAspect {
 
-    @Pointcut("execution( * com.gavin.asmdemo.aop.User.testStatic(..))")
+    @Pointcut("execution( * *.testAopArgs(..))")
     fun testStatic() {
     }
 
@@ -29,15 +29,16 @@ class StatickAspect {
 
         val className = signature.declaringType.simpleName
 
-
         val args = joinPoint.args
 
+        signature.parameterNames.forEach {
+            Log.e("tag", "args name>>>>>>>$it")
+        }
 
         //切点的参数，比如方法参数，这样能拿到参数的值
         args?.forEach {
             Log.e("tag", "args>>>>>>>$it")
         }
-
 
         Log.e("tag", "${signature.method.name}  ===== $className")
 

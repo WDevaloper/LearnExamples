@@ -2,6 +2,7 @@ package com.gavin.asmdemo;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.BitmapRegionDecoder;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
@@ -32,6 +33,5 @@ public abstract class BaseActivity extends Activity {
         });
         Observable.concat(Observable.just(""), Observable.just(""))
                 .subscribe();
-
     }
 }

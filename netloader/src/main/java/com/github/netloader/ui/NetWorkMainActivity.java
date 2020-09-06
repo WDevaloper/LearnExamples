@@ -1,5 +1,6 @@
 package com.github.netloader.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -7,11 +8,7 @@ import android.util.Log;
 
 import com.github.netloader.R;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -27,7 +24,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.Route;
-import retrofit2.Retrofit;
 
 
 // HTTP
@@ -50,7 +46,7 @@ public class NetWorkMainActivity extends AppCompatActivity {
                 .authenticator(new Authenticator() {
                     @Nullable
                     @Override
-                    public Request authenticate(@Nullable Route route, @NotNull Response response) throws IOException {
+                    public Request authenticate(@Nullable Route route, Response response) throws IOException {
                         Log.e("tag", "authenticate>>> " + Thread.currentThread().getName() + "   ");
                         return response.request().newBuilder()
                                 .header("Proxy-Authorization", "sddsfdfdgdgdgd")
@@ -58,18 +54,17 @@ public class NetWorkMainActivity extends AppCompatActivity {
                     }
                 })
                 .cookieJar(new CookieJar() {
-
                     @Override
-                    public void saveFromResponse(@NotNull HttpUrl httpUrl, @NotNull List<Cookie> list) {
+                    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
                         Log.e("tag", "saveFromResponse>>>>" + httpUrl.toString());
                         for (Cookie cookie : list) {
                             Log.e("tag", "cookie" + cookie.name() + "  " + cookie.value());
                         }
                     }
 
-                    @NotNull
+
                     @Override
-                    public List<Cookie> loadForRequest(@NotNull HttpUrl httpUrl) {
+                    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
                         Log.e("tag", "loadForRequest>>>" + httpUrl.toString());
                         return Collections.emptyList();
                     }
@@ -81,12 +76,12 @@ public class NetWorkMainActivity extends AppCompatActivity {
         client.newCall(request)
                 .enqueue(new Callback() {
                     @Override
-                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                    public void onFailure(Call call, IOException e) {
                         e.printStackTrace();
                     }
 
                     @Override
-                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                    public void onResponse(Call call, Response response) throws IOException {
                         String respData = Objects.requireNonNull(response.body()).string();
                         Log.e("tag", "" + respData);
                     }
