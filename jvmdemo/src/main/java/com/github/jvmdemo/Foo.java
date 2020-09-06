@@ -9,4 +9,9 @@ public class Foo {
             number = i + 1;
         }
     }
+
+    public synchronized void test2() {
+        int i = 0;
+        number = i + 1;
+    }
 }
