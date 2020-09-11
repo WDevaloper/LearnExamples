@@ -1,6 +1,6 @@
 package com.github.jvmdemo;
 
-//https://tech.meituan.com/2018/11/15/java-lock.html
+// https://tech.meituan.com/2018/11/15/java-lock.html
 public class ActivityThread {
     int mainM = 10;
 
