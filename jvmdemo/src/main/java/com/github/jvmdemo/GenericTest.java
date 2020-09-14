@@ -1,13 +1,17 @@
 package com.github.jvmdemo;
 
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * 泛型
+ * 泛型类型擦除
  */
 public class GenericTest {
     public static void main(String[] args) {
+
+    }
+
+
+    class Test<T> {
+        private T t;
     }
 }
