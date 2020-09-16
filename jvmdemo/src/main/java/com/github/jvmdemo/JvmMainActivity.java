@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import java.util.HashMap;
+
 public class JvmMainActivity extends AppCompatActivity {
 
     private static final String TAG = "touch";
@@ -22,5 +24,9 @@ public class JvmMainActivity extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Log.e(TAG, "dispatchTouchEvent activity", null);
         return super.dispatchTouchEvent(ev);
+    }
+
+    class Test extends HashMap<String, String> {
+
     }
 }

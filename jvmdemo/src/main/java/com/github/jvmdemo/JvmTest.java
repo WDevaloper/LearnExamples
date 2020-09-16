@@ -1,5 +1,9 @@
 package com.github.jvmdemo;
 
+
+// 查看字节码文件
+// 使用 javap -p -v JvmTest.class >> JvmTest.txt   JDK自带工具
+// 使用 jclasslib  可视化工具
 public class JvmTest {
     //常量
     final String Fs = "常在河边走，哪有不湿鞋";
@@ -16,7 +20,9 @@ public class JvmTest {
         tech13.hashCode();
         int i;
         money = money - 100; //花费100
+
         count++;
+
 
         //if(count ==2000) return;
         king(money);
@@ -33,4 +39,8 @@ public class JvmTest {
         }
     }
 
+
+    public static void testStatic(int ImStatic) {
+        System.out.println("测试静态方法是否有【this】");
+    }
 }

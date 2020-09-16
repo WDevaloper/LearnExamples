@@ -27,6 +27,13 @@ public class ClassLoaderTest {
         Method method = forName.getMethod("test", null);
         Object result = method.invoke(null, null);
         System.out.println("result = " + result);
+
+
+        try {
+            Thread.sleep(50000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String test() {
