@@ -24,6 +24,11 @@ public class ViewA extends View {
     }
 
     @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.e(TAG, "dispatchTouchEvent ViewA ", null);
         return super.dispatchTouchEvent(event);

@@ -13,7 +13,7 @@ public class JvmTest {
     int count = 0;
 
     //King老师出差
-    public void king(int money) {
+    public  void king(int money) {
         //13号妓师
         Object tech13 = new Object();
         //调用一次13号服务
@@ -26,6 +26,10 @@ public class JvmTest {
 
         //if(count ==2000) return;
         king(money);
+    }
+
+    public  void test(int ml) {
+        System.out.println("test>>>>>>>>>>>>>>>>");
     }
 
     public static void main(String[] args) throws Throwable {
