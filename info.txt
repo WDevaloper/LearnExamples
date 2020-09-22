@@ -1,0 +1,1472 @@
+
+> Configure project :app
+WARNING: Configuration 'provided' is obsolete and has been replaced with 'compileOnly'.
+It will be removed soon. For more information see: http://d.android.com/r/tools/update-dependency-configurations.html
+
+> Configure project :gradle_learn
+OuterExt[ name = outer, msg = this is a outer message.] InnerExt[ name = inner, msg = This is a inner message.]
+>>>>>>>>>>>>>>>>>>>>Fa
+>>>>>>>>>>>>>>>>>>>>Wang
+
+> Task :app:model
+
+------------------------------------------------------------
+Project :app
+------------------------------------------------------------
+
++ binaries
+      | Type:   	org.gradle.platform.base.BinaryContainer
+      | Creator: 	BinaryBasePlugin.Rules#binaries(BinaryContainer)
+      | Rules:
+         ? JavaBasePluginRules.Rules#attachBridgedBinaries(BinaryContainer, JavaBasePluginRules.BridgedBinaries)
++ components
+      | Type:   	org.gradle.platform.base.ComponentSpecContainer
+      | Creator: 	ComponentBasePlugin.PluginRules#components(ComponentSpecContainer)
++ sources
+      | Type:   	org.gradle.language.base.ProjectSourceSet
+      | Value:  	[]
+      | Creator: 	LanguageBasePlugin.Rules#sources(Instantiator, CollectionCallbackActionDecorator)
+      | Rules:
+         ? JavaBasePluginRules.Rules#attachBridgedSourceSets(ProjectSourceSet, JavaBasePluginRules.BridgedBinaries)
++ tasks
+      | Type:   	org.gradle.model.ModelMap<org.gradle.api.Task>
+      | Creator: 	Project.<init>.tasks()
+      | Rules:
+         ? BinaryBasePlugin.Rules#copyBinaryTasksToTaskContainer(TaskContainer, BinaryContainer)
+    + analyzeDebugAndroidTestDependencies
+          | Type:   	com.android.build.gradle.tasks.AnalyzeDependenciesTask
+          | Value:  	task ':app:analyzeDebugAndroidTestDependencies'
+          | Creator: 	Project.<init>.tasks.analyzeDebugAndroidTestDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + analyzeDebugDependencies
+          | Type:   	com.android.build.gradle.tasks.AnalyzeDependenciesTask
+          | Value:  	task ':app:analyzeDebugDependencies'
+          | Creator: 	Project.<init>.tasks.analyzeDebugDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + analyzeDebugUnitTestDependencies
+          | Type:   	com.android.build.gradle.tasks.AnalyzeDependenciesTask
+          | Value:  	task ':app:analyzeDebugUnitTestDependencies'
+          | Creator: 	Project.<init>.tasks.analyzeDebugUnitTestDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + analyzeReleaseDependencies
+          | Type:   	com.android.build.gradle.tasks.AnalyzeDependenciesTask
+          | Value:  	task ':app:analyzeReleaseDependencies'
+          | Creator: 	Project.<init>.tasks.analyzeReleaseDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + analyzeReleaseUnitTestDependencies
+          | Type:   	com.android.build.gradle.tasks.AnalyzeDependenciesTask
+          | Value:  	task ':app:analyzeReleaseUnitTestDependencies'
+          | Creator: 	Project.<init>.tasks.analyzeReleaseUnitTestDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + androidDependencies
+          | Type:   	com.android.build.gradle.internal.tasks.DependencyReportTask
+          | Value:  	task ':app:androidDependencies'
+          | Creator: 	Project.<init>.tasks.androidDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + assemble
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:assemble'
+          | Creator: 	Project.<init>.tasks.assemble()
+          | Rules:
+             ? copyToTaskContainer
+    + assembleAndroidTest
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:assembleAndroidTest'
+          | Creator: 	Project.<init>.tasks.assembleAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + assembleDebug
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:assembleDebug'
+          | Creator: 	Project.<init>.tasks.assembleDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + assembleDebugAndroidTest
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:assembleDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.assembleDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + assembleDebugUnitTest
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:assembleDebugUnitTest'
+          | Creator: 	Project.<init>.tasks.assembleDebugUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + assembleRelease
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:assembleRelease'
+          | Creator: 	Project.<init>.tasks.assembleRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + assembleReleaseUnitTest
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:assembleReleaseUnitTest'
+          | Creator: 	Project.<init>.tasks.assembleReleaseUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + build
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:build'
+          | Creator: 	Project.<init>.tasks.build()
+          | Rules:
+             ? copyToTaskContainer
+    + buildDebugPreBundle
+          | Type:   	com.android.build.gradle.internal.tasks.PerModuleBundleTask
+          | Value:  	task ':app:buildDebugPreBundle'
+          | Creator: 	Project.<init>.tasks.buildDebugPreBundle()
+          | Rules:
+             ? copyToTaskContainer
+    + buildDependents
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:buildDependents'
+          | Creator: 	Project.<init>.tasks.buildDependents()
+          | Rules:
+             ? copyToTaskContainer
+    + buildEnvironment
+          | Type:   	org.gradle.api.tasks.diagnostics.BuildEnvironmentReportTask
+          | Value:  	task ':app:buildEnvironment'
+          | Creator: 	Project.<init>.tasks.buildEnvironment()
+          | Rules:
+             ? copyToTaskContainer
+    + buildNeeded
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:buildNeeded'
+          | Creator: 	Project.<init>.tasks.buildNeeded()
+          | Rules:
+             ? copyToTaskContainer
+    + buildReleasePreBundle
+          | Type:   	com.android.build.gradle.internal.tasks.PerModuleBundleTask
+          | Value:  	task ':app:buildReleasePreBundle'
+          | Creator: 	Project.<init>.tasks.buildReleasePreBundle()
+          | Rules:
+             ? copyToTaskContainer
+    + bundle
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:bundle'
+          | Creator: 	Project.<init>.tasks.bundle()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleDebug
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:bundleDebug'
+          | Creator: 	Project.<init>.tasks.bundleDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleDebugAndroidTestClasses
+          | Type:   	com.android.build.gradle.internal.feature.BundleAllClasses
+          | Value:  	task ':app:bundleDebugAndroidTestClasses'
+          | Creator: 	Project.<init>.tasks.bundleDebugAndroidTestClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleDebugAndroidTestResources
+          | Type:   	com.android.build.gradle.internal.res.LinkAndroidResForBundleTask
+          | Value:  	task ':app:bundleDebugAndroidTestResources'
+          | Creator: 	Project.<init>.tasks.bundleDebugAndroidTestResources()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleDebugClasses
+          | Type:   	com.android.build.gradle.internal.feature.BundleAllClasses
+          | Value:  	task ':app:bundleDebugClasses'
+          | Creator: 	Project.<init>.tasks.bundleDebugClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleDebugResources
+          | Type:   	com.android.build.gradle.internal.res.LinkAndroidResForBundleTask
+          | Value:  	task ':app:bundleDebugResources'
+          | Creator: 	Project.<init>.tasks.bundleDebugResources()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleDebugUnitTestClasses
+          | Type:   	com.android.build.gradle.internal.feature.BundleAllClasses
+          | Value:  	task ':app:bundleDebugUnitTestClasses'
+          | Creator: 	Project.<init>.tasks.bundleDebugUnitTestClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleRelease
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:bundleRelease'
+          | Creator: 	Project.<init>.tasks.bundleRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleReleaseClasses
+          | Type:   	com.android.build.gradle.internal.feature.BundleAllClasses
+          | Value:  	task ':app:bundleReleaseClasses'
+          | Creator: 	Project.<init>.tasks.bundleReleaseClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleReleaseResources
+          | Type:   	com.android.build.gradle.internal.res.LinkAndroidResForBundleTask
+          | Value:  	task ':app:bundleReleaseResources'
+          | Creator: 	Project.<init>.tasks.bundleReleaseResources()
+          | Rules:
+             ? copyToTaskContainer
+    + bundleReleaseUnitTestClasses
+          | Type:   	com.android.build.gradle.internal.feature.BundleAllClasses
+          | Value:  	task ':app:bundleReleaseUnitTestClasses'
+          | Creator: 	Project.<init>.tasks.bundleReleaseUnitTestClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + check
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:check'
+          | Creator: 	Project.<init>.tasks.check()
+          | Rules:
+             ? copyToTaskContainer
+    + checkDebugAndroidTestDuplicateClasses
+          | Type:   	com.android.build.gradle.internal.tasks.CheckDuplicateClassesTask
+          | Value:  	task ':app:checkDebugAndroidTestDuplicateClasses'
+          | Creator: 	Project.<init>.tasks.checkDebugAndroidTestDuplicateClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + checkDebugDuplicateClasses
+          | Type:   	com.android.build.gradle.internal.tasks.CheckDuplicateClassesTask
+          | Value:  	task ':app:checkDebugDuplicateClasses'
+          | Creator: 	Project.<init>.tasks.checkDebugDuplicateClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + checkDebugManifest
+          | Type:   	com.android.build.gradle.internal.tasks.CheckManifest
+          | Value:  	task ':app:checkDebugManifest'
+          | Creator: 	Project.<init>.tasks.checkDebugManifest()
+          | Rules:
+             ? copyToTaskContainer
+    + checkReleaseDuplicateClasses
+          | Type:   	com.android.build.gradle.internal.tasks.CheckDuplicateClassesTask
+          | Value:  	task ':app:checkReleaseDuplicateClasses'
+          | Creator: 	Project.<init>.tasks.checkReleaseDuplicateClasses()
+          | Rules:
+             ? copyToTaskContainer
+    + checkReleaseManifest
+          | Type:   	com.android.build.gradle.internal.tasks.CheckManifest
+          | Value:  	task ':app:checkReleaseManifest'
+          | Creator: 	Project.<init>.tasks.checkReleaseManifest()
+          | Rules:
+             ? copyToTaskContainer
+    + clean
+          | Type:   	org.gradle.api.tasks.Delete
+          | Value:  	task ':app:clean'
+          | Creator: 	Project.<init>.tasks.clean()
+          | Rules:
+             ? copyToTaskContainer
+    + cleanBuildCache
+          | Type:   	com.android.build.gradle.tasks.CleanBuildCache
+          | Value:  	task ':app:cleanBuildCache'
+          | Creator: 	Project.<init>.tasks.cleanBuildCache()
+          | Rules:
+             ? copyToTaskContainer
+    + collectReleaseDependencies
+          | Type:   	com.android.build.gradle.internal.tasks.PerModuleReportDependenciesTask
+          | Value:  	task ':app:collectReleaseDependencies'
+          | Creator: 	Project.<init>.tasks.collectReleaseDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAidl
+          | Type:   	com.android.build.gradle.tasks.AidlCompile
+          | Value:  	task ':app:compileDebugAidl'
+          | Creator: 	Project.<init>.tasks.compileDebugAidl()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAndroidTestAidl
+          | Type:   	com.android.build.gradle.tasks.AidlCompile
+          | Value:  	task ':app:compileDebugAndroidTestAidl'
+          | Creator: 	Project.<init>.tasks.compileDebugAndroidTestAidl()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAndroidTestJavaWithJavac
+          | Type:   	org.gradle.api.tasks.compile.JavaCompile
+          | Value:  	task ':app:compileDebugAndroidTestJavaWithJavac'
+          | Creator: 	Project.<init>.tasks.compileDebugAndroidTestJavaWithJavac()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAndroidTestKotlin
+          | Type:   	org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+          | Value:  	task ':app:compileDebugAndroidTestKotlin'
+          | Creator: 	Project.<init>.tasks.compileDebugAndroidTestKotlin()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAndroidTestRenderscript
+          | Type:   	com.android.build.gradle.tasks.RenderscriptCompile
+          | Value:  	task ':app:compileDebugAndroidTestRenderscript'
+          | Creator: 	Project.<init>.tasks.compileDebugAndroidTestRenderscript()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAndroidTestShaders
+          | Type:   	com.android.build.gradle.tasks.ShaderCompile
+          | Value:  	task ':app:compileDebugAndroidTestShaders'
+          | Creator: 	Project.<init>.tasks.compileDebugAndroidTestShaders()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugAndroidTestSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:compileDebugAndroidTestSources'
+          | Creator: 	Project.<init>.tasks.compileDebugAndroidTestSources()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugJavaWithJavac
+          | Type:   	org.gradle.api.tasks.compile.JavaCompile
+          | Value:  	task ':app:compileDebugJavaWithJavac'
+          | Creator: 	Project.<init>.tasks.compileDebugJavaWithJavac()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugKotlin
+          | Type:   	org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+          | Value:  	task ':app:compileDebugKotlin'
+          | Creator: 	Project.<init>.tasks.compileDebugKotlin()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugRenderscript
+          | Type:   	com.android.build.gradle.tasks.RenderscriptCompile
+          | Value:  	task ':app:compileDebugRenderscript'
+          | Creator: 	Project.<init>.tasks.compileDebugRenderscript()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugShaders
+          | Type:   	com.android.build.gradle.tasks.ShaderCompile
+          | Value:  	task ':app:compileDebugShaders'
+          | Creator: 	Project.<init>.tasks.compileDebugShaders()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:compileDebugSources'
+          | Creator: 	Project.<init>.tasks.compileDebugSources()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugUnitTestJavaWithJavac
+          | Type:   	org.gradle.api.tasks.compile.JavaCompile
+          | Value:  	task ':app:compileDebugUnitTestJavaWithJavac'
+          | Creator: 	Project.<init>.tasks.compileDebugUnitTestJavaWithJavac()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugUnitTestKotlin
+          | Type:   	org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+          | Value:  	task ':app:compileDebugUnitTestKotlin'
+          | Creator: 	Project.<init>.tasks.compileDebugUnitTestKotlin()
+          | Rules:
+             ? copyToTaskContainer
+    + compileDebugUnitTestSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:compileDebugUnitTestSources'
+          | Creator: 	Project.<init>.tasks.compileDebugUnitTestSources()
+          | Rules:
+             ? copyToTaskContainer
+    + compileLint
+          | Type:   	com.android.build.gradle.internal.tasks.LintCompile
+          | Value:  	task ':app:compileLint'
+          | Creator: 	Project.<init>.tasks.compileLint()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseAidl
+          | Type:   	com.android.build.gradle.tasks.AidlCompile
+          | Value:  	task ':app:compileReleaseAidl'
+          | Creator: 	Project.<init>.tasks.compileReleaseAidl()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseJavaWithJavac
+          | Type:   	org.gradle.api.tasks.compile.JavaCompile
+          | Value:  	task ':app:compileReleaseJavaWithJavac'
+          | Creator: 	Project.<init>.tasks.compileReleaseJavaWithJavac()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseKotlin
+          | Type:   	org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+          | Value:  	task ':app:compileReleaseKotlin'
+          | Creator: 	Project.<init>.tasks.compileReleaseKotlin()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseRenderscript
+          | Type:   	com.android.build.gradle.tasks.RenderscriptCompile
+          | Value:  	task ':app:compileReleaseRenderscript'
+          | Creator: 	Project.<init>.tasks.compileReleaseRenderscript()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseShaders
+          | Type:   	com.android.build.gradle.tasks.ShaderCompile
+          | Value:  	task ':app:compileReleaseShaders'
+          | Creator: 	Project.<init>.tasks.compileReleaseShaders()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:compileReleaseSources'
+          | Creator: 	Project.<init>.tasks.compileReleaseSources()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseUnitTestJavaWithJavac
+          | Type:   	org.gradle.api.tasks.compile.JavaCompile
+          | Value:  	task ':app:compileReleaseUnitTestJavaWithJavac'
+          | Creator: 	Project.<init>.tasks.compileReleaseUnitTestJavaWithJavac()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseUnitTestKotlin
+          | Type:   	org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+          | Value:  	task ':app:compileReleaseUnitTestKotlin'
+          | Creator: 	Project.<init>.tasks.compileReleaseUnitTestKotlin()
+          | Rules:
+             ? copyToTaskContainer
+    + compileReleaseUnitTestSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:compileReleaseUnitTestSources'
+          | Creator: 	Project.<init>.tasks.compileReleaseUnitTestSources()
+          | Rules:
+             ? copyToTaskContainer
+    + components
+          | Type:   	org.gradle.api.reporting.components.ComponentReport
+          | Value:  	task ':app:components'
+          | Creator: 	Project.<init>.tasks.components()
+          | Rules:
+             ? copyToTaskContainer
+    + configureReleaseDependencies
+          | Type:   	com.android.build.gradle.internal.tasks.BundleReportDependenciesTask
+          | Value:  	task ':app:configureReleaseDependencies'
+          | Creator: 	Project.<init>.tasks.configureReleaseDependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + connectedAndroidTest
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:connectedAndroidTest'
+          | Creator: 	Project.<init>.tasks.connectedAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + connectedCheck
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:connectedCheck'
+          | Creator: 	Project.<init>.tasks.connectedCheck()
+          | Rules:
+             ? copyToTaskContainer
+    + connectedDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.DeviceProviderInstrumentTestTask
+          | Value:  	task ':app:connectedDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.connectedDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + consumeConfigAttr
+          | Type:   	com.android.build.gradle.internal.TaskManager.ConfigAttrTask
+          | Value:  	task ':app:consumeConfigAttr'
+          | Creator: 	Project.<init>.tasks.consumeConfigAttr()
+          | Rules:
+             ? copyToTaskContainer
+    + createDebugCompatibleScreenManifests
+          | Type:   	com.android.build.gradle.tasks.CompatibleScreensManifest
+          | Value:  	task ':app:createDebugCompatibleScreenManifests'
+          | Creator: 	Project.<init>.tasks.createDebugCompatibleScreenManifests()
+          | Rules:
+             ? copyToTaskContainer
+    + createMockableJar
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:createMockableJar'
+          | Creator: 	Project.<init>.tasks.createMockableJar()
+          | Rules:
+             ? copyToTaskContainer
+    + createReleaseCompatibleScreenManifests
+          | Type:   	com.android.build.gradle.tasks.CompatibleScreensManifest
+          | Value:  	task ':app:createReleaseCompatibleScreenManifests'
+          | Creator: 	Project.<init>.tasks.createReleaseCompatibleScreenManifests()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingExportBuildInfoDebug
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingExportBuildInfoTask
+          | Value:  	task ':app:dataBindingExportBuildInfoDebug'
+          | Creator: 	Project.<init>.tasks.dataBindingExportBuildInfoDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingExportBuildInfoRelease
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingExportBuildInfoTask
+          | Value:  	task ':app:dataBindingExportBuildInfoRelease'
+          | Creator: 	Project.<init>.tasks.dataBindingExportBuildInfoRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingExportFeaturePackageIdsDebug
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingExportFeatureApplicationIdsTask
+          | Value:  	task ':app:dataBindingExportFeaturePackageIdsDebug'
+          | Creator: 	Project.<init>.tasks.dataBindingExportFeaturePackageIdsDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingExportFeaturePackageIdsRelease
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingExportFeatureApplicationIdsTask
+          | Value:  	task ':app:dataBindingExportFeaturePackageIdsRelease'
+          | Creator: 	Project.<init>.tasks.dataBindingExportFeaturePackageIdsRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingGenBaseClassesDebug
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingGenBaseClassesTask
+          | Value:  	task ':app:dataBindingGenBaseClassesDebug'
+          | Creator: 	Project.<init>.tasks.dataBindingGenBaseClassesDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingGenBaseClassesRelease
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingGenBaseClassesTask
+          | Value:  	task ':app:dataBindingGenBaseClassesRelease'
+          | Creator: 	Project.<init>.tasks.dataBindingGenBaseClassesRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingMergeDependencyArtifactsDebug
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingMergeDependencyArtifactsTask
+          | Value:  	task ':app:dataBindingMergeDependencyArtifactsDebug'
+          | Creator: 	Project.<init>.tasks.dataBindingMergeDependencyArtifactsDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingMergeDependencyArtifactsRelease
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingMergeDependencyArtifactsTask
+          | Value:  	task ':app:dataBindingMergeDependencyArtifactsRelease'
+          | Creator: 	Project.<init>.tasks.dataBindingMergeDependencyArtifactsRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingMergeGenClassesDebug
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingMergeBaseClassLogTask
+          | Value:  	task ':app:dataBindingMergeGenClassesDebug'
+          | Creator: 	Project.<init>.tasks.dataBindingMergeGenClassesDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + dataBindingMergeGenClassesRelease
+          | Type:   	com.android.build.gradle.internal.tasks.databinding.DataBindingMergeBaseClassLogTask
+          | Value:  	task ':app:dataBindingMergeGenClassesRelease'
+          | Creator: 	Project.<init>.tasks.dataBindingMergeGenClassesRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + dependencies
+          | Type:   	org.gradle.api.tasks.diagnostics.DependencyReportTask
+          | Value:  	task ':app:dependencies'
+          | Creator: 	Project.<init>.tasks.dependencies()
+          | Rules:
+             ? copyToTaskContainer
+    + dependencyInsight
+          | Type:   	org.gradle.api.tasks.diagnostics.DependencyInsightReportTask
+          | Value:  	task ':app:dependencyInsight'
+          | Creator: 	Project.<init>.tasks.dependencyInsight()
+          | Rules:
+             ? copyToTaskContainer
+    + dependentComponents
+          | Type:   	org.gradle.api.reporting.dependents.DependentComponentsReport
+          | Value:  	task ':app:dependentComponents'
+          | Creator: 	Project.<init>.tasks.dependentComponents()
+          | Rules:
+             ? copyToTaskContainer
+    + deviceAndroidTest
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:deviceAndroidTest'
+          | Creator: 	Project.<init>.tasks.deviceAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + deviceCheck
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:deviceCheck'
+          | Creator: 	Project.<init>.tasks.deviceCheck()
+          | Rules:
+             ? copyToTaskContainer
+    + dexBuilderDebug
+          | Type:   	com.android.build.gradle.internal.tasks.DexArchiveBuilderTask
+          | Value:  	task ':app:dexBuilderDebug'
+          | Creator: 	Project.<init>.tasks.dexBuilderDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + dexBuilderDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.DexArchiveBuilderTask
+          | Value:  	task ':app:dexBuilderDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.dexBuilderDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + dexBuilderRelease
+          | Type:   	com.android.build.gradle.internal.tasks.DexArchiveBuilderTask
+          | Value:  	task ':app:dexBuilderRelease'
+          | Creator: 	Project.<init>.tasks.dexBuilderRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + dummydebugUnitTest
+          | Type:   	com.android.build.gradle.internal.scope.BuildArtifactsHolder.DummyTask
+          | Value:  	task ':app:dummydebugUnitTest'
+          | Creator: 	Project.<init>.tasks.dummydebugUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + dummyreleaseUnitTest
+          | Type:   	com.android.build.gradle.internal.scope.BuildArtifactsHolder.DummyTask
+          | Value:  	task ':app:dummyreleaseUnitTest'
+          | Creator: 	Project.<init>.tasks.dummyreleaseUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + extractApksForDebug
+          | Type:   	com.android.build.gradle.internal.tasks.ExtractApksTask
+          | Value:  	task ':app:extractApksForDebug'
+          | Creator: 	Project.<init>.tasks.extractApksForDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + extractApksForRelease
+          | Type:   	com.android.build.gradle.internal.tasks.ExtractApksTask
+          | Value:  	task ':app:extractApksForRelease'
+          | Creator: 	Project.<init>.tasks.extractApksForRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + extractDeepLinksDebug
+          | Type:   	com.android.build.gradle.tasks.ExtractDeepLinksTask
+          | Value:  	task ':app:extractDeepLinksDebug'
+          | Creator: 	Project.<init>.tasks.extractDeepLinksDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + extractDeepLinksRelease
+          | Type:   	com.android.build.gradle.tasks.ExtractDeepLinksTask
+          | Value:  	task ':app:extractDeepLinksRelease'
+          | Creator: 	Project.<init>.tasks.extractDeepLinksRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + extractProguardFiles
+          | Type:   	com.android.build.gradle.internal.tasks.ExtractProguardFiles
+          | Value:  	task ':app:extractProguardFiles'
+          | Creator: 	Project.<init>.tasks.extractProguardFiles()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugAndroidTestAssets
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateDebugAndroidTestAssets'
+          | Creator: 	Project.<init>.tasks.generateDebugAndroidTestAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugAndroidTestBuildConfig
+          | Type:   	com.android.build.gradle.tasks.GenerateBuildConfig
+          | Value:  	task ':app:generateDebugAndroidTestBuildConfig'
+          | Creator: 	Project.<init>.tasks.generateDebugAndroidTestBuildConfig()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugAndroidTestResValues
+          | Type:   	com.android.build.gradle.tasks.GenerateResValues
+          | Value:  	task ':app:generateDebugAndroidTestResValues'
+          | Creator: 	Project.<init>.tasks.generateDebugAndroidTestResValues()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugAndroidTestResources
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateDebugAndroidTestResources'
+          | Creator: 	Project.<init>.tasks.generateDebugAndroidTestResources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugAndroidTestSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:generateDebugAndroidTestSources'
+          | Creator: 	Project.<init>.tasks.generateDebugAndroidTestSources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugAssets
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateDebugAssets'
+          | Creator: 	Project.<init>.tasks.generateDebugAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugBuildConfig
+          | Type:   	com.android.build.gradle.tasks.GenerateBuildConfig
+          | Value:  	task ':app:generateDebugBuildConfig'
+          | Creator: 	Project.<init>.tasks.generateDebugBuildConfig()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugFeatureMetadata
+          | Type:   	com.android.build.gradle.internal.tasks.featuresplit.FeatureSetMetadataWriterTask
+          | Value:  	task ':app:generateDebugFeatureMetadata'
+          | Creator: 	Project.<init>.tasks.generateDebugFeatureMetadata()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugFeatureTransitiveDeps
+          | Type:   	com.android.build.gradle.internal.tasks.featuresplit.PackagedDependenciesWriterTask
+          | Value:  	task ':app:generateDebugFeatureTransitiveDeps'
+          | Creator: 	Project.<init>.tasks.generateDebugFeatureTransitiveDeps()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugResValues
+          | Type:   	com.android.build.gradle.tasks.GenerateResValues
+          | Value:  	task ':app:generateDebugResValues'
+          | Creator: 	Project.<init>.tasks.generateDebugResValues()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugResources
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateDebugResources'
+          | Creator: 	Project.<init>.tasks.generateDebugResources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:generateDebugSources'
+          | Creator: 	Project.<init>.tasks.generateDebugSources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugUnitTestAssets
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateDebugUnitTestAssets'
+          | Creator: 	Project.<init>.tasks.generateDebugUnitTestAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugUnitTestResources
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateDebugUnitTestResources'
+          | Creator: 	Project.<init>.tasks.generateDebugUnitTestResources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateDebugUnitTestSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:generateDebugUnitTestSources'
+          | Creator: 	Project.<init>.tasks.generateDebugUnitTestSources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseAssets
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateReleaseAssets'
+          | Creator: 	Project.<init>.tasks.generateReleaseAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseBuildConfig
+          | Type:   	com.android.build.gradle.tasks.GenerateBuildConfig
+          | Value:  	task ':app:generateReleaseBuildConfig'
+          | Creator: 	Project.<init>.tasks.generateReleaseBuildConfig()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseFeatureMetadata
+          | Type:   	com.android.build.gradle.internal.tasks.featuresplit.FeatureSetMetadataWriterTask
+          | Value:  	task ':app:generateReleaseFeatureMetadata'
+          | Creator: 	Project.<init>.tasks.generateReleaseFeatureMetadata()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseFeatureTransitiveDeps
+          | Type:   	com.android.build.gradle.internal.tasks.featuresplit.PackagedDependenciesWriterTask
+          | Value:  	task ':app:generateReleaseFeatureTransitiveDeps'
+          | Creator: 	Project.<init>.tasks.generateReleaseFeatureTransitiveDeps()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseResValues
+          | Type:   	com.android.build.gradle.tasks.GenerateResValues
+          | Value:  	task ':app:generateReleaseResValues'
+          | Creator: 	Project.<init>.tasks.generateReleaseResValues()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseResources
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateReleaseResources'
+          | Creator: 	Project.<init>.tasks.generateReleaseResources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:generateReleaseSources'
+          | Creator: 	Project.<init>.tasks.generateReleaseSources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseUnitTestAssets
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateReleaseUnitTestAssets'
+          | Creator: 	Project.<init>.tasks.generateReleaseUnitTestAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseUnitTestResources
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:generateReleaseUnitTestResources'
+          | Creator: 	Project.<init>.tasks.generateReleaseUnitTestResources()
+          | Rules:
+             ? copyToTaskContainer
+    + generateReleaseUnitTestSources
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:generateReleaseUnitTestSources'
+          | Creator: 	Project.<init>.tasks.generateReleaseUnitTestSources()
+          | Rules:
+             ? copyToTaskContainer
+    + help
+          | Type:   	org.gradle.configuration.Help
+          | Value:  	task ':app:help'
+          | Creator: 	Project.<init>.tasks.help()
+          | Rules:
+             ? copyToTaskContainer
+    + installDebug
+          | Type:   	com.android.build.gradle.internal.tasks.InstallVariantTask
+          | Value:  	task ':app:installDebug'
+          | Creator: 	Project.<init>.tasks.installDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + installDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.InstallVariantTask
+          | Value:  	task ':app:installDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.installDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + javaPreCompileDebug
+          | Type:   	com.android.build.gradle.tasks.JavaPreCompileTask
+          | Value:  	task ':app:javaPreCompileDebug'
+          | Creator: 	Project.<init>.tasks.javaPreCompileDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + javaPreCompileDebugAndroidTest
+          | Type:   	com.android.build.gradle.tasks.JavaPreCompileTask
+          | Value:  	task ':app:javaPreCompileDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.javaPreCompileDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + javaPreCompileDebugUnitTest
+          | Type:   	com.android.build.gradle.tasks.JavaPreCompileTask
+          | Value:  	task ':app:javaPreCompileDebugUnitTest'
+          | Creator: 	Project.<init>.tasks.javaPreCompileDebugUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + javaPreCompileRelease
+          | Type:   	com.android.build.gradle.tasks.JavaPreCompileTask
+          | Value:  	task ':app:javaPreCompileRelease'
+          | Creator: 	Project.<init>.tasks.javaPreCompileRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + javaPreCompileReleaseUnitTest
+          | Type:   	com.android.build.gradle.tasks.JavaPreCompileTask
+          | Value:  	task ':app:javaPreCompileReleaseUnitTest'
+          | Creator: 	Project.<init>.tasks.javaPreCompileReleaseUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + lint
+          | Type:   	com.android.build.gradle.tasks.LintGlobalTask
+          | Value:  	task ':app:lint'
+          | Creator: 	Project.<init>.tasks.lint()
+          | Rules:
+             ? copyToTaskContainer
+    + lintDebug
+          | Type:   	com.android.build.gradle.tasks.LintPerVariantTask
+          | Value:  	task ':app:lintDebug'
+          | Creator: 	Project.<init>.tasks.lintDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + lintFix
+          | Type:   	com.android.build.gradle.tasks.LintFixTask
+          | Value:  	task ':app:lintFix'
+          | Creator: 	Project.<init>.tasks.lintFix()
+          | Rules:
+             ? copyToTaskContainer
+    + lintRelease
+          | Type:   	com.android.build.gradle.tasks.LintPerVariantTask
+          | Value:  	task ':app:lintRelease'
+          | Creator: 	Project.<init>.tasks.lintRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + lintVitalRelease
+          | Type:   	com.android.build.gradle.tasks.LintPerVariantTask
+          | Value:  	task ':app:lintVitalRelease'
+          | Creator: 	Project.<init>.tasks.lintVitalRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + mainApkListPersistenceDebug
+          | Type:   	com.android.build.gradle.tasks.MainApkListPersistence
+          | Value:  	task ':app:mainApkListPersistenceDebug'
+          | Creator: 	Project.<init>.tasks.mainApkListPersistenceDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + mainApkListPersistenceDebugAndroidTest
+          | Type:   	com.android.build.gradle.tasks.MainApkListPersistence
+          | Value:  	task ':app:mainApkListPersistenceDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.mainApkListPersistenceDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + mainApkListPersistenceRelease
+          | Type:   	com.android.build.gradle.tasks.MainApkListPersistence
+          | Value:  	task ':app:mainApkListPersistenceRelease'
+          | Creator: 	Project.<init>.tasks.mainApkListPersistenceRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + makeApkFromBundleForDebug
+          | Type:   	com.android.build.gradle.internal.tasks.BundleToApkTask
+          | Value:  	task ':app:makeApkFromBundleForDebug'
+          | Creator: 	Project.<init>.tasks.makeApkFromBundleForDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + makeApkFromBundleForRelease
+          | Type:   	com.android.build.gradle.internal.tasks.BundleToApkTask
+          | Value:  	task ':app:makeApkFromBundleForRelease'
+          | Creator: 	Project.<init>.tasks.makeApkFromBundleForRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestAssets
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeDebugAndroidTestAssets'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestGeneratedProguardFiles
+          | Type:   	com.android.build.gradle.internal.tasks.MergeFileTask
+          | Value:  	task ':app:mergeDebugAndroidTestGeneratedProguardFiles'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestGeneratedProguardFiles()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestJavaResource
+          | Type:   	com.android.build.gradle.internal.tasks.MergeJavaResourceTask
+          | Value:  	task ':app:mergeDebugAndroidTestJavaResource'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestJavaResource()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestJniLibFolders
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeDebugAndroidTestJniLibFolders'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestJniLibFolders()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestNativeLibs
+          | Type:   	com.android.build.gradle.internal.tasks.MergeNativeLibsTask
+          | Value:  	task ':app:mergeDebugAndroidTestNativeLibs'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestNativeLibs()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestResources
+          | Type:   	com.android.build.gradle.tasks.MergeResources
+          | Value:  	task ':app:mergeDebugAndroidTestResources'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestResources()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAndroidTestShaders
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeDebugAndroidTestShaders'
+          | Creator: 	Project.<init>.tasks.mergeDebugAndroidTestShaders()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugAssets
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeDebugAssets'
+          | Creator: 	Project.<init>.tasks.mergeDebugAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugGeneratedProguardFiles
+          | Type:   	com.android.build.gradle.internal.tasks.MergeFileTask
+          | Value:  	task ':app:mergeDebugGeneratedProguardFiles'
+          | Creator: 	Project.<init>.tasks.mergeDebugGeneratedProguardFiles()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugJavaResource
+          | Type:   	com.android.build.gradle.internal.tasks.MergeJavaResourceTask
+          | Value:  	task ':app:mergeDebugJavaResource'
+          | Creator: 	Project.<init>.tasks.mergeDebugJavaResource()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugJniLibFolders
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeDebugJniLibFolders'
+          | Creator: 	Project.<init>.tasks.mergeDebugJniLibFolders()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugNativeLibs
+          | Type:   	com.android.build.gradle.internal.tasks.MergeNativeLibsTask
+          | Value:  	task ':app:mergeDebugNativeLibs'
+          | Creator: 	Project.<init>.tasks.mergeDebugNativeLibs()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugResources
+          | Type:   	com.android.build.gradle.tasks.MergeResources
+          | Value:  	task ':app:mergeDebugResources'
+          | Creator: 	Project.<init>.tasks.mergeDebugResources()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDebugShaders
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeDebugShaders'
+          | Creator: 	Project.<init>.tasks.mergeDebugShaders()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDexDebug
+          | Type:   	com.android.build.gradle.internal.tasks.DexMergingTask
+          | Value:  	task ':app:mergeDexDebug'
+          | Creator: 	Project.<init>.tasks.mergeDexDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDexDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.DexMergingTask
+          | Value:  	task ':app:mergeDexDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.mergeDexDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeDexRelease
+          | Type:   	com.android.build.gradle.internal.tasks.DexMergingTask
+          | Value:  	task ':app:mergeDexRelease'
+          | Creator: 	Project.<init>.tasks.mergeDexRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseAssets
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeReleaseAssets'
+          | Creator: 	Project.<init>.tasks.mergeReleaseAssets()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseGeneratedProguardFiles
+          | Type:   	com.android.build.gradle.internal.tasks.MergeFileTask
+          | Value:  	task ':app:mergeReleaseGeneratedProguardFiles'
+          | Creator: 	Project.<init>.tasks.mergeReleaseGeneratedProguardFiles()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseJavaResource
+          | Type:   	com.android.build.gradle.internal.tasks.MergeJavaResourceTask
+          | Value:  	task ':app:mergeReleaseJavaResource'
+          | Creator: 	Project.<init>.tasks.mergeReleaseJavaResource()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseJniLibFolders
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeReleaseJniLibFolders'
+          | Creator: 	Project.<init>.tasks.mergeReleaseJniLibFolders()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseNativeLibs
+          | Type:   	com.android.build.gradle.internal.tasks.MergeNativeLibsTask
+          | Value:  	task ':app:mergeReleaseNativeLibs'
+          | Creator: 	Project.<init>.tasks.mergeReleaseNativeLibs()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseResources
+          | Type:   	com.android.build.gradle.tasks.MergeResources
+          | Value:  	task ':app:mergeReleaseResources'
+          | Creator: 	Project.<init>.tasks.mergeReleaseResources()
+          | Rules:
+             ? copyToTaskContainer
+    + mergeReleaseShaders
+          | Type:   	com.android.build.gradle.tasks.MergeSourceSetFolders
+          | Value:  	task ':app:mergeReleaseShaders'
+          | Creator: 	Project.<init>.tasks.mergeReleaseShaders()
+          | Rules:
+             ? copyToTaskContainer
+    + model
+          | Type:   	org.gradle.api.reporting.model.ModelReport
+          | Value:  	task ':app:model'
+          | Creator: 	Project.<init>.tasks.model()
+          | Rules:
+             ? copyToTaskContainer
+    + multiDexListDebug
+          | Type:   	com.android.build.gradle.internal.tasks.D8MainDexListTask
+          | Value:  	task ':app:multiDexListDebug'
+          | Creator: 	Project.<init>.tasks.multiDexListDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + multiDexListDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.D8MainDexListTask
+          | Value:  	task ':app:multiDexListDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.multiDexListDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + multiDexListRelease
+          | Type:   	com.android.build.gradle.internal.tasks.D8MainDexListTask
+          | Value:  	task ':app:multiDexListRelease'
+          | Creator: 	Project.<init>.tasks.multiDexListRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + outgoingVariants
+          | Type:   	org.gradle.api.tasks.diagnostics.OutgoingVariantsReportTask
+          | Value:  	task ':app:outgoingVariants'
+          | Creator: 	Project.<init>.tasks.outgoingVariants()
+          | Rules:
+             ? copyToTaskContainer
+    + packageDebug
+          | Type:   	com.android.build.gradle.tasks.PackageApplication
+          | Value:  	task ':app:packageDebug'
+          | Creator: 	Project.<init>.tasks.packageDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + packageDebugAndroidTest
+          | Type:   	com.android.build.gradle.tasks.PackageApplication
+          | Value:  	task ':app:packageDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.packageDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + packageDebugBundle
+          | Type:   	com.android.build.gradle.internal.tasks.PackageBundleTask
+          | Value:  	task ':app:packageDebugBundle'
+          | Creator: 	Project.<init>.tasks.packageDebugBundle()
+          | Rules:
+             ? copyToTaskContainer
+    + packageDebugUniversalApk
+          | Type:   	com.android.build.gradle.internal.tasks.BundleToStandaloneApkTask
+          | Value:  	task ':app:packageDebugUniversalApk'
+          | Creator: 	Project.<init>.tasks.packageDebugUniversalApk()
+          | Rules:
+             ? copyToTaskContainer
+    + packageRelease
+          | Type:   	com.android.build.gradle.tasks.PackageApplication
+          | Value:  	task ':app:packageRelease'
+          | Creator: 	Project.<init>.tasks.packageRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + packageReleaseBundle
+          | Type:   	com.android.build.gradle.internal.tasks.PackageBundleTask
+          | Value:  	task ':app:packageReleaseBundle'
+          | Creator: 	Project.<init>.tasks.packageReleaseBundle()
+          | Rules:
+             ? copyToTaskContainer
+    + packageReleaseUniversalApk
+          | Type:   	com.android.build.gradle.internal.tasks.BundleToStandaloneApkTask
+          | Value:  	task ':app:packageReleaseUniversalApk'
+          | Creator: 	Project.<init>.tasks.packageReleaseUniversalApk()
+          | Rules:
+             ? copyToTaskContainer
+    + parseDebugIntegrityConfig
+          | Type:   	com.android.build.gradle.internal.tasks.ParseIntegrityConfigTask
+          | Value:  	task ':app:parseDebugIntegrityConfig'
+          | Creator: 	Project.<init>.tasks.parseDebugIntegrityConfig()
+          | Rules:
+             ? copyToTaskContainer
+    + parseReleaseIntegrityConfig
+          | Type:   	com.android.build.gradle.internal.tasks.ParseIntegrityConfigTask
+          | Value:  	task ':app:parseReleaseIntegrityConfig'
+          | Creator: 	Project.<init>.tasks.parseReleaseIntegrityConfig()
+          | Rules:
+             ? copyToTaskContainer
+    + preBuild
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:preBuild'
+          | Creator: 	Project.<init>.tasks.preBuild()
+          | Rules:
+             ? copyToTaskContainer
+    + preDebugAndroidTestBuild
+          | Type:   	com.android.build.gradle.internal.tasks.TestPreBuildTask
+          | Value:  	task ':app:preDebugAndroidTestBuild'
+          | Creator: 	Project.<init>.tasks.preDebugAndroidTestBuild()
+          | Rules:
+             ? copyToTaskContainer
+    + preDebugBuild
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:preDebugBuild'
+          | Creator: 	Project.<init>.tasks.preDebugBuild()
+          | Rules:
+             ? copyToTaskContainer
+    + preDebugUnitTestBuild
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:preDebugUnitTestBuild'
+          | Creator: 	Project.<init>.tasks.preDebugUnitTestBuild()
+          | Rules:
+             ? copyToTaskContainer
+    + preReleaseBuild
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:preReleaseBuild'
+          | Creator: 	Project.<init>.tasks.preReleaseBuild()
+          | Rules:
+             ? copyToTaskContainer
+    + preReleaseUnitTestBuild
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:preReleaseUnitTestBuild'
+          | Creator: 	Project.<init>.tasks.preReleaseUnitTestBuild()
+          | Rules:
+             ? copyToTaskContainer
+    + prepareKotlinBuildScriptModel
+          | Type:   	org.gradle.api.DefaultTask
+          | Value:  	task ':app:prepareKotlinBuildScriptModel'
+          | Creator: 	Project.<init>.tasks.prepareKotlinBuildScriptModel()
+          | Rules:
+             ? copyToTaskContainer
+    + prepareLintJar
+          | Type:   	com.android.build.gradle.internal.tasks.PrepareLintJar
+          | Value:  	task ':app:prepareLintJar'
+          | Creator: 	Project.<init>.tasks.prepareLintJar()
+          | Rules:
+             ? copyToTaskContainer
+    + prepareLintJarForPublish
+          | Type:   	com.android.build.gradle.internal.tasks.PrepareLintJarForPublish
+          | Value:  	task ':app:prepareLintJarForPublish'
+          | Creator: 	Project.<init>.tasks.prepareLintJarForPublish()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugAndroidTestJavaRes
+          | Type:   	com.android.build.gradle.internal.tasks.ProcessJavaResTask
+          | Value:  	task ':app:processDebugAndroidTestJavaRes'
+          | Creator: 	Project.<init>.tasks.processDebugAndroidTestJavaRes()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugAndroidTestManifest
+          | Type:   	com.android.build.gradle.tasks.ProcessTestManifest
+          | Value:  	task ':app:processDebugAndroidTestManifest'
+          | Creator: 	Project.<init>.tasks.processDebugAndroidTestManifest()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugAndroidTestResources
+          | Type:   	com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask
+          | Value:  	task ':app:processDebugAndroidTestResources'
+          | Creator: 	Project.<init>.tasks.processDebugAndroidTestResources()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugJavaRes
+          | Type:   	com.android.build.gradle.internal.tasks.ProcessJavaResTask
+          | Value:  	task ':app:processDebugJavaRes'
+          | Creator: 	Project.<init>.tasks.processDebugJavaRes()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugManifest
+          | Type:   	com.android.build.gradle.tasks.ProcessApplicationManifest
+          | Value:  	task ':app:processDebugManifest'
+          | Creator: 	Project.<init>.tasks.processDebugManifest()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugResources
+          | Type:   	com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask
+          | Value:  	task ':app:processDebugResources'
+          | Creator: 	Project.<init>.tasks.processDebugResources()
+          | Rules:
+             ? copyToTaskContainer
+    + processDebugUnitTestJavaRes
+          | Type:   	com.android.build.gradle.internal.tasks.ProcessJavaResTask
+          | Value:  	task ':app:processDebugUnitTestJavaRes'
+          | Creator: 	Project.<init>.tasks.processDebugUnitTestJavaRes()
+          | Rules:
+             ? copyToTaskContainer
+    + processReleaseJavaRes
+          | Type:   	com.android.build.gradle.internal.tasks.ProcessJavaResTask
+          | Value:  	task ':app:processReleaseJavaRes'
+          | Creator: 	Project.<init>.tasks.processReleaseJavaRes()
+          | Rules:
+             ? copyToTaskContainer
+    + processReleaseManifest
+          | Type:   	com.android.build.gradle.tasks.ProcessApplicationManifest
+          | Value:  	task ':app:processReleaseManifest'
+          | Creator: 	Project.<init>.tasks.processReleaseManifest()
+          | Rules:
+             ? copyToTaskContainer
+    + processReleaseResources
+          | Type:   	com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask
+          | Value:  	task ':app:processReleaseResources'
+          | Creator: 	Project.<init>.tasks.processReleaseResources()
+          | Rules:
+             ? copyToTaskContainer
+    + processReleaseUnitTestJavaRes
+          | Type:   	com.android.build.gradle.internal.tasks.ProcessJavaResTask
+          | Value:  	task ':app:processReleaseUnitTestJavaRes'
+          | Creator: 	Project.<init>.tasks.processReleaseUnitTestJavaRes()
+          | Rules:
+             ? copyToTaskContainer
+    + projects
+          | Type:   	org.gradle.api.tasks.diagnostics.ProjectReportTask
+          | Value:  	task ':app:projects'
+          | Creator: 	Project.<init>.tasks.projects()
+          | Rules:
+             ? copyToTaskContainer
+    + properties
+          | Type:   	org.gradle.api.tasks.diagnostics.PropertyReportTask
+          | Value:  	task ':app:properties'
+          | Creator: 	Project.<init>.tasks.properties()
+          | Rules:
+             ? copyToTaskContainer
+    + reportBuildArtifactsDebug
+          | Type:   	com.android.build.gradle.tasks.BuildArtifactReportTask
+          | Value:  	task ':app:reportBuildArtifactsDebug'
+          | Creator: 	Project.<init>.tasks.reportBuildArtifactsDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + reportBuildArtifactsRelease
+          | Type:   	com.android.build.gradle.tasks.BuildArtifactReportTask
+          | Value:  	task ':app:reportBuildArtifactsRelease'
+          | Creator: 	Project.<init>.tasks.reportBuildArtifactsRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + resolveConfigAttr
+          | Type:   	com.android.build.gradle.internal.TaskManager.ConfigAttrTask
+          | Value:  	task ':app:resolveConfigAttr'
+          | Creator: 	Project.<init>.tasks.resolveConfigAttr()
+          | Rules:
+             ? copyToTaskContainer
+    + signDebugBundle
+          | Type:   	com.android.build.gradle.internal.tasks.FinalizeBundleTask
+          | Value:  	task ':app:signDebugBundle'
+          | Creator: 	Project.<init>.tasks.signDebugBundle()
+          | Rules:
+             ? copyToTaskContainer
+    + signReleaseBundle
+          | Type:   	com.android.build.gradle.internal.tasks.FinalizeBundleTask
+          | Value:  	task ':app:signReleaseBundle'
+          | Creator: 	Project.<init>.tasks.signReleaseBundle()
+          | Rules:
+             ? copyToTaskContainer
+    + signingConfigWriterDebug
+          | Type:   	com.android.build.gradle.internal.tasks.SigningConfigWriterTask
+          | Value:  	task ':app:signingConfigWriterDebug'
+          | Creator: 	Project.<init>.tasks.signingConfigWriterDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + signingConfigWriterDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.SigningConfigWriterTask
+          | Value:  	task ':app:signingConfigWriterDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.signingConfigWriterDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + signingConfigWriterRelease
+          | Type:   	com.android.build.gradle.internal.tasks.SigningConfigWriterTask
+          | Value:  	task ':app:signingConfigWriterRelease'
+          | Creator: 	Project.<init>.tasks.signingConfigWriterRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + signingReport
+          | Type:   	com.android.build.gradle.internal.tasks.SigningReportTask
+          | Value:  	task ':app:signingReport'
+          | Creator: 	Project.<init>.tasks.signingReport()
+          | Rules:
+             ? copyToTaskContainer
+    + sourceSets
+          | Type:   	com.android.build.gradle.internal.tasks.SourceSetsTask
+          | Value:  	task ':app:sourceSets'
+          | Creator: 	Project.<init>.tasks.sourceSets()
+          | Rules:
+             ? copyToTaskContainer
+    + stripDebugDebugSymbols
+          | Type:   	com.android.build.gradle.internal.tasks.StripDebugSymbolsTask
+          | Value:  	task ':app:stripDebugDebugSymbols'
+          | Creator: 	Project.<init>.tasks.stripDebugDebugSymbols()
+          | Rules:
+             ? copyToTaskContainer
+    + stripReleaseDebugSymbols
+          | Type:   	com.android.build.gradle.internal.tasks.StripDebugSymbolsTask
+          | Value:  	task ':app:stripReleaseDebugSymbols'
+          | Creator: 	Project.<init>.tasks.stripReleaseDebugSymbols()
+          | Rules:
+             ? copyToTaskContainer
+    + tasks
+          | Type:   	org.gradle.api.tasks.diagnostics.TaskReportTask
+          | Value:  	task ':app:tasks'
+          | Creator: 	Project.<init>.tasks.tasks()
+          | Rules:
+             ? copyToTaskContainer
+    + test
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:test'
+          | Creator: 	Project.<init>.tasks.test()
+          | Rules:
+             ? copyToTaskContainer
+    + testDebugUnitTest
+          | Type:   	com.android.build.gradle.tasks.factory.AndroidUnitTest
+          | Value:  	task ':app:testDebugUnitTest'
+          | Creator: 	Project.<init>.tasks.testDebugUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + testReleaseUnitTest
+          | Type:   	com.android.build.gradle.tasks.factory.AndroidUnitTest
+          | Value:  	task ':app:testReleaseUnitTest'
+          | Creator: 	Project.<init>.tasks.testReleaseUnitTest()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithAjxForDebug
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithAjxForDebug'
+          | Creator: 	Project.<init>.tasks.transformClassesWithAjxForDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithAjxForDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithAjxForDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.transformClassesWithAjxForDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithAjxForRelease
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithAjxForRelease'
+          | Creator: 	Project.<init>.tasks.transformClassesWithAjxForRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithLancetForDebug
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithLancetForDebug'
+          | Creator: 	Project.<init>.tasks.transformClassesWithLancetForDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithLancetForDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithLancetForDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.transformClassesWithLancetForDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithLancetForRelease
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithLancetForRelease'
+          | Creator: 	Project.<init>.tasks.transformClassesWithLancetForRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithLifecyclePluginForDebug
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithLifecyclePluginForDebug'
+          | Creator: 	Project.<init>.tasks.transformClassesWithLifecyclePluginForDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithLifecyclePluginForDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithLifecyclePluginForDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.transformClassesWithLifecyclePluginForDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + transformClassesWithLifecyclePluginForRelease
+          | Type:   	com.android.build.gradle.internal.pipeline.TransformTask
+          | Value:  	task ':app:transformClassesWithLifecyclePluginForRelease'
+          | Creator: 	Project.<init>.tasks.transformClassesWithLifecyclePluginForRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + uninstallAll
+          | Type:   	org.gradle.api.Task
+          | Value:  	task ':app:uninstallAll'
+          | Creator: 	Project.<init>.tasks.uninstallAll()
+          | Rules:
+             ? copyToTaskContainer
+    + uninstallDebug
+          | Type:   	com.android.build.gradle.internal.tasks.UninstallTask
+          | Value:  	task ':app:uninstallDebug'
+          | Creator: 	Project.<init>.tasks.uninstallDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + uninstallDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.UninstallTask
+          | Value:  	task ':app:uninstallDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.uninstallDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + uninstallRelease
+          | Type:   	com.android.build.gradle.internal.tasks.UninstallTask
+          | Value:  	task ':app:uninstallRelease'
+          | Creator: 	Project.<init>.tasks.uninstallRelease()
+          | Rules:
+             ? copyToTaskContainer
+    + validateSigningDebug
+          | Type:   	com.android.build.gradle.internal.tasks.ValidateSigningTask
+          | Value:  	task ':app:validateSigningDebug'
+          | Creator: 	Project.<init>.tasks.validateSigningDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + validateSigningDebugAndroidTest
+          | Type:   	com.android.build.gradle.internal.tasks.ValidateSigningTask
+          | Value:  	task ':app:validateSigningDebugAndroidTest'
+          | Creator: 	Project.<init>.tasks.validateSigningDebugAndroidTest()
+          | Rules:
+             ? copyToTaskContainer
+    + writeDebugApplicationId
+          | Type:   	com.android.build.gradle.internal.tasks.ApplicationIdWriterTask
+          | Value:  	task ':app:writeDebugApplicationId'
+          | Creator: 	Project.<init>.tasks.writeDebugApplicationId()
+          | Rules:
+             ? copyToTaskContainer
+    + writeDebugModuleMetadata
+          | Type:   	com.android.build.gradle.internal.tasks.ModuleMetadataWriterTask
+          | Value:  	task ':app:writeDebugModuleMetadata'
+          | Creator: 	Project.<init>.tasks.writeDebugModuleMetadata()
+          | Rules:
+             ? copyToTaskContainer
+    + writeReleaseApplicationId
+          | Type:   	com.android.build.gradle.internal.tasks.ApplicationIdWriterTask
+          | Value:  	task ':app:writeReleaseApplicationId'
+          | Creator: 	Project.<init>.tasks.writeReleaseApplicationId()
+          | Rules:
+             ? copyToTaskContainer
+    + writeReleaseModuleMetadata
+          | Type:   	com.android.build.gradle.internal.tasks.ModuleMetadataWriterTask
+          | Value:  	task ':app:writeReleaseModuleMetadata'
+          | Creator: 	Project.<init>.tasks.writeReleaseModuleMetadata()
+          | Rules:
+             ? copyToTaskContainer
+    + zipApksForDebug
+          | Type:   	com.android.build.gradle.internal.tasks.ApkZipPackagingTask
+          | Value:  	task ':app:zipApksForDebug'
+          | Creator: 	Project.<init>.tasks.zipApksForDebug()
+          | Rules:
+             ? copyToTaskContainer
+    + zipApksForRelease
+          | Type:   	com.android.build.gradle.internal.tasks.ApkZipPackagingTask
+          | Value:  	task ':app:zipApksForRelease'
+          | Creator: 	Project.<init>.tasks.zipApksForRelease()
+          | Rules:
+             ? copyToTaskContainer
+:app:model spend 80ms
+      00:00.08   :app:model
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 7.0.
+Use '--warning-mode all' to show the individual deprecation warnings.
+See https://docs.gradle.org/6.1.1/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 3s
+1 actionable task: 1 executed

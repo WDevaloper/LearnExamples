@@ -1,6 +1,7 @@
 package com.github.jvmdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,9 @@ import android.view.MotionEvent;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.concurrent.ThreadPoolExecutor;
+
+import kotlin.HashCodeKt;
 
 // 几篇文章
 // jvm运行时内存数据区域（JVM书+拉钩+掘金） ---> 字节码文件结构（JVM书+拉钩+掘金） ---> 类加载机制（JVM书+拉钩+掘金）
@@ -30,7 +34,6 @@ public class JvmMainActivity extends AppCompatActivity {
         jvmTest.test(1000);
         JvmTest jvmTest1 = new JvmTest();
         jvmTest1.test(400);
-
     }
 
 
