@@ -37,3 +37,11 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+task testTask {
+    println("test task")
+}
+
+testTask.doLast {
+    println("dolast")
+}
