@@ -1,5 +1,6 @@
 package com.github.jvmdemo;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
@@ -23,6 +24,12 @@ public class OopKlassModel {
         OopKlassModel modelA = new OopKlassModel(2);
         OopKlassModel modelB = new OopKlassModel(3);
         System.out.println("args = " + Arrays.deepToString(args));
+
+
+        // klass
+        Class<OopKlassModel> aClass = modelB.getClass();
+        Method method = aClass.getMethod("test", null);
+        Object result = method.invoke(modelB, null);
     }
 
     public void test() {

@@ -1,6 +1,9 @@
 package com.github.netloader.ui;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Set;
 
 import okhttp3.HttpUrl;
