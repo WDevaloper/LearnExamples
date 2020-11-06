@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ReportFragment
 import androidx.lifecycle.lifecycleScope
 import com.github.pokemon.R
 import com.github.pokemon.base.BaseActivity
@@ -50,6 +52,7 @@ class SecondActivity : BaseActivity() {
 //            Log.e("tag", ".......................list result: $it")
 //        })
 
+//        ReportFragment.injectIfNeededIn(this)
 
         mViewModel.postOf8().observe(this, Observer {
             Log.e("tag", "result>>>> $it")
