@@ -1,3 +1,4 @@
+include ':IPCServiceManager'
 include ':annotation'
 include ':compiler'
 include ':butterknifelib'

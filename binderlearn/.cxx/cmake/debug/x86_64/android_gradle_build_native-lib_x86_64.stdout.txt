@@ -1,0 +1,12 @@
+ninja: Entering directory `E:\developer\project\LearnExamples\binderlearn\.cxx\cmake\debug\x86_64'
+[1/3] Building CXX object CMakeFiles/native-lib.dir/Utils.cpp.o
+[2/3] Building CXX object CMakeFiles/native-lib.dir/native-lib.cpp.o
+E:/developer/project/LearnExamples/binderlearn/src/main/cpp/native-lib.cpp:120:20: warning: format specifies type 'int' but the argument has type 'size_t' (aka 'unsigned long') [-Wformat]
+        LOGE("%d", m_segmentSize)
+              ~~   ^~~~~~~~~~~~~
+              %zu
+E:/developer/project/LearnExamples/binderlearn/src/main/cpp/native-lib.cpp:11:80: note: expanded from macro 'LOGE'
+#define LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,"tag",FORMAT,##__VA_ARGS__);
+                                                                      ~~~~~~   ^~~~~~~~~~~
+1 warning generated.
+[3/3] Linking CXX shared library E:\developer\project\LearnExamples\binderlearn\build\intermediates\cmake\debug\obj\x86_64\libnative-lib.so

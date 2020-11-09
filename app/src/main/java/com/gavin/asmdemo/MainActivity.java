@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -22,9 +23,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.reflect.Proxy;
 
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class MainActivity extends BaseActivity {
@@ -37,6 +40,9 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
         setContentView(R.layout.activity_main_md);
+
+        Message obtain = Message.obtain();
+        obtain.recycle();
     }
 
     private void learnListView() {
@@ -63,7 +69,6 @@ public class MainActivity extends BaseActivity {
 //            }
 //        });
     }
-
 
     @Override
     protected void onDestroy() {

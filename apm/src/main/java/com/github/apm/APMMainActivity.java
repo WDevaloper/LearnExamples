@@ -20,13 +20,15 @@ public class APMMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a_p_m_main);
         try {
-            ClassPool pool = new ClassPool();
+            ClassPool pool = new ClassPool(true);
             // 1. 创建一个空类
             CtClass cc = pool.makeClass("com.github.apm.Person");
 
+
             // 2. 新增一个字段 private String name;
             // 字段名为name
-            CtField param = new CtField(pool.get("java.lang.String"), "name", cc);
+            CtClass ctClass = pool.get(String.class.getName());
+            CtField param = new CtField(ctClass, "name", cc);
             // 访问级别是 private
             param.setModifiers(Modifier.PRIVATE);
             // 初始值是 "xiaoming"
@@ -42,7 +44,7 @@ public class APMMainActivity extends AppCompatActivity {
             cc.addConstructor(cons);
 
             // 5. 添加有参的构造函数
-            cons = new CtConstructor(new CtClass[]{pool.get("java.lang.String")}, cc);
+            cons = new CtConstructor(new CtClass[]{pool.get(String.class.getName())}, cc);
             // $0=this / $1,$2,$3... 代表方法参数
             cons.setBody("{$0.name = $1;}");
             cc.addConstructor(cons);
@@ -53,7 +55,7 @@ public class APMMainActivity extends AppCompatActivity {
             ctMethod.setBody("{System.out.println(name);}");
             cc.addMethod(ctMethod);
             //这里会将这个创建的类对象编译为.class文件
-            cc.writeFile("E:/developer/project/LearnExamples/skin_core/src/main/java/");
+            cc.writeFile("E:/developer/project/LearnExamples/apm/src/main/java/com.github.apm.aop");
         } catch (Exception e) {
             e.printStackTrace();
         }

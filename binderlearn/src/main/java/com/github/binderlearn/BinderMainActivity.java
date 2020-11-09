@@ -13,6 +13,8 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 
+import com.github.binderlearn.ipc.BinderActivity;
+
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -62,5 +64,9 @@ public class BinderMainActivity extends AppCompatActivity {
     public void read(View view) {
         String data = read();
         Log.e("tag", data);
+    }
+
+    public void jumpIPC(View view) {
+        startActivity(new Intent(this,BinderActivity.class));
     }
 }

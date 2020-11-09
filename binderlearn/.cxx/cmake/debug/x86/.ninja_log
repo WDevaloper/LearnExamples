@@ -1,0 +1,4 @@
+# ninja log v5
+149	1390	626605305	CMakeFiles/native-lib.dir/Utils.cpp.o	ff26998f61e5da9c
+10	1523	626605305	CMakeFiles/native-lib.dir/native-lib.cpp.o	76fb15e9882db9f8
+1523	2541	626605306	E:/developer/project/LearnExamples/binderlearn/build/intermediates/cmake/debug/obj/x86/libnative-lib.so	ef0b5ec4a18835e4
