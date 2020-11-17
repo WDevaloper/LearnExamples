@@ -1,17 +1,21 @@
 package com.github.pokemon
 
+import kotlinx.android.parcel.Parcelize
 import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun testKotlin() {
+        val nullableList: List<Int?> = listOf(1, 2, null, 4)
+        val intList: List<Int> = nullableList.filterNotNull()
+        println(intList)
     }
 }

@@ -101,11 +101,15 @@ public class SplitView extends View {
         //     2、在1完成之后，如果是ViewGroup，接着dispatchDraw去绘制child；
         //绘制步骤：
         // ViewGroup : 绘制自己的背景 -> 绘制自己的内容 -> 绘制child -> 绘制装饰
-        // View : 绘制自己的背景 -> 绘制自己的内容 -> 绘制装饰
+        //        // View : 绘制自己的背景 -> 绘制自己的内容 -> 绘制装饰
 
         //整个流程：
         // ViewGroup onMeasure(测量) -> onLayout(摆放child,child会调用layout摆放自己) ->
         // View  onMeasure(测量) ->  onDraw
+
+        //ViewGroup.onMeasure
+        // (会调用measureChild方法测量child，measureChild方法中会调用
+        // getChildMeasureSpec(parentWidthMeasureSpec,.., ...))方法通过parentWidthMeasureSpec和View自身的layoutParam参数创建child的MeasureSpec
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 //        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
 //        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -127,7 +131,7 @@ public class SplitView extends View {
 //                // child 与parent相等
 //                width = widthSize;
 //            } else if (lp.width == ViewGroup.LayoutParams.WRAP_CONTENT) {
-//                //有child确定width，但是不能超过parent
+//                //由child确定width，但是不能超过parent
 //                width = Math.min(mBitmapWidth, widthSize);
 //            }
 //        }
@@ -140,7 +144,7 @@ public class SplitView extends View {
 //                // child 与parent相等
 //                height = heightSize;
 //            } else if (lp.height == ViewGroup.LayoutParams.WRAP_CONTENT) {
-//                //有child确定width，但是不能超过parent
+//                //由child确定width，但是不能超过parent
 //                height = Math.min(mBitmapHeight, heightSize);
 //            }
 //        }

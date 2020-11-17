@@ -1,4 +1,0 @@
-ninja: Entering directory `E:\developer\project\LearnExamples\binderlearn\.cxx\cmake\debug\x86'
-[1/3] Building CXX object CMakeFiles/native-lib.dir/Utils.cpp.o
-[2/3] Building CXX object CMakeFiles/native-lib.dir/native-lib.cpp.o
-[3/3] Linking CXX shared library E:\developer\project\LearnExamples\binderlearn\build\intermediates\cmake\debug\obj\x86\libnative-lib.so

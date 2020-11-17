@@ -43,6 +43,9 @@ public class MainActivity extends BaseActivity {
 
         Message obtain = Message.obtain();
         obtain.recycle();
+
+
+        startService(new Intent());
     }
 
     private void learnListView() {

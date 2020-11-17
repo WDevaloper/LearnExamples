@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.binderlearn.ipc.BinderActivity;
 
@@ -34,6 +39,15 @@ public class BinderMainActivity extends AppCompatActivity {
         Uri uri = Uri.parse(path);
         Log.e("tag", uri.toString());
         init(path);
+
+        TextView mTvLabel = findViewById(R.id.mTvLabel);
+
+        SpannableString sbStr = new SpannableString(" 爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺爱傻傻的静安寺");
+        Drawable drawable = getResources().getDrawable(R.drawable.pintuan_personnum_type_frame);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        ImageSpan imageSpan = new CenterAlignImageSpan(drawable);
+        sbStr.setSpan(imageSpan, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        mTvLabel.setText(sbStr);
     }
 
     private void test() {
@@ -67,6 +81,6 @@ public class BinderMainActivity extends AppCompatActivity {
     }
 
     public void jumpIPC(View view) {
-        startActivity(new Intent(this,BinderActivity.class));
+        startActivity(new Intent(this, BinderActivity.class));
     }
 }
