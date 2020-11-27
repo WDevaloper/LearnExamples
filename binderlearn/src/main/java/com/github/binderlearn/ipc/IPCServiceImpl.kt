@@ -2,7 +2,8 @@ package com.github.binderlearn.ipc
 
 
 //每一个需要提供服务的 都需要实现接口
-class IPCServiceImpl : IPCService {
+object IPCServiceImpl : IPCService {
+
     override fun getUser(): String {
         return "hahahah"
     }

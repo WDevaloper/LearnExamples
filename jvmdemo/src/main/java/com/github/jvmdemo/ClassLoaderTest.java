@@ -24,8 +24,8 @@ public class ClassLoaderTest {
         //
         // 解析(将字符引用转为直接引用)执行  ，方法区中存储的字符引用 ，转为直接引用是在解析时分配引用内存空间
         Class<?> forName = Class.forName("com.github.jvmdemo.ClassLoaderTest");
-        Method method = forName.getMethod("test", null);
-        Object result = method.invoke(null, null);
+        Method method = forName.getMethod("test");
+        Object result = method.invoke(null);
         System.out.println("result = " + result);
 
 

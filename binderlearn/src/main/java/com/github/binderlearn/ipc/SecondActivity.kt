@@ -2,6 +2,7 @@ package com.github.binderlearn.ipc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.github.binderlearn.R
 import com.github.ipc.service.manager.core.RealBinder
 
@@ -13,6 +14,11 @@ class SecondActivity : AppCompatActivity() {
         //打开binder
         RealBinder.open(this)
 
-        // 获取服务
+
+    }
+
+    // 获取服务
+    fun getService(view: View) {
+        RealBinder.getInstance()
     }
 }

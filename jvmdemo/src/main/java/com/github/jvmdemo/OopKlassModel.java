@@ -26,10 +26,10 @@ public class OopKlassModel {
         System.out.println("args = " + Arrays.deepToString(args));
 
 
-        // klass
-        Class<OopKlassModel> aClass = modelB.getClass();
-        Method method = aClass.getMethod("test", null);
-        Object result = method.invoke(modelB, null);
+//        // klass
+//        Class<OopKlassModel> aClass = modelB.getClass();
+//        Method method = aClass.getMethod("test", null);
+//        Object result = method.invoke(modelB, null);
     }
 
     public void test() {
