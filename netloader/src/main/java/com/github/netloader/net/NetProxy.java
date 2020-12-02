@@ -51,7 +51,7 @@ public class NetProxy {
                             }
                         }
                         Log.e("tag", sb.toString());
-                        return parseRequest(url);
+                        return parseRequest(url);//Observable LiveData
                     }
                 });
     }

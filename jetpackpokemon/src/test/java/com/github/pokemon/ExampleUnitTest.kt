@@ -1,6 +1,10 @@
 package com.github.pokemon
 
-import kotlinx.android.parcel.Parcelize
+import kotlinx.coroutines.channels.BroadcastChannel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,9 +17,33 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun testKotlin() {
-        val nullableList: List<Int?> = listOf(1, 2, null, 4)
-        val intList: List<Int> = nullableList.filterNotNull()
-        println(intList)
+    fun testKotlin() = runBlocking {
+        val broadcastChannel = BroadcastChannel<Int>(Channel.BUFFERED)
+
+
+         launch {
+            while (true) {
+                val element = broadcastChannel.openSubscription()
+                println(element.receive())
+            }
+        }
+
+
+        launch {
+            while (true) {
+                val element = broadcastChannel.openSubscription()
+                println("element--->${element.receive()}")
+            }
+        }
+
+
+        launch {
+            var i = 0
+            while (true) {
+                broadcastChannel.send(i++)
+                delay(5000)
+            }
+        }
+        Unit
     }
 }
