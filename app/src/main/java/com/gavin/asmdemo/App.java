@@ -8,6 +8,10 @@ import com.gavin.asmdemo.db.base.BaseDaoFactory;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
 import me.ele.lancet.base.Origin;
 import me.ele.lancet.base.annotations.Proxy;
 import me.ele.lancet.base.annotations.TargetClass;
@@ -24,8 +28,16 @@ public class App extends Application {
     @Proxy("applyDimension")
     @TargetClass("android.util.TypedValue")
     public static float anyName(int unit, float value, DisplayMetrics metrics) {
+        List<String> objects = new ArrayList<>();
+        ListIterator<String> iterator = objects.listIterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            iterator.remove();
+        }
+
         Log.e("tag", "anyName");
         return (float) Origin.call() + 100f;
+
     }
 
 
