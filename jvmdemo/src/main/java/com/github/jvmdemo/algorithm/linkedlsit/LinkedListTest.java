@@ -11,7 +11,8 @@ public class LinkedListTest {
      * <p>
      * 当完成了局部的翻转后，prev 就是最终的新的链表头，curr 指向了下一个要被处理的局部，而原来的头指针 head 成为了链表的尾巴。
      */
-    public ListNode reverseKGroup(ListNode head, int k) {
+    public ListNode
+    reverseKGroup(ListNode head, int k) {
         if (head == null || head.next == null) {
             return head;
         }

@@ -22,6 +22,7 @@ public class LinkedListTestTest {
         ListNode4.next = ListNode5;
 
 
+        // 翻转链表
         LinkedListTest linkedListTest = new LinkedListTest();
         ListNode reverseKGroup = linkedListTest.reverseKGroup(head, 2);
         System.out.println("reverseKGroup = " + reverseKGroup.value);
