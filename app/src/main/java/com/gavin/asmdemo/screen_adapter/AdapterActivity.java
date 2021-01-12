@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.gavin.asmdemo.R;
+import com.gavin.asmdemo.screen_adapter.density.Density;
 import com.gavin.asmdemo.screen_adapter.pixel.UiPx2PxScaleAdapt;
 import com.gavin.asmdemo.screen_adapter.pixel.UiPx2PxScaleAdaptHelper;
 
@@ -16,7 +17,7 @@ public class AdapterActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Density.adaptDensity(getApplication(), this);
+        Density.adaptDensity(getApplication(), this);
         //Density.cancelAdaptDensity(MainActivity.this); 取消density适配
         setContentView(R.layout.activity_adapter);
 

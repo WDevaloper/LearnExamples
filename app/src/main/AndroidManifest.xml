@@ -16,8 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".rxjava.RxjavaActivity"></activity>
-        <activity android:name=".widget.recycler.CustomRecyclerViewActivity">
+        <activity android:name=".rxjava.RxjavaActivity"/>
+        <activity android:name=".aop.AOPActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -29,10 +29,6 @@
         <activity android:name=".screen_adapter.SecondActivity" />
         <activity android:name=".screen_adapter.immersive_notch.ImmersiveAndNotchActivity" />
         <activity android:name=".screen_adapter.AdapterActivity" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

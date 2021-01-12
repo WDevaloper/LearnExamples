@@ -6,6 +6,8 @@ package com.github.jvmdemo.algorithm;
 import com.github.jvmdemo.algorithm.linkedlsit.LinkedListTest;
 import com.github.jvmdemo.algorithm.linkedlsit.ListNode;
 
+import java.util.HashMap;
+
 /**
  * 解法：用两个指针，一个指向字符串的第一个字符 a，一个指向它的最后一个字符 m，然后互相交换。
  * 交换之后，两个指针向中央一步步地靠拢并相互交换字符，直到两个指针相遇。这是一种比较快速和直观的方法。
@@ -38,6 +40,10 @@ public class AlgorithmTest {
         //s = "rat", t = "car"
         // s = "anagram", t = "nagaram"
         System.out.println("Anagram = " + isAnagram("anagram", "nagaram"));
+
+
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("aa","qq");
     }
 
 

@@ -1,3 +1,5 @@
+include ':nestedscrollingbase'
+include ':aopdemo'
 include ':IPCServiceManager'
 include ':annotation'
 include ':compiler'

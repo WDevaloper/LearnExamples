@@ -5,6 +5,8 @@ import android.app.Application;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import java.util.LinkedHashMap;
+
 //为了解决对第三方库的适配的影响，我们可以取消Density适配，然后使用自定义像素适配
 //当前设备屏幕总宽度（单位为像素）/ 设计图总宽度（单位为 dp) = density
 // dpi = density * 160
@@ -24,7 +26,8 @@ import android.util.Log;
 // 1080 / 720 = 1.5
 public class Density {
 
-    private static float WIDTH = 375; //参考设备的宽，单位是dp 1440dp / 2 = 187.5dp  居中
+    private static float WIDTH = 375; //参考设备的宽，单位是dp
+    // 1440dp / 2 = 187.5dp  居中
     private static float appDensity = 0f;
     private static float appScaleDensity = 0f;
     private static int appDensityDpi = 0;

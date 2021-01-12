@@ -1,10 +1,8 @@
 package com.github.jvmdemo.algorithm.linkedlsit;
 
+import com.github.jvmdemo.algorithm.stack.StackTest;
+
 import org.junit.Test;
-
-import java.util.Arrays;
-
-import static org.junit.Assert.*;
 
 public class StackTestTest {
 
