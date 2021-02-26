@@ -17,6 +17,4 @@ class AopArgsTest {
         Log.e(Constants.TAG, ">>argsMethod3")
         return args1.plus(args2)
     }
-
-
 }

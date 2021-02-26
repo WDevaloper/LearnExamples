@@ -14,4 +14,27 @@
         android:text="Aop Args"
         android:textAllCaps="false" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="testMethod"
+        android:text="testMethod"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="joinPointTestConstruct"
+        android:text="JoinPointTestConstruct"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="joinPointTestFiled"
+        android:text="JoinPointTestFiled"
+        android:textAllCaps="false" />
+
 </LinearLayout>

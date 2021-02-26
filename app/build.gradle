@@ -41,6 +41,53 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets {
+        // 默认约定俗成，我们是可以自定义资源目录的
+        def root = "src/main/"
+        main {
+            java {
+                srcDirs 'src/main/java', 'src/main/java2'
+            }
+            assets {
+                srcDirs 'src/main/assets', 'src/main/assets2'
+            }
+            jni {
+                srcDirs 'src/main/jni', 'src/main/jni2'
+            }
+
+            aidl {
+                srcDirs 'src/main/aidl', 'src/main/aidl2'
+            }
+            jniLibs {
+                srcDirs 'libs', 'libs2'
+            }
+
+            manifest {
+                srcFile 'src/main/AndroidManifest'
+            }
+
+            renderscript {
+                srcDirs 'src/main/rs', 'src/main/rs2'
+            }
+            res {
+                srcDirs 'src/main/res', 'src/main/res2'
+            }
+            resources {
+                srcDirs 'src/main/resources', 'src/main/resources2'
+            }
+        }
+        // dev 风味会叠加在 main 上面，而不是替换
+        dev {
+        }
+    }
+
+    flavorDimensions('dev')
+    productFlavors{
+        dev{
+            dimension 'dev'
+        }
+    }
 }
 
 dependencies {

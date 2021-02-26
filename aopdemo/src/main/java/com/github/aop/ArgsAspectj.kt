@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Pointcut
 import java.util.*
 
-@Aspect
 object ArgsAspectj {
 
     @Pointcut("execution(* com.github.aop.AopArgsTest.argsMethod1(String))")
